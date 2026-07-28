@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تفاصيل المنتج — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="اكتشفوا تفاصيل المنتج من دار أثاث. جودة عالية، تصميم فاخر، وأسعار تنافسية." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="تفاصيل المنتج — دار أثاث" />
+    <meta property="og:description" content="اكتشفوا تفاصيل المنتج من دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/produit-detail.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Détail Produit
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #FAF8F4;
+            --couleur-blanc: #FFFFFF;
+            --couleur-accent-principal: #5C4A3A;
+            --couleur-accent-secondaire: #8A9A7E;
+            --couleur-texte-principal: #2B2622;
+            --couleur-texte-secondaire: #6B645C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #E4DED3;
+            --couleur-action: #B8532F;
+            --couleur-action-hover: #9C4526;
+            --couleur-succes: #5A7D5A;
+            --couleur-erreur: #B8432F;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-principal:disabled {
+            background-color: #D9C9BE;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        .btn-lg { padding: 18px 48px; font-size: 17px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE OVERLAY ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BARRE DE RECHERCHE ===== */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+        .barre-recherche button:hover { background-color: #4a3b2e; }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a { color: var(--couleur-accent-principal); transition: color 0.3s ease; }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator { margin: 0 8px; color: var(--couleur-bordure); }
+        .breadcrumb .current { color: var(--couleur-texte-principal); font-weight: 500; }
+        
+        /* ============================================================
+           PAGE DÉTAIL PRODUIT
+           ============================================================ */
+        .page-detail {
+            padding: var(--espace-md) 0 var(--espace-xl);
+        }
+        
+        /* ===== GALLERIE ===== */
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-xl);
+            margin-bottom: var(--espace-xl);
+        }
+        .product-gallery {
+            position: sticky;
+            top: 90px;
+            align-self: start;
+        }
+        .gallery-main {
+            position: relative;
+            aspect-ratio: 4/5;
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            border: 1px solid var(--couleur-bordure);
+            cursor: zoom-in;
+        }
+        .gallery-main .main-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            background: linear-gradient(135deg, #f0ebe4, #e4ddd2);
+            transition: transform 0.3s ease;
+        }
+        .gallery-main:hover .main-image {
+            transform: scale(1.05);
+        }
+        .gallery-badge {
+            position: absolute;
+            top: var(--espace-sm);
+            right: var(--espace-sm);
+            background: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        .gallery-badge-new { background: var(--couleur-accent-secondaire); }
+        .gallery-badge-sale { background: var(--couleur-action); }
+        
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--espace-sm);
+            margin-top: var(--espace-sm);
+        }
+        .gallery-thumbs .thumb {
+            aspect-ratio: 1/1;
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-md);
+            border: 2px solid var(--couleur-bordure);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .gallery-thumbs .thumb:hover {
+            border-color: var(--couleur-accent-principal);
+            transform: scale(1.02);
+        }
+        .gallery-thumbs .thumb.active {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.2);
+        }
+        
+        /* ===== INFOS PRODUIT ===== */
+        .product-infos {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espace-md);
+        }
+        .product-infos .product-categorie {
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .product-infos h1 {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .product-infos .product-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .product-infos .stars {
+            color: #f5a623;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .product-infos .rating-count {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .product-infos .rating-count a {
+            color: var(--couleur-accent-principal);
+            text-decoration: underline;
+        }
+        .product-infos .product-price {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            padding: var(--espace-sm) 0;
+            border-top: 1px solid var(--couleur-bordure);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .product-infos .prix-actuel {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .product-infos .prix-ancien {
+            font-size: 20px;
+            color: var(--couleur-texte-secondaire);
+            text-decoration: line-through;
+        }
+        .product-infos .prix-economie {
+            background: var(--couleur-succes);
+            color: var(--couleur-blanc);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .product-infos .product-stock {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            font-size: 14px;
+        }
+        .product-infos .stock-disponible {
+            color: var(--couleur-succes);
+            font-weight: 600;
+        }
+        .product-infos .stock-rupture {
+            color: var(--couleur-erreur);
+            font-weight: 600;
+        }
+        .product-infos .product-description {
+            color: var(--couleur-texte-secondaire);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        /* ===== MATIERE BADGE (Signature visuelle) ===== */
+        .matiere-badge {
+            display: inline-block;
+            background: #F3EDE3;
+            border: 1px solid var(--couleur-bordure);
+            padding: 6px 16px 6px 20px;
+            border-radius: 4px 20px 20px 4px;
+            transform: rotate(-2deg);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--couleur-accent-principal);
+            position: relative;
+            margin: var(--espace-xs) 0;
+        }
+        .matiere-badge::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--couleur-fond);
+            border: 2px solid var(--couleur-bordure);
+        }
+        .matiere-badge .matiere-icon {
+            margin-left: 6px;
+        }
+        
+        /* ===== QUANTITE & CTA ===== */
+        .product-actions {
+            display: flex;
+            gap: var(--espace-sm);
+            align-items: center;
+            flex-wrap: wrap;
+            padding: var(--espace-sm) 0;
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            overflow: hidden;
+        }
+        .quantity-selector button {
+            background: none;
+            border: none;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--couleur-texte-principal);
+            transition: background 0.3s ease;
+            min-width: 44px;
+        }
+        .quantity-selector button:hover {
+            background: var(--couleur-fond);
+        }
+        .quantity-selector input {
+            width: 60px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid var(--couleur-bordure);
+            border-right: 1px solid var(--couleur-bordure);
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: var(--police-texte);
+            outline: none;
+            background: var(--couleur-blanc);
+        }
+        .quantity-selector input::-webkit-outer-spin-button,
+        .quantity-selector input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .quantity-selector input[type=number] { -moz-appearance: textfield; }
+        .product-actions .btn { flex: 1; min-width: 200px; }
+        .product-actions .btn-wishlist {
+            background: none;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            color: var(--couleur-texte-secondaire);
+        }
+        .product-actions .btn-wishlist:hover {
+            border-color: var(--couleur-action);
+            color: var(--couleur-action);
+        }
+        .product-actions .btn-wishlist.active {
+            border-color: var(--couleur-action);
+            color: var(--couleur-action);
+            background: rgba(184, 83, 47, 0.08);
+        }
+        
+        /* ===== INFO SUPPLÉMENTAIRES ===== */
+        .product-metas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-sm);
+            padding: var(--espace-sm) 0;
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .product-metas .meta-item {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+        .product-metas .meta-item .meta-label {
+            color: var(--couleur-texte-secondaire);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .product-metas .meta-item .meta-value {
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        
+        /* ===== SHARE ===== */
+        .product-share {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            padding: var(--espace-sm) 0;
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .product-share span {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .product-share a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--couleur-fond);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            color: var(--couleur-texte-secondaire);
+        }
+        .product-share a:hover {
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            transform: translateY(-2px);
+        }
+        
+        /* ============================================================
+           ONGLETS
+           ============================================================ */
+        .product-tabs {
+            margin-top: var(--espace-xl);
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .tabs-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            overflow-x: auto;
+        }
+        .tabs-nav button {
+            background: none;
+            border: none;
+            padding: 16px 24px;
+            font-family: var(--police-utilitaire);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--couleur-texte-secondaire);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+        .tabs-nav button:hover {
+            color: var(--couleur-texte-principal);
+        }
+        .tabs-nav button.active {
+            color: var(--couleur-accent-principal);
+            border-bottom-color: var(--couleur-accent-principal);
+        }
+        .tabs-content {
+            padding: var(--espace-md) 0;
+        }
+        .tabs-content .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .tabs-content .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tabs-content .tab-panel h3 {
+            font-family: var(--police-affichage);
+            font-size: 20px;
+            margin-bottom: var(--espace-sm);
+        }
+        .tabs-content .tab-panel p {
+            color: var(--couleur-texte-secondaire);
+            line-height: 1.8;
+        }
+        .tabs-content .tab-panel ul {
+            list-style: disc;
+            padding-right: var(--espace-md);
+            color: var(--couleur-texte-secondaire);
+            line-height: 2;
+        }
+        .tabs-content .tab-panel ul li::marker {
+            color: var(--couleur-accent-principal);
+        }
+        
+        /* ===== AVIS ===== */
+        .avis-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espace-md);
+        }
+        .avis-item {
+            background: var(--couleur-fond);
+            border-radius: var(--rayon-md);
+            padding: var(--espace-md);
+            border: 1px solid var(--couleur-bordure);
+        }
+        .avis-item .avis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--espace-xs);
+        }
+        .avis-item .avis-nom {
+            font-weight: 600;
+        }
+        .avis-item .avis-date {
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .avis-item .avis-stars {
+            color: #f5a623;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .avis-item .avis-commentaire {
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        /* ============================================================
+           PRODUITS SIMILAIRES
+           ============================================================ */
+        .similaires-section {
+            margin-top: var(--espace-xl);
+            padding-top: var(--espace-xl);
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .similaires-section h2 {
+            font-family: var(--police-affichage);
+            font-size: 28px;
+            margin-bottom: var(--espace-md);
+            text-align: center;
+        }
+        .similaires-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--espace-md);
+        }
+        .similaire-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            border: 1px solid var(--couleur-bordure);
+            transition: all 0.3s ease;
+        }
+        .similaire-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .similaire-card .sim-image {
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: var(--couleur-fond);
+        }
+        .similaire-card .sim-info {
+            padding: var(--espace-sm);
+        }
+        .similaire-card .sim-info h4 {
+            font-family: var(--police-affichage);
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .similaire-card .sim-info .sim-prix {
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+            font-size: 16px;
+        }
+        .similaire-card .sim-info .sim-prix-ancien {
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: var(--espace-xl);
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .detail-layout { grid-template-columns: 1fr; }
+            .product-gallery { position: relative; top: 0; }
+            .similaires-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .similaires-grid { grid-template-columns: 1fr 1fr; }
+            .product-infos h1 { font-size: 24px; }
+            .product-infos .prix-actuel { font-size: 22px; }
+            .product-metas { grid-template-columns: 1fr; }
+            .product-actions { flex-direction: column; }
+            .product-actions .btn { width: 100%; min-width: unset; }
+            .quantity-selector { width: 100%; }
+            .quantity-selector input { flex: 1; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .tabs-nav button { padding: 12px 16px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            .similaires-grid { grid-template-columns: 1fr; }
+            .product-infos h1 { font-size: 20px; }
+            .container { padding: 0 16px; }
+            .gallery-thumbs { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+            .gallery-thumbs .thumb { font-size: 1.8rem; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon">🪑</span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html" class="active">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث">🔍</button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي">👤</a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                🛒
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div id="barre-recherche" class="barre-recherche" role="search">
+        <div class="container">
+            <form id="search-form">
+                <input type="search" id="search-input" placeholder="ابحث عن أثاث أحلامك..." aria-label="بحث عن منتج" />
+                <button type="submit">بحث</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html" class="active">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+BREADCRUMB
+============================================================ -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span class="separator">›</span>
+        <a href="/pages/produits.html">المجموعات</a>
+        <span class="separator">›</span>
+        <span class="current" id="breadcrumb-produit">تفاصيل المنتج</span>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE DÉTAIL
+============================================================ -->
+<main role="main" class="page-detail">
+    <div class="container">
+
+        <!-- ===== DÉTAIL PRODUIT ===== -->
+        <div class="detail-layout" id="product-detail">
+            
+            <!-- ===== GALERIE ===== -->
+            <div class="product-gallery">
+                <div class="gallery-main" id="gallery-main">
+                    <div class="main-image" id="main-image">🪑</div>
+                    <span class="gallery-badge" id="gallery-badge" style="display:none;"></span>
+                </div>
+                <div class="gallery-thumbs" id="gallery-thumbs">
+                    <!-- Généré dynamiquement -->
+                </div>
+            </div>
+
+            <!-- ===== INFOS ===== -->
+            <div class="product-infos" id="product-infos">
+                <span class="product-categorie" id="product-categorie">الصالون</span>
+                <h1 id="product-title">كنبة 3 مقاعد من المخمل الأخضر</h1>
+                
+                <div class="product-rating">
+                    <span class="stars" id="product-stars">★★★★★</span>
+                    <span class="rating-count" id="product-rating-count">(24 تقييم)</span>
+                    <span class="rating-count">|</span>
+                    <span class="rating-count"><a href="#avis">كتابة تقييم</a></span>
+                </div>
+
+                <div class="product-price">
+                    <span class="prix-actuel" id="product-price">4,500 درهم</span>
+                    <span class="prix-ancien" id="product-old-price" style="display:none;">5,200 درهم</span>
+                    <span class="prix-economie" id="product-economie" style="display:none;">وفر 700 درهم</span>
+                </div>
+
+                <div class="product-stock">
+                    <span class="stock-disponible" id="product-stock">✅ متوفر في المخزن (12 قطعة)</span>
+                </div>
+
+                <!-- Matière badge (Signature visuelle) -->
+                <div class="matiere-badge" id="matiere-badge">
+                    <span class="matiere-icon">🧵</span>
+                    المادة: <strong id="matiere-value">مخمل, خشب</strong>
+                </div>
+
+                <div class="product-description" id="product-description">
+                    <p>هذا الكنبة الرائع يضفي على صالونكم أناقة راقية. المخمل الأخضر والهيكل الخشبي المتين يرويان قصة حرفية وراحة تدوم طويلاً.</p>
+                </div>
+
+                <!-- Quantité & CTA -->
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button id="qty-minus" aria-label="إنقاص الكمية">−</button>
+                        <input type="number" id="qty-input" value="1" min="1" max="99" aria-label="الكمية" />
+                        <button id="qty-plus" aria-label="زيادة الكمية">+</button>
+                    </div>
+                    <button class="btn btn-principal btn-lg" id="btn-add-cart">
+                        🛒 إضافة إلى العربة
+                    </button>
+                    <button class="btn-wishlist" id="btn-wishlist" aria-label="إضافة إلى المفضلة">♥</button>
+                </div>
+
+                <!-- Métadonnées -->
+                <div class="product-metas">
+                    <div class="meta-item">
+                        <span class="meta-label">الأبعاد</span>
+                        <span class="meta-value" id="product-dimensions">220 × 95 × 85 سم</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">اللون</span>
+                        <span class="meta-value" id="product-couleur">أخضر ساج</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">المرجع</span>
+                        <span class="meta-value" id="product-ref">DA-2026-001</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">التصنيف</span>
+                        <span class="meta-value" id="product-categorie-meta">صالون</span>
+                    </div>
+                </div>
+
+                <!-- Partage -->
+                <div class="product-share">
+                    <span>شارك هذا المنتج</span>
+                    <a href="#" aria-label="مشاركة على فيسبوك">👍</a>
+                    <a href="#" aria-label="مشاركة على تويتر">🐦</a>
+                    <a href="#" aria-label="مشاركة على واتساب">💬</a>
+                    <a href="#" aria-label="نسخ الرابط">🔗</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ONGLETS ===== -->
+        <div class="product-tabs" id="product-tabs">
+            <div class="tabs-nav" role="tablist">
+                <button class="active" data-tab="description" role="tab" aria-selected="true">الوصف</button>
+                <button data-tab="dimensions" role="tab" aria-selected="false">الأبعاد و المواد</button>
+                <button data-tab="avis" role="tab" aria-selected="false">التقييمات (0)</button>
+            </div>
+            <div class="tabs-content">
+                <!-- Description -->
+                <div class="tab-panel active" id="tab-description" role="tabpanel">
+                    <h3>وصف المنتج</h3>
+                    <p id="tab-description-text">
+                        هذا الكنبة الرائع يضفي على صالونكم أناقة راقية. المخمل الأخضر والهيكل الخشبي المتين يرويان قصة حرفية وراحة تدوم طويلاً.
+                        تصميم عصري ينسجم مع جميع أنماط الديكور، من الكلاسيكي إلى المعاصر.
+                    </p>
+                    <p style="margin-top:var(--espace-sm);">
+                        <strong>مميزات المنتج:</strong>
+                    </p>
+                    <ul id="tab-features">
+                        <li>✅ مخمل عالي الجودة مقاوم للبقع</li>
+                        <li>✅ هيكل من خشب الزان الصلب</li>
+                        <li>✅ أقمشة قابلة للإزالة للتنظيف</li>
+                        <li>✅ ضمان 5 سنوات على الهيكل</li>
+                        <li>✅ صناعة يدوية مغربية</li>
+                    </ul>
+                </div>
+
+                <!-- Dimensions -->
+                <div class="tab-panel" id="tab-dimensions" role="tabpanel">
+                    <h3>الأبعاد و المواد</h3>
+                    <ul>
+                        <li><strong>الأبعاد:</strong> <span id="tab-dimensions-value">220 × 95 × 85 سم</span></li>
+                        <li><strong>الوزن:</strong> 45 كجم</li>
+                        <li><strong>المادة الأساسية:</strong> <span id="tab-matiere-value">مخمل, خشب زان</span></li>
+                        <li><strong>اللون:</strong> <span id="tab-couleur-value">أخضر ساج</span></li>
+                        <li><strong>سعة التحميل:</strong> 300 كجم</li>
+                        <li><strong>التجميع:</strong> مطلوب (يشمل التعليمات)</li>
+                    </ul>
+                </div>
+
+                <!-- Avis -->
+                <div class="tab-panel" id="tab-avis" role="tabpanel">
+                    <h3>تقييمات العملاء</h3>
+                    <div class="avis-list" id="avis-list">
+                        <!-- Généré dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PRODUITS SIMILAIRES ===== -->
+        <section class="similaires-section" aria-labelledby="similaires-title">
+            <h2 id="similaires-title">منتجات مشابهة</h2>
+            <div class="similaires-grid" id="similaires-grid">
+                <!-- Généré dynamiquement -->
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon">🪑</span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام">📷</a>
+                <a href="#" aria-label="فيسبوك">👍</a>
+                <a href="#" aria-label="بينتريست">📌</a>
+                <a href="#" aria-label="يوتيوب">▶️</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    🕐 السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Détail Produit
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. DONNÉES (Produit simulé + Similaires)
+        // ============================================================
+        const product = {
+            id: 1,
+            nom: 'كنبة 3 مقاعد من المخمل الأخضر',
+            slug: 'canape-velours-vert',
+            categorie: 'salon',
+            categorieNom: 'الصالون',
+            prix: 4500,
+            prix_promo: 5200,
+            note: 5,
+            avis: 24,
+            badge: 'الأكثر مبيعاً',
+            badgeType: 'popular',
+            couleur: 'أخضر ساج',
+            matiere: 'مخمل, خشب زان',
+            dimensions: '220 × 95 × 85 سم',
+            stock: 12,
+            icon: '🟢',
+            description: 'هذا الكنبة الرائع يضفي على صالونكم أناقة راقية. المخمل الأخضر والهيكل الخشبي المتين يرويان قصة حرفية وراحة تدوم طويلاً. تصميم عصري ينسجم مع جميع أنماط الديكور، من الكلاسيكي إلى المعاصر.',
+            features: [
+                'مخمل عالي الجودة مقاوم للبقع',
+                'هيكل من خشب الزان الصلب',
+                'أقمشة قابلة للإزالة للتنظيف',
+                'ضمان 5 سنوات على الهيكل',
+                'صناعة يدوية مغربية'
+            ],
+            avisList: [
+                { nom: 'فاطمة الزهراء', date: '2026-07-20', note: 5, commentaire: 'كنبة رائعة! المخمل ناعم جداً واللون أخضر جميل. تناسب صالوننا تماماً.' },
+                { nom: 'محمد أمين', date: '2026-07-15', note: 5, commentaire: 'جودة ممتازة، التوصيل كان سريعاً. أنصح بها بشدة.' },
+                { nom: 'سلمى بناني', date: '2026-07-10', note: 4, commentaire: 'جميلة جداً، لكن التجميع كان صعباً بعض الشيء. بشكل عام راضية.' }
+            ]
+        };
+
+        const similaires = [{
+            id: 2,
+            nom: 'كنبة زاوية قابلة للتحويل',
+            prix: 6200,
+            prix_promo: 6900,
+            icon: '🛋️',
+            slug: 'canape-angle-convertible'
+        }, {
+            id: 4,
+            nom: 'طاولة وسط من خشب الجوز',
+            prix: 2850,
+            prix_promo: null,
+            icon: '🪵',
+            slug: 'table-basse-noyer'
+        }, {
+            id: 6,
+            nom: 'مكتب عصري بسيط',
+            prix: 2950,
+            prix_promo: null,
+            icon: '📚',
+            slug: 'bureau-minimaliste'
+        }, {
+            id: 8,
+            nom: 'سجادة بربرية من الصوف',
+            prix: 2800,
+            prix_promo: 3400,
+            icon: '🧶',
+            slug: 'tapis-berbere-laine'
+        }];
+
+        // ============================================================
+        // 2. PANIER
+        // ============================================================
+        let panier = [];
+
+        function chargerPanier() {
+            try {
+                const saved = localStorage.getItem('dar_athath_panier');
+                panier = saved ? JSON.parse(saved) : [];
+            } catch (e) { panier = []; }
+            mettreAJourBadge();
+        }
+
+        function sauvegarderPanier() {
+            localStorage.setItem('dar_athath_panier', JSON.stringify(panier));
+            mettreAJourBadge();
+        }
+
+        function ajouterAuPanier(produitId, quantite = 1) {
+            const existing = panier.find(item => item.id === produitId);
+            if (existing) {
+                existing.quantite += quantite;
+            } else {
+                panier.push({
+                    id: product.id,
+                    nom: product.nom,
+                    prix: product.prix,
+                    quantite: quantite,
+                    icon: product.icon
+                });
+            }
+            sauvegarderPanier();
+            showToast('✅ تمت إضافة "' + product.nom + '" إلى العربة');
+        }
+
+        function mettreAJourBadge() {
+            const badge = document.getElementById('panier-compteur');
+            if (badge) {
+                const total = panier.reduce((sum, item) => sum + item.quantite, 0);
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // ============================================================
+        // 3. TOAST
+        // ============================================================
+        function showToast(message) {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 4. RENDU PRODUIT
+        // ============================================================
+        function renderProduct() {
+            // Titre
+            document.title = product.nom + ' — دار أثاث';
+            document.getElementById('breadcrumb-produit').textContent = product.nom;
+
+            // Galerie
+            document.getElementById('main-image').textContent = product.icon;
+            const thumbs = document.getElementById('gallery-thumbs');
+            thumbs.innerHTML = `
+                        <div class="thumb active">${product.icon}</div>
+                        <div class="thumb">🪵</div>
+                        <div class="thumb">🧵</div>
+                        <div class="thumb">🪑</div>
+                    `;
+
+            // Badge
+            const badge = document.getElementById('gallery-badge');
+            if (product.badge) {
+                badge.textContent = product.badge;
+                badge.style.display = 'block';
+                badge.className = 'gallery-badge';
+                if (product.badgeType === 'new') badge.classList.add('gallery-badge-new');
+                if (product.badgeType === 'sale') badge.classList.add('gallery-badge-sale');
+            } else {
+                badge.style.display = 'none';
+            }
+
+            // Infos
+            document.getElementById('product-categorie').textContent = product.categorieNom;
+            document.getElementById('product-title').textContent = product.nom;
+
+            // Étoiles
+            const etoiles = '★'.repeat(product.note) + '☆'.repeat(5 - product.note);
+            document.getElementById('product-stars').textContent = etoiles;
+            document.getElementById('product-rating-count').textContent = `(${product.avis} تقييم)`;
+
+            // Prix
+            document.getElementById('product-price').textContent = product.prix.toLocaleString() + ' درهم';
+            const oldPrice = document.getElementById('product-old-price');
+            const economie = document.getElementById('product-economie');
+            if (product.prix_promo) {
+                oldPrice.style.display = 'inline';
+                oldPrice.textContent = product.prix_promo.toLocaleString() + ' درهم';
+                economie.style.display = 'inline';
+                economie.textContent = `وفر ${(product.prix_promo - product.prix).toLocaleString()} درهم`;
+            } else {
+                oldPrice.style.display = 'none';
+                economie.style.display = 'none';
+            }
+
+            // Stock
+            const stockEl = document.getElementById('product-stock');
+            if (product.stock > 0) {
+                stockEl.className = 'stock-disponible';
+                stockEl.textContent = `✅ متوفر في المخزن (${product.stock} قطعة)`;
+                document.getElementById('btn-add-cart').disabled = false;
+            } else {
+                stockEl.className = 'stock-rupture';
+                stockEl.textContent = '❌ غير متوفر حالياً';
+                document.getElementById('btn-add-cart').disabled = true;
+            }
+
+            // Matière
+            document.getElementById('matiere-value').textContent = product.matiere;
+
+            // Description
+            document.getElementById('product-description').innerHTML = `<p>${product.description}</p>`;
+
+            // Métadonnées
+            document.getElementById('product-dimensions').textContent = product.dimensions;
+            document.getElementById('product-couleur').textContent = product.couleur;
+            document.getElementById('product-ref').textContent = `DA-2026-${String(product.id).padStart(3, '0')}`;
+            document.getElementById('product-categorie-meta').textContent = product.categorieNom;
+
+            // Onglet Description
+            document.getElementById('tab-description-text').textContent = product.description;
+            const featuresList = document.getElementById('tab-features');
+            featuresList.innerHTML = product.features.map(f => `<li>${f}</li>`).join('');
+
+            // Onglet Dimensions
+            document.getElementById('tab-dimensions-value').textContent = product.dimensions;
+            document.getElementById('tab-matiere-value').textContent = product.matiere;
+            document.getElementById('tab-couleur-value').textContent = product.couleur;
+
+            // Onglet Avis
+            const avisList = document.getElementById('avis-list');
+            if (product.avisList.length > 0) {
+                avisList.innerHTML = product.avisList.map(a => `
+                            <div class="avis-item">
+                                <div class="avis-header">
+                                    <span class="avis-nom">${a.nom}</span>
+                                    <span class="avis-date">${new Date(a.date).toLocaleDateString('ar')}</span>
+                                </div>
+                                <div class="avis-stars">${'★'.repeat(a.note)}${'☆'.repeat(5 - a.note)}</div>
+                                <div class="avis-commentaire">${a.commentaire}</div>
+                            </div>
+                        `).join('');
+            } else {
+                avisList.innerHTML = '<p style="color:var(--couleur-texte-secondaire);">لا توجد تقييمات بعد. كن أول من يقيم هذا المنتج!</p>';
+            }
+
+            // Mettre à jour le compteur d'avis dans l'onglet
+            document.querySelector('[data-tab="avis"]').textContent = `التقييمات (${product.avis})`;
+        }
+
+        // ============================================================
+        // 5. PRODUITS SIMILAIRES
+        // ============================================================
+        function renderSimilaires() {
+            const grid = document.getElementById('similaires-grid');
+            if (!grid) return;
+
+            grid.innerHTML = similaires.map(p => {
+                const prixAncienHtml = p.prix_promo ?
+                    `<span class="sim-prix-ancien">${p.prix_promo.toLocaleString()} درهم</span>` :
+                    '';
+                return `
+                            <a href="/pages/produit-detail.html?slug=${p.slug}" class="similaire-card">
+                                <div class="sim-image">${p.icon}</div>
+                                <div class="sim-info">
+                                    <h4>${p.nom}</h4>
+                                    <div>
+                                        <span class="sim-prix">${p.prix.toLocaleString()} درهم</span>
+                                        ${prixAncienHtml}
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+            }).join('');
+        }
+
+        // ============================================================
+        // 6. QUANTITÉ SELECTOR
+        // ============================================================
+        function initQuantitySelector() {
+            const input = document.getElementById('qty-input');
+            const minus = document.getElementById('qty-minus');
+            const plus = document.getElementById('qty-plus');
+
+            minus.addEventListener('click', function() {
+                let val = parseInt(input.value) || 1;
+                if (val > 1) input.value = val - 1;
+            });
+
+            plus.addEventListener('click', function() {
+                let val = parseInt(input.value) || 1;
+                if (val < 99) input.value = val + 1;
+            });
+
+            input.addEventListener('change', function() {
+                let val = parseInt(this.value) || 1;
+                if (val < 1) val = 1;
+                if (val > 99) val = 99;
+                this.value = val;
+            });
+        }
+
+        // ============================================================
+        // 7. ONGLETS
+        // ============================================================
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tabs-nav button');
+            const panels = {
+                description: document.getElementById('tab-description'),
+                dimensions: document.getElementById('tab-dimensions'),
+                avis: document.getElementById('tab-avis')
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.dataset.tab;
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+
+                    Object.keys(panels).forEach(key => {
+                        panels[key].classList.toggle('active', key === target);
+                    });
+                });
+            });
+        }
+
+        // ============================================================
+        // 8. ACTIONS (Panier, Wishlist, Share)
+        // ============================================================
+        function initActions() {
+            // Ajout au panier
+            document.getElementById('btn-add-cart').addEventListener('click', function() {
+                const qty = parseInt(document.getElementById('qty-input').value) || 1;
+                ajouterAuPanier(product.id, qty);
+            });
+
+            // Wishlist
+            const wishBtn = document.getElementById('btn-wishlist');
+            wishBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                if (this.classList.contains('active')) {
+                    showToast('❤️ تمت إضافة "' + product.nom + '" إلى المفضلة');
+                } else {
+                    showToast('تمت إزالة "' + product.nom + '" من المفضلة');
+                }
+            });
+
+            // Share
+            document.querySelectorAll('.product-share a').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const url = encodeURIComponent(window.location.href);
+                    const text = encodeURIComponent(product.nom + ' — دار أثاث');
+                    let shareUrl = '';
+                    if (this.textContent.trim() === '👍') {
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    } else if (this.textContent.trim() === '🐦') {
+                        shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                    } else if (this.textContent.trim() === '💬') {
+                        shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+                    } else if (this.textContent.trim() === '🔗') {
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            showToast('✅ تم نسخ الرابط');
+                        });
+                        return;
+                    }
+                    if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+                });
+            });
+        }
+
+        // ============================================================
+        // 9. MENU MOBILE & RECHERCHE
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            btnRecherche.addEventListener('click', function() {
+                barreRecherche.classList.toggle('active');
+                if (barreRecherche.classList.contains('active')) {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = document.getElementById('search-input').value.trim();
+                if (query) {
+                    showToast('🔍 تم البحث عن: "' + query + '"');
+                    window.location.href = '/pages/produits.html?q=' + encodeURIComponent(query);
+                }
+                barreRecherche.classList.remove('active');
+            });
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Galerie thumbs
+            document.querySelectorAll('.gallery-thumbs .thumb').forEach((thumb, index) => {
+                thumb.addEventListener('click', function() {
+                    document.querySelectorAll('.gallery-thumbs .thumb').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const main = document.getElementById('main-image');
+                    const icons = ['🪑', '🪵', '🧵', '🪑'];
+                    main.textContent = icons[index] || '🪑';
+                    document.querySelector('.gallery-main').style.cursor = 'zoom-in';
+                });
+            });
+
+            // Zoom sur l'image principale
+            document.querySelector('.gallery-main').addEventListener('click', function() {
+                this.classList.toggle('zoomed');
+                const img = this.querySelector('.main-image');
+                if (this.classList.contains('zoomed')) {
+                    img.style.transform = 'scale(1.3)';
+                    this.style.cursor = 'zoom-out';
+                } else {
+                    img.style.transform = 'scale(1)';
+                    this.style.cursor = 'zoom-in';
+                }
+            });
+        }
+
+        // ============================================================
+        // 10. INITIALISATION
+        // ============================================================
+        function init() {
+            chargerPanier();
+            renderProduct();
+            renderSimilaires();
+            initQuantitySelector();
+            initTabs();
+            initActions();
+            initUI();
+            console.log('🪑 Page Détail Produit chargée — ' + product.nom);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>
