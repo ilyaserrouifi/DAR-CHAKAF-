@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سلة التسوق — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="سلة التسوق الخاصة بك في دار أثاث. راجع منتجاتك، عدل الكميات، وانتقل إلى الدفع." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="سلة التسوق — دار أثاث" />
+    <meta property="og:description" content="سلة التسوق الخاصة بك في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/panier.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Panier
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #16130F;
+            --couleur-blanc: #211C16;
+            --couleur-accent-principal: #C6A15B;
+            --couleur-accent-secondaire: #93A67F;
+            --couleur-texte-principal: #F2ECDF;
+            --couleur-texte-secondaire: #A69C8C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #3A322A;
+            --couleur-action: #C6A15B;
+            --couleur-action-hover: #A9853F;
+            --couleur-succes: #7C9473;
+            --couleur-erreur: #C4695A;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-principal:disabled {
+            background-color: #D9C9BE;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        .btn-lg { padding: 18px 48px; font-size: 17px; }
+        .btn-danger {
+            background-color: var(--couleur-erreur);
+            color: var(--couleur-blanc);
+        }
+        .btn-danger:hover {
+            background-color: #a0382a;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE OVERLAY ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BARRE DE RECHERCHE ===== */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+        .barre-recherche button:hover { background-color: #4a3b2e; }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a { color: var(--couleur-accent-principal); transition: color 0.3s ease; }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator { margin: 0 8px; color: var(--couleur-bordure); }
+        .breadcrumb .current { color: var(--couleur-texte-principal); font-weight: 500; }
+        
+        /* ============================================================
+           PAGE PANIER
+           ============================================================ */
+        .page-panier {
+            padding: var(--espace-md) 0 var(--espace-xl);
+        }
+        .page-title {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+        }
+        .page-subtitle {
+            color: var(--couleur-texte-secondaire);
+            font-size: 16px;
+            margin-bottom: var(--espace-md);
+        }
+        
+        .panier-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: var(--espace-lg);
+            align-items: start;
+        }
+        
+        /* ===== LISTE PRODUITS ===== */
+        .panier-items {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            overflow: hidden;
+        }
+        .panier-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+            padding: var(--espace-sm) var(--espace-md);
+            background: var(--couleur-fond);
+            border-bottom: 1px solid var(--couleur-bordure);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .panier-item {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+            padding: var(--espace-md);
+            border-bottom: 1px solid var(--couleur-bordure);
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        .panier-item:last-child { border-bottom: none; }
+        .panier-item:hover { background: rgba(250, 248, 244, 0.5); }
+        
+        .panier-item .item-info {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .panier-item .item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--rayon-md);
+            background: var(--couleur-fond);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            border: 1px solid var(--couleur-bordure);
+        }
+        .panier-item .item-details h4 {
+            font-family: var(--police-affichage);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .panier-item .item-details .item-categorie {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .panier-item .item-details .item-remove {
+            background: none;
+            border: none;
+            color: var(--couleur-texte-secondaire);
+            font-size: 13px;
+            cursor: pointer;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+            margin-top: 4px;
+        }
+        .panier-item .item-details .item-remove:hover { color: var(--couleur-erreur); }
+        
+        .panier-item .item-price {
+            font-weight: 600;
+            color: var(--couleur-texte-principal);
+            font-size: 15px;
+        }
+        .panier-item .item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            overflow: hidden;
+            max-width: 120px;
+        }
+        .panier-item .item-quantity button {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--couleur-texte-principal);
+            transition: background 0.3s ease;
+        }
+        .panier-item .item-quantity button:hover { background: var(--couleur-fond); }
+        .panier-item .item-quantity input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid var(--couleur-bordure);
+            border-right: 1px solid var(--couleur-bordure);
+            padding: 6px 0;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: var(--police-texte);
+            outline: none;
+            background: var(--couleur-blanc);
+        }
+        .panier-item .item-quantity input::-webkit-outer-spin-button,
+        .panier-item .item-quantity input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .panier-item .item-quantity input[type=number] { -moz-appearance: textfield; }
+        
+        .panier-item .item-subtotal {
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+            font-size: 16px;
+        }
+        .panier-item .item-actions {
+            text-align: center;
+        }
+        .panier-item .item-actions .btn-remove {
+            background: none;
+            border: none;
+            color: var(--couleur-texte-secondaire);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 4px;
+        }
+        .panier-item .item-actions .btn-remove:hover { color: var(--couleur-erreur); }
+        
+        /* ===== PANIER VIDE ===== */
+        .panier-vide {
+            text-align: center;
+            padding: var(--espace-xl) var(--espace-md);
+        }
+        .panier-vide .empty-icon {
+            font-size: 5rem;
+            margin-bottom: var(--espace-md);
+        }
+        .panier-vide h3 {
+            font-family: var(--police-affichage);
+            font-size: 24px;
+            margin-bottom: var(--espace-sm);
+        }
+        .panier-vide p {
+            color: var(--couleur-texte-secondaire);
+            margin-bottom: var(--espace-md);
+        }
+        
+        /* ===== RÉCAPITULATIF ===== */
+        .panier-recap {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md);
+            position: sticky;
+            top: 90px;
+        }
+        .panier-recap h3 {
+            font-family: var(--police-affichage);
+            font-size: 20px;
+            margin-bottom: var(--espace-md);
+            padding-bottom: var(--espace-sm);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .recap-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .recap-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--couleur-texte-principal);
+            border-top: 2px solid var(--couleur-bordure);
+            margin-top: var(--espace-sm);
+            padding-top: var(--espace-sm);
+        }
+        .recap-row.total .amount {
+            color: var(--couleur-accent-principal);
+        }
+        .recap-row .amount {
+            font-weight: 600;
+            color: var(--couleur-texte-principal);
+        }
+        .recap-row .amount.green { color: var(--couleur-succes); }
+        
+        .panier-recap .btn {
+            width: 100%;
+            margin-top: var(--espace-md);
+        }
+        .panier-recap .btn-secondary {
+            background: none;
+            border: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-secondaire);
+            margin-top: var(--espace-sm);
+        }
+        .panier-recap .btn-secondary:hover {
+            border-color: var(--couleur-accent-principal);
+            color: var(--couleur-accent-principal);
+            background: none;
+        }
+        
+        .recap-codes {
+            margin-top: var(--espace-md);
+            padding-top: var(--espace-md);
+            border-top: 1px solid var(--couleur-bordure);
+        }
+        .recap-codes .code-input {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .recap-codes input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 14px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .recap-codes input:focus {
+            border-color: var(--couleur-accent-principal);
+        }
+        .recap-codes button {
+            padding: 10px 20px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+        .recap-codes button:hover { background: #4a3b2e; }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: var(--espace-xl);
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .panier-layout { grid-template-columns: 1fr; }
+            .panier-recap { position: relative; top: 0; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .panier-header { display: none; }
+            .panier-item {
+                grid-template-columns: 1fr;
+                gap: var(--espace-sm);
+                padding: var(--espace-sm);
+                border-bottom: 2px solid var(--couleur-bordure);
+            }
+            .panier-item .item-info { flex-direction: column; text-align: center; }
+            .panier-item .item-image { width: 100px; height: 100px; margin: 0 auto; }
+            .panier-item .item-details h4 { text-align: center; }
+            .panier-item .item-price { text-align: center; }
+            .panier-item .item-quantity { margin: 0 auto; }
+            .panier-item .item-subtotal { text-align: center; font-size: 18px; }
+            .panier-item .item-actions .btn-remove { font-size: 1.5rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .page-title { font-size: 24px; }
+            .panier-item .item-info { flex-direction: row; text-align: right; }
+            .panier-item .item-image { width: 60px; height: 60px; font-size: 1.8rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .panier-item .item-info { flex-direction: column; text-align: center; }
+            .panier-item .item-image { width: 80px; height: 80px; }
+            .recap-codes .code-input { flex-direction: column; }
+            .recap-codes button { width: 100%; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></svg></button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div id="barre-recherche" class="barre-recherche" role="search">
+        <div class="container">
+            <form id="search-form">
+                <input type="search" id="search-input" placeholder="ابحث عن أثاث أحلامك..." aria-label="بحث عن منتج" />
+                <button type="submit">بحث</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+BREADCRUMB
+============================================================ -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span class="separator">›</span>
+        <span class="current">سلة التسوق</span>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE PANIER
+============================================================ -->
+<main role="main" class="page-panier">
+    <div class="container">
+        <h1 class="page-title"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg> سلة التسوق</h1>
+        <p class="page-subtitle">راجع منتجاتك وعدل الكميات قبل إتمام الطلب.</p>
+
+        <div class="panier-layout">
+
+            <!-- ===== LISTE PRODUITS ===== -->
+            <div class="panier-items" id="panier-items">
+                <!-- Généré dynamiquement par JavaScript -->
+            </div>
+
+            <!-- ===== RÉCAPITULATIF ===== -->
+            <div class="panier-recap" id="panier-recap">
+                <h3>ملخص الطلب</h3>
+                
+                <div class="recap-row">
+                    <span>المجموع الفرعي</span>
+                    <span class="amount" id="recap-subtotal">0 درهم</span>
+                </div>
+                <div class="recap-row">
+                    <span>التوصيل</span>
+                    <span class="amount" id="recap-livraison">0 درهم</span>
+                </div>
+                <div class="recap-row">
+                    <span>الخصم</span>
+                    <span class="amount green" id="recap-reduction">0 درهم</span>
+                </div>
+                <div class="recap-row total">
+                    <span>المجموع الكلي</span>
+                    <span class="amount" id="recap-total">0 درهم</span>
+                </div>
+
+                <a href="/pages/checkout.html" class="btn btn-principal btn-lg" id="btn-checkout">
+                    إتمام الطلب
+                </a>
+                <a href="/pages/produits.html" class="btn btn-secondary btn-sm" style="display:block;text-align:center;">
+                    ← مواصلة التسوق
+                </a>
+
+                <div class="recap-codes">
+                    <div class="code-input">
+                        <input type="text" id="code-promo" placeholder="رمز الخصم" aria-label="رمز الخصم" />
+                        <button id="btn-apply-code">تطبيق</button>
+                    </div>
+                    <div id="code-message" style="font-size:13px;margin-top:8px;color:var(--couleur-texte-secondaire);"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.2"/></svg></a>
+                <a href="#" aria-label="فيسبوك"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-1.5 6a2 2 0 0 1-2 1.5H7"/></svg></a>
+                <a href="#" aria-label="بينتريست"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10s-5-6.5-5-10a5 5 0 0 1 5-5Z"/><circle cx="12" cy="7" r="1.8"/></svg></a>
+                <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Panier
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. DONNÉES (Produits pour référence)
+        // ============================================================
+        const produitsData = [{
+            id: 1,
+            nom: 'كنبة 3 مقاعد من المخمل الأخضر',
+            categorie: 'الصالون',
+            prix: 4500,
+            icon: '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#7C9473;"></span>',
+            slug: 'canape-velours-vert'
+        }, {
+            id: 3,
+            nom: 'سرير مزدوج من الخشب الصلب',
+            categorie: 'غرفة النوم',
+            prix: 6750,
+            icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 19v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 19v2M21 19v2"/><path d="M3 13V7a2 2 0 0 1 2-2h5v6"/></svg>',
+            slug: 'lit-bois-massif'
+        }, {
+            id: 5,
+            nom: 'طاولة طعام قابلة للتمديد من البلوط',
+            categorie: 'المطبخ و الطعام',
+            prix: 5400,
+            icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><ellipse cx="12" cy="7" rx="9" ry="2.2"/><path d="M3 7v3.5c0 1.2 4 2.2 9 2.2s9-1 9-2.2V7"/><path d="M12 19V13M8 19h8"/></svg>',
+            slug: 'table-manger-extensible'
+        }];
+
+        // ============================================================
+        // 2. PANIER (localStorage)
+        // ============================================================
+        let panier = [];
+        let codePromo = null;
+        let reduction = 0;
+
+        function chargerPanier() {
+            try {
+                const saved = localStorage.getItem('dar_athath_panier');
+                panier = saved ? JSON.parse(saved) : [];
+                // S'assurer que chaque item a une quantité
+                panier = panier.map(item => ({
+                    ...item,
+                    quantite: item.quantite || 1
+                }));
+            } catch (e) {
+                panier = [];
+            }
+            sauvegarderPanier();
+        }
+
+        function sauvegarderPanier() {
+            localStorage.setItem('dar_athath_panier', JSON.stringify(panier));
+            mettreAJourBadge();
+            render();
+        }
+
+        function mettreAJourBadge() {
+            const badge = document.getElementById('panier-compteur');
+            if (badge) {
+                const total = panier.reduce((sum, item) => sum + (item.quantite || 1), 0);
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // ============================================================
+        // 3. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+            
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 4. RENDU PANIER
+        // ============================================================
+        function render() {
+            const container = document.getElementById('panier-items');
+            const recapSubtotal = document.getElementById('recap-subtotal');
+            const recapLivraison = document.getElementById('recap-livraison');
+            const recapReduction = document.getElementById('recap-reduction');
+            const recapTotal = document.getElementById('recap-total');
+            const btnCheckout = document.getElementById('btn-checkout');
+
+            if (panier.length === 0) {
+                container.innerHTML = `
+                            <div class="panier-vide">
+                                <div class="empty-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div>
+                                <h3>سلتك فارغة</h3>
+                                <p>لم تقم بإضافة أي منتجات بعد. اكتشف مجموعتنا وابدا التسوق!</p>
+                                <a href="/pages/produits.html" class="btn btn-principal">اكتشف المجموعات</a>
+                            </div>
+                        `;
+                recapSubtotal.textContent = '0 درهم';
+                recapLivraison.textContent = '0 درهم';
+                recapReduction.textContent = '0 درهم';
+                recapTotal.textContent = '0 درهم';
+                btnCheckout.style.display = 'none';
+                return;
+            }
+
+            btnCheckout.style.display = 'block';
+
+            // Calcul des totaux
+            let subtotal = 0;
+            let totalItems = 0;
+
+            // Header
+            let html = `
+                        <div class="panier-header">
+                            <span>المنتج</span>
+                            <span>السعر</span>
+                            <span>الكمية</span>
+                            <span>المجموع</span>
+                            <span></span>
+                        </div>
+                    `;
+
+            // Items
+            panier.forEach((item, index) => {
+                const itemTotal = item.prix * (item.quantite || 1);
+                subtotal += itemTotal;
+                totalItems += item.quantite || 1;
+
+                html += `
+                            <div class="panier-item" data-index="${index}">
+                                <div class="item-info">
+                                    <div class="item-image">${item.icon || '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>'}</div>
+                                    <div class="item-details">
+                                        <h4>${item.nom}</h4>
+                                        <div class="item-categorie">${item.categorie || 'أثاث'}</div>
+                                        <button class="item-remove" data-index="${index}"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg> حذف</button>
+                                    </div>
+                                </div>
+                                <div class="item-price">${item.prix.toLocaleString()} درهم</div>
+                                <div class="item-quantity">
+                                    <button class="qty-minus" data-index="${index}">−</button>
+                                    <input type="number" class="qty-input" data-index="${index}" value="${item.quantite || 1}" min="1" max="99" />
+                                    <button class="qty-plus" data-index="${index}">+</button>
+                                </div>
+                                <div class="item-subtotal">${itemTotal.toLocaleString()} درهم</div>
+                                <div class="item-actions">
+                                    <button class="btn-remove" data-index="${index}" aria-label="حذف المنتج">✕</button>
+                                </div>
+                            </div>
+                        `;
+            });
+
+            container.innerHTML = html;
+
+            // Événements
+            container.querySelectorAll('.qty-minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index);
+                    const input = this.parentElement.querySelector('.qty-input');
+                    let val = parseInt(input.value) || 1;
+                    if (val > 1) {
+                        input.value = val - 1;
+                        updateQuantity(idx, val - 1);
+                    }
+                });
+            });
+
+            container.querySelectorAll('.qty-plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index);
+                    const input = this.parentElement.querySelector('.qty-input');
+                    let val = parseInt(input.value) || 1;
+                    if (val < 99) {
+                        input.value = val + 1;
+                        updateQuantity(idx, val + 1);
+                    }
+                });
+            });
+
+            container.querySelectorAll('.qty-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const idx = parseInt(this.dataset.index);
+                    let val = parseInt(this.value) || 1;
+                    if (val < 1) val = 1;
+                    if (val > 99) val = 99;
+                    this.value = val;
+                    updateQuantity(idx, val);
+                });
+            });
+
+            container.querySelectorAll('.item-remove, .btn-remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index);
+                    removeItem(idx);
+                });
+            });
+
+            // Mise à jour du récapitulatif
+            const livraison = subtotal > 0 ? (subtotal >= 2500 ? 0 : 150) : 0;
+            const total = subtotal - reduction + livraison;
+
+            recapSubtotal.textContent = subtotal.toLocaleString() + ' درهم';
+            recapLivraison.textContent = livraison === 0 ? 'مجاني' : livraison.toLocaleString() + ' درهم';
+            recapReduction.textContent = reduction > 0 ? '-' + reduction.toLocaleString() + ' درهم' : '0 درهم';
+            recapTotal.textContent = total.toLocaleString() + ' درهم';
+
+            // Désactiver le bouton checkout si panier vide
+            if (panier.length === 0) {
+                btnCheckout.style.display = 'none';
+            }
+        }
+
+        // ============================================================
+        // 5. FONCTIONS PANIER
+        // ============================================================
+        function updateQuantity(index, quantity) {
+            if (index >= 0 && index < panier.length) {
+                panier[index].quantite = quantity;
+                sauvegarderPanier();
+            }
+        }
+
+        function removeItem(index) {
+            if (index >= 0 && index < panier.length) {
+                const nom = panier[index].nom;
+                panier.splice(index, 1);
+                sauvegarderPanier();
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg> تم حذف "' + nom + '" من السلة');
+                if (panier.length === 0) {
+                    document.getElementById('recap-total').textContent = '0 درهم';
+                }
+            }
+        }
+
+        function viderPanier() {
+            if (panier.length === 0) return;
+            if (confirm('هل أنت متأكد من رغبتك في إفراغ السلة بالكامل؟')) {
+                panier = [];
+                sauvegarderPanier();
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg> تم إفراغ السلة');
+            }
+        }
+
+        // ============================================================
+        // 6. CODE PROMO
+        // ============================================================
+        function applyCodePromo() {
+            const input = document.getElementById('code-promo');
+            const message = document.getElementById('code-message');
+            const code = input.value.trim().toUpperCase();
+
+            if (!code) {
+                message.textContent = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 3L2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg> الرجاء إدخال رمز الخصم';
+                message.style.color = 'var(--couleur-erreur)';
+                return;
+            }
+
+            // Codes promo simulés
+            const promoCodes = {
+                'DAR10': { reduction: 0.10, message: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> خصم 10% على طلبك' },
+                'DAR20': { reduction: 0.20, message: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> خصم 20% على طلبك' },
+                'FREE': { reduction: 0, message: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> توصيل مجاني', freeShipping: true }
+            };
+
+            if (promoCodes[code]) {
+                const promo = promoCodes[code];
+                if (promo.freeShipping) {
+                    // Livraison gratuite déjà gérée
+                    message.textContent = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> توصيل مجاني مفعل';
+                    message.style.color = 'var(--couleur-succes)';
+                    reduction = 0;
+                } else {
+                    const subtotal = panier.reduce((sum, item) => sum + item.prix * (item.quantite || 1), 0);
+                    reduction = subtotal * promo.reduction;
+                    message.textContent = promo.message + ' (تم خصم ' + reduction.toLocaleString() + ' درهم)';
+                    message.style.color = 'var(--couleur-succes)';
+                }
+                input.value = '';
+                render();
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 20l4-11 11 4-11 7Z"/><path d="M14 4l1.5 1.5M17 8l2 1M11 3l1 2"/></svg> ' + message.textContent);
+            } else {
+                message.textContent = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg> رمز خصم غير صحيح';
+                message.style.color = 'var(--couleur-erreur)';
+                reduction = 0;
+                render();
+            }
+        }
+
+        // ============================================================
+        // 7. UI (Menu mobile, Recherche, Header)
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            btnRecherche.addEventListener('click', function() {
+                barreRecherche.classList.toggle('active');
+                if (barreRecherche.classList.contains('active')) {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = document.getElementById('search-input').value.trim();
+                if (query) {
+                    window.location.href = '/pages/produits.html?q=' + encodeURIComponent(query);
+                }
+                barreRecherche.classList.remove('active');
+            });
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Code promo
+            document.getElementById('btn-apply-code').addEventListener('click', applyCodePromo);
+            document.getElementById('code-promo').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') applyCodePromo();
+            });
+
+            // Vider panier (bouton caché mais accessible)
+            // On peut ajouter un bouton "Vider le panier" si besoin
+        }
+
+        // ============================================================
+        // 8. INITIALISATION
+        // ============================================================
+        function init() {
+            chargerPanier();
+            render();
+            initUI();
+            console.log('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg> Page Panier chargée — ' + panier.length + ' articles');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>

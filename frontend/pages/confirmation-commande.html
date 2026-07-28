@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تأكيد الطلب — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="تم تأكيد طلبك بنجاح في دار أثاث. شكراً لك على ثقتك." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="تأكيد الطلب — دار أثاث" />
+    <meta property="og:description" content="تم تأكيد طلبك بنجاح في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/confirmation-commande.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Confirmation
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #16130F;
+            --couleur-blanc: #211C16;
+            --couleur-accent-principal: #C6A15B;
+            --couleur-accent-secondaire: #93A67F;
+            --couleur-texte-principal: #F2ECDF;
+            --couleur-texte-secondaire: #A69C8C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #3A322A;
+            --couleur-action: #C6A15B;
+            --couleur-action-hover: #A9853F;
+            --couleur-succes: #7C9473;
+            --couleur-erreur: #C4695A;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        .btn-lg { padding: 18px 48px; font-size: 17px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE OVERLAY ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ============================================================
+           PAGE CONFIRMATION
+           ============================================================ */
+        .page-confirmation {
+            padding: var(--espace-md) 0 var(--espace-xl);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .confirmation-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-xl);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: var(--ombre-moyenne);
+        }
+        .confirmation-card .success-icon {
+            font-size: 5rem;
+            margin-bottom: var(--espace-md);
+            display: block;
+            animation: bounce 1s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .confirmation-card h1 {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            color: var(--couleur-succes);
+            margin-bottom: var(--espace-sm);
+        }
+        .confirmation-card .subtitle {
+            color: var(--couleur-texte-secondaire);
+            font-size: 16px;
+            margin-bottom: var(--espace-md);
+        }
+        
+        .confirmation-card .order-number {
+            background: var(--couleur-fond);
+            padding: var(--espace-sm) var(--espace-md);
+            border-radius: var(--rayon-md);
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+            margin-bottom: var(--espace-md);
+            border: 1px solid var(--couleur-bordure);
+        }
+        .confirmation-card .order-number span {
+            font-weight: 400;
+            color: var(--couleur-texte-secondaire);
+        }
+        
+        /* ===== DÉTAILS COMMANDE ===== */
+        .order-details {
+            text-align: right;
+            margin: var(--espace-md) 0;
+            border-top: 1px solid var(--couleur-bordure);
+            border-bottom: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md) 0;
+        }
+        .order-details .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+        }
+        .order-details .detail-row .label {
+            color: var(--couleur-texte-secondaire);
+        }
+        .order-details .detail-row .value {
+            font-weight: 500;
+            color: var(--couleur-texte-principal);
+        }
+        
+        /* ===== ITEMS ===== */
+        .order-items {
+            margin: var(--espace-md) 0;
+            text-align: right;
+        }
+        .order-items h3 {
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            margin-bottom: var(--espace-sm);
+        }
+        .order-items .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            font-size: 14px;
+        }
+        .order-items .item:last-child { border-bottom: none; }
+        .order-items .item .item-info {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .order-items .item .item-info .item-icon {
+            font-size: 1.8rem;
+        }
+        .order-items .item .item-info .item-name {
+            font-weight: 500;
+        }
+        .order-items .item .item-info .item-qty {
+            color: var(--couleur-texte-secondaire);
+            font-size: 13px;
+        }
+        .order-items .item .item-price {
+            font-weight: 600;
+            color: var(--couleur-accent-principal);
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--espace-sm) 0;
+            font-size: 18px;
+            font-weight: 700;
+            border-top: 2px solid var(--couleur-bordure);
+            margin-top: var(--espace-sm);
+        }
+        .order-total .total-amount {
+            color: var(--couleur-accent-principal);
+        }
+        
+        .confirmation-card .actions {
+            display: flex;
+            gap: var(--espace-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--espace-md);
+        }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: var(--espace-xl);
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .confirmation-card { padding: var(--espace-md); }
+            .confirmation-card h1 { font-size: 24px; }
+            .order-items .item { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .order-items .item .item-price { align-self: flex-end; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .confirmation-card .actions { flex-direction: column; }
+            .confirmation-card .actions .btn { width: 100%; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            .confirmation-card .success-icon { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></svg></button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE CONFIRMATION
+============================================================ -->
+<main role="main" class="page-confirmation">
+    <div class="container">
+        <div class="confirmation-card" id="confirmation-card">
+            <span class="success-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg></span>
+            <h1>تم تأكيد طلبك بنجاح!</h1>
+            <p class="subtitle">شكراً لك على ثقتك بدار أثاث. سنقوم بتجهيز طلبك في أقرب وقت.</p>
+
+            <div class="order-number" id="order-number">
+                <span>رقم الطلب:</span> <span id="order-number-value">---</span>
+            </div>
+
+            <!-- Détails -->
+            <div class="order-details" id="order-details">
+                <div class="detail-row">
+                    <span class="label">تاريخ الطلب</span>
+                    <span class="value" id="order-date">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">طريقة الدفع</span>
+                    <span class="value" id="order-paiement">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">عنوان التوصيل</span>
+                    <span class="value" id="order-adresse">---</span>
+                </div>
+            </div>
+
+            <!-- Items -->
+            <div class="order-items" id="order-items">
+                <h3>المنتجات</h3>
+                <div id="items-list">
+                    <!-- Généré dynamiquement -->
+                </div>
+                <div class="order-total">
+                    <span>المجموع الكلي</span>
+                    <span class="total-amount" id="order-total">---</span>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <a href="/index.html" class="btn btn-principal"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 21V11L13 4L22 11V21"/><path d="M9 21V14H17V21"/></svg> العودة إلى الرئيسية</a>
+                <a href="/pages/produits.html" class="btn btn-secondaire"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg> مواصلة التسوق</a>
+                <a href="/pages/mes-commandes.html" class="btn btn-secondaire"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="6" y="4" width="12" height="17" rx="1.5"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M9 11h6M9 15h6"/></svg> تتبع طلباتي</a>
+            </div>
+
+            <p style="margin-top:var(--espace-md);font-size:14px;color:var(--couleur-texte-secondaire);">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg> تم إرسال تأكيد الطلب إلى بريدك الإلكتروني
+            </p>
+        </div>
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.2"/></svg></a>
+                <a href="#" aria-label="فيسبوك"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-1.5 6a2 2 0 0 1-2 1.5H7"/></svg></a>
+                <a href="#" aria-label="بينتريست"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10s-5-6.5-5-10a5 5 0 0 1 5-5Z"/><circle cx="12" cy="7" r="1.8"/></svg></a>
+                <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Confirmation
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. RÉCUPÉRATION DES DONNÉES
+        // ============================================================
+        let commandeData = null;
+
+        function getCommandeData() {
+            try {
+                const saved = localStorage.getItem('dar_athath_derniere_commande');
+                if (saved) {
+                    commandeData = JSON.parse(saved);
+                    return true;
+                }
+                return false;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // ============================================================
+        // 2. AFFICHAGE
+        // ============================================================
+        function renderConfirmation() {
+            if (!commandeData) {
+                // Rediriger vers la page d'accueil si pas de données
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 3L2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg> aucune commande à afficher. Redirection...', 'error');
+                setTimeout(() => {
+                    window.location.href = '/index.html';
+                }, 1500);
+                return;
+            }
+
+            // Numéro de commande
+            document.getElementById('order-number-value').textContent = commandeData.numero || '---';
+
+            // Date
+            document.getElementById('order-date').textContent = commandeData.date + ' - ' + (commandeData.heure || '');
+
+            // Paiement
+            document.getElementById('order-paiement').textContent = commandeData.paiementLabel || commandeData.paiement || '---';
+
+            // Adresse
+            const adresse = [commandeData.adresse, commandeData.ville].filter(Boolean).join('، ');
+            document.getElementById('order-adresse').textContent = adresse || '---';
+
+            // Items
+            const itemsList = document.getElementById('items-list');
+            if (commandeData.items && commandeData.items.length > 0) {
+                itemsList.innerHTML = commandeData.items.map(item => `
+                            <div class="item">
+                                <div class="item-info">
+                                    <span class="item-icon">${item.icon || '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>'}</span>
+                                    <span class="item-name">${item.nom}</span>
+                                    <span class="item-qty">× ${item.quantite || 1}</span>
+                                </div>
+                                <span class="item-price">${(item.prix * (item.quantite || 1)).toLocaleString()} درهم</span>
+                            </div>
+                        `).join('');
+            } else {
+                itemsList.innerHTML = '<p style="color:var(--couleur-texte-secondaire);">لا توجد منتجات</p>';
+            }
+
+            // Total
+            document.getElementById('order-total').textContent = (commandeData.total || 0).toLocaleString() + ' درهم';
+
+            // Mettre à jour le titre
+            document.title = 'تأكيد الطلب #' + (commandeData.numero || '') + ' — دار أثاث';
+        }
+
+        // ============================================================
+        // 3. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+            
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 4. UI (Menu mobile, Recherche)
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            if (btnRecherche && barreRecherche) {
+                btnRecherche.addEventListener('click', function() {
+                    barreRecherche.classList.toggle('active');
+                    if (barreRecherche.classList.contains('active')) {
+                        document.getElementById('search-input')?.focus();
+                    }
+                });
+
+                document.getElementById('search-form')?.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const query = document.getElementById('search-input')?.value.trim();
+                    if (query) {
+                        window.location.href = '/pages/produits.html?q=' + encodeURIComponent(query);
+                    }
+                    barreRecherche.classList.remove('active');
+                });
+            }
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Badge panier
+            function updateBadge() {
+                const badge = document.getElementById('panier-compteur');
+                if (badge) {
+                    const saved = JSON.parse(localStorage.getItem('dar_athath_panier') || '[]');
+                    const total = saved.reduce((sum, item) => sum + (item.quantite || 1), 0);
+                    badge.textContent = total;
+                    badge.style.display = total > 0 ? 'flex' : 'none';
+                }
+            }
+            updateBadge();
+
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'dar_athath_panier') updateBadge();
+            });
+        }
+
+        // ============================================================
+        // 5. INITIALISATION
+        // ============================================================
+        function init() {
+            if (!getCommandeData()) {
+                // Essayer de récupérer depuis l'historique des commandes
+                try {
+                    const historique = JSON.parse(localStorage.getItem('dar_athath_commandes') || '[]');
+                    if (historique.length > 0) {
+                        commandeData = historique[historique.length - 1];
+                    }
+                } catch (e) {}
+            }
+
+            renderConfirmation();
+            initUI();
+            console.log('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> Page Confirmation chargée — ' + (commandeData ? 'Commande #' + commandeData.numero : 'Aucune commande'));
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>

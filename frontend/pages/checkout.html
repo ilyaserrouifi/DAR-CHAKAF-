@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إتمام الطلب — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="أكمل طلبك في دار أثاث. أدخل معلومات الشحن واختر طريقة الدفع." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="إتمام الطلب — دار أثاث" />
+    <meta property="og:description" content="أكمل طلبك في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/checkout.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Checkout
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #16130F;
+            --couleur-blanc: #211C16;
+            --couleur-accent-principal: #C6A15B;
+            --couleur-accent-secondaire: #93A67F;
+            --couleur-texte-principal: #F2ECDF;
+            --couleur-texte-secondaire: #A69C8C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #3A322A;
+            --couleur-action: #C6A15B;
+            --couleur-action-hover: #A9853F;
+            --couleur-succes: #7C9473;
+            --couleur-erreur: #C4695A;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-principal:disabled {
+            background-color: #D9C9BE;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        .btn-lg { padding: 18px 48px; font-size: 17px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE OVERLAY ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a { color: var(--couleur-accent-principal); transition: color 0.3s ease; }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator { margin: 0 8px; color: var(--couleur-bordure); }
+        .breadcrumb .current { color: var(--couleur-texte-principal); font-weight: 500; }
+        
+        /* ============================================================
+           PAGE CHECKOUT
+           ============================================================ */
+        .page-checkout {
+            padding: var(--espace-md) 0 var(--espace-xl);
+        }
+        .page-title {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+        }
+        .page-subtitle {
+            color: var(--couleur-texte-secondaire);
+            font-size: 16px;
+            margin-bottom: var(--espace-md);
+        }
+        
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: var(--espace-lg);
+            align-items: start;
+        }
+        
+        /* ===== FORMULAIRE ===== */
+        .checkout-form {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md);
+        }
+        .checkout-form h3 {
+            font-family: var(--police-affichage);
+            font-size: 20px;
+            margin-bottom: var(--espace-md);
+            padding-bottom: var(--espace-sm);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .form-group {
+            margin-bottom: var(--espace-md);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: var(--couleur-texte-principal);
+        }
+        .form-group label .required {
+            color: var(--couleur-erreur);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 15px;
+            font-family: var(--police-texte);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+            color: var(--couleur-texte-principal);
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--couleur-erreur);
+        }
+        .form-group .error-message {
+            color: var(--couleur-erreur);
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+        .form-group .error-message.show {
+            display: block;
+        }
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-md);
+        }
+        
+        /* ===== MODES DE PAIEMENT ===== */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--espace-sm);
+            margin-top: var(--espace-xs);
+        }
+        .payment-method {
+            padding: var(--espace-sm);
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .payment-method:hover {
+            border-color: var(--couleur-accent-secondaire);
+        }
+        .payment-method.active {
+            border-color: var(--couleur-accent-principal);
+            background: rgba(92, 74, 58, 0.05);
+        }
+        .payment-method .pm-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .payment-method .pm-label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .payment-method input[type="radio"] {
+            display: none;
+        }
+        
+        /* ===== RÉCAPITULATIF (Sidebar) ===== */
+        .checkout-recap {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md);
+            position: sticky;
+            top: 90px;
+        }
+        .checkout-recap h3 {
+            font-family: var(--police-affichage);
+            font-size: 20px;
+            margin-bottom: var(--espace-md);
+            padding-bottom: var(--espace-sm);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .recap-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: var(--espace-md);
+        }
+        .recap-items::-webkit-scrollbar {
+            width: 4px;
+        }
+        .recap-items::-webkit-scrollbar-thumb {
+            background: var(--couleur-bordure);
+            border-radius: 2px;
+        }
+        .recap-item {
+            display: flex;
+            gap: var(--espace-sm);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            align-items: center;
+        }
+        .recap-item:last-child { border-bottom: none; }
+        .recap-item .ri-icon {
+            font-size: 1.8rem;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .recap-item .ri-info {
+            flex: 1;
+        }
+        .recap-item .ri-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .recap-item .ri-info .ri-meta {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .recap-item .ri-price {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--couleur-accent-principal);
+            white-space: nowrap;
+        }
+        
+        .recap-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 15px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .recap-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--couleur-texte-principal);
+            border-top: 2px solid var(--couleur-bordure);
+            margin-top: var(--espace-sm);
+            padding-top: var(--espace-sm);
+        }
+        .recap-row.total .amount {
+            color: var(--couleur-accent-principal);
+        }
+        .recap-row .amount {
+            font-weight: 600;
+            color: var(--couleur-texte-principal);
+        }
+        
+        .checkout-recap .btn {
+            width: 100%;
+            margin-top: var(--espace-md);
+        }
+        .checkout-recap .btn-secondary {
+            background: none;
+            border: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-secondaire);
+            margin-top: var(--espace-sm);
+        }
+        .checkout-recap .btn-secondary:hover {
+            border-color: var(--couleur-accent-principal);
+            color: var(--couleur-accent-principal);
+            background: none;
+        }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: var(--espace-xl);
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .checkout-layout { grid-template-columns: 1fr; }
+            .checkout-recap { position: relative; top: 0; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .form-row { grid-template-columns: 1fr; }
+            .payment-methods { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .page-title { font-size: 24px; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .checkout-form { padding: var(--espace-sm); }
+            .checkout-recap { padding: var(--espace-sm); }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></svg></button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div id="barre-recherche" class="barre-recherche" role="search">
+        <div class="container">
+            <form id="search-form">
+                <input type="search" id="search-input" placeholder="ابحث عن أثاث أحلامك..." aria-label="بحث عن منتج" />
+                <button type="submit">بحث</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+BREADCRUMB
+============================================================ -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span class="separator">›</span>
+        <a href="/pages/panier.html">سلة التسوق</a>
+        <span class="separator">›</span>
+        <span class="current">إتمام الطلب</span>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE CHECKOUT
+============================================================ -->
+<main role="main" class="page-checkout">
+    <div class="container">
+        <h1 class="page-title"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="6" y="4" width="12" height="17" rx="1.5"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M9 11h6M9 15h6"/></svg> إتمام الطلب</h1>
+        <p class="page-subtitle">أدخل معلومات الشحن واختر طريقة الدفع لإكمال طلبك.</p>
+
+        <div class="checkout-layout">
+
+            <!-- ===== FORMULAIRE ===== -->
+            <form class="checkout-form" id="checkout-form" novalidate>
+                <h3>معلومات الشحن</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">الاسم الكامل <span class="required">*</span></label>
+                        <input type="text" id="nom" placeholder="أحمد بن محمد" required />
+                        <div class="error-message" id="nom-error">الرجاء إدخال الاسم الكامل</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">رقم الهاتف <span class="required">*</span></label>
+                        <input type="tel" id="telephone" placeholder="0612345678" required />
+                        <div class="error-message" id="telephone-error">الرجاء إدخال رقم هاتف صحيح</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="adresse">العنوان <span class="required">*</span></label>
+                    <input type="text" id="adresse" placeholder="زنقة المدينة، حي السلام، رقم 12" required />
+                    <div class="error-message" id="adresse-error">الرجاء إدخال العنوان</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ville">المدينة <span class="required">*</span></label>
+                    <input type="text" id="ville" placeholder="مراكش" required />
+                    <div class="error-message" id="ville-error">الرجاء إدخال المدينة</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="notes" placeholder="أي تعليمات خاصة للتوصيل..."></textarea>
+                </div>
+
+                <h3 style="margin-top:var(--espace-lg);">طريقة الدفع</h3>
+
+                <div class="payment-methods" id="payment-methods">
+                    <label class="payment-method active" data-method="especes_a_la_livraison">
+                        <input type="radio" name="paiement" value="especes_a_la_livraison" checked />
+                        <span class="pm-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="10" rx="1.5"/><circle cx="12" cy="12" r="2.5"/></svg></span>
+                        <span class="pm-label">الدفع عند الاستلام</span>
+                    </label>
+                    <label class="payment-method" data-method="carte">
+                        <input type="radio" name="paiement" value="carte" />
+                        <span class="pm-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span>
+                        <span class="pm-label">بطاقة بنكية</span>
+                    </label>
+                    <label class="payment-method" data-method="virement">
+                        <input type="radio" name="paiement" value="virement" />
+                        <span class="pm-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 21h18"/><path d="M4 21V10l8-5 8 5v11"/><path d="M9 21v-8M15 21v-8"/></svg></span>
+                        <span class="pm-label">تحويل بنكي</span>
+                    </label>
+                </div>
+
+                <div style="margin-top:var(--espace-md);">
+                    <button type="submit" class="btn btn-principal btn-lg" id="btn-confirm-commande" style="width:100%;">
+                        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg> تأكيد الطلب
+                    </button>
+                </div>
+            </form>
+
+            <!-- ===== RÉCAPITULATIF ===== -->
+            <div class="checkout-recap" id="checkout-recap">
+                <h3><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 8l9-5 9 5-9 5-9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg> ملخص الطلب</h3>
+
+                <div class="recap-items" id="recap-items">
+                    <!-- Généré dynamiquement -->
+                </div>
+
+                <div class="recap-row">
+                    <span>المجموع الفرعي</span>
+                    <span class="amount" id="recap-subtotal">0 درهم</span>
+                </div>
+                <div class="recap-row">
+                    <span>التوصيل</span>
+                    <span class="amount" id="recap-livraison">0 درهم</span>
+                </div>
+                <div class="recap-row total">
+                    <span>المجموع الكلي</span>
+                    <span class="amount" id="recap-total">0 درهم</span>
+                </div>
+
+                <a href="/pages/panier.html" class="btn btn-secondary btn-sm" style="display:block;text-align:center;">
+                    ← العودة إلى السلة
+                </a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.2"/></svg></a>
+                <a href="#" aria-label="فيسبوك"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-1.5 6a2 2 0 0 1-2 1.5H7"/></svg></a>
+                <a href="#" aria-label="بينتريست"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10s-5-6.5-5-10a5 5 0 0 1 5-5Z"/><circle cx="12" cy="7" r="1.8"/></svg></a>
+                <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Checkout
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. DONNÉES (Panier depuis localStorage)
+        // ============================================================
+        let panier = [];
+
+        function chargerPanier() {
+            try {
+                const saved = localStorage.getItem('dar_athath_panier');
+                panier = saved ? JSON.parse(saved) : [];
+            } catch (e) {
+                panier = [];
+            }
+        }
+
+        // ============================================================
+        // 2. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+            
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 3. RENDU RÉCAPITULATIF
+        // ============================================================
+        function renderRecap() {
+            const container = document.getElementById('recap-items');
+            const subtotalEl = document.getElementById('recap-subtotal');
+            const livraisonEl = document.getElementById('recap-livraison');
+            const totalEl = document.getElementById('recap-total');
+
+            if (panier.length === 0) {
+                container.innerHTML = `
+                            <div style="text-align:center;padding:var(--espace-md);color:var(--couleur-texte-secondaire);">
+                                <div style="font-size:2rem;margin-bottom:8px;"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div>
+                                <p>سلتك فارغة</p>
+                            </div>
+                        `;
+                subtotalEl.textContent = '0 درهم';
+                livraisonEl.textContent = '0 درهم';
+                totalEl.textContent = '0 درهم';
+                document.getElementById('btn-confirm-commande').disabled = true;
+                return;
+            }
+
+            document.getElementById('btn-confirm-commande').disabled = false;
+
+            // Calcul des totaux
+            let subtotal = 0;
+            let html = '';
+
+            panier.forEach(item => {
+                const itemTotal = item.prix * (item.quantite || 1);
+                subtotal += itemTotal;
+                html += `
+                            <div class="recap-item">
+                                <div class="ri-icon">${item.icon || '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>'}</div>
+                                <div class="ri-info">
+                                    <h4>${item.nom}</h4>
+                                    <div class="ri-meta">الكمية: ${item.quantite || 1}</div>
+                                </div>
+                                <div class="ri-price">${itemTotal.toLocaleString()} درهم</div>
+                            </div>
+                        `;
+            });
+
+            container.innerHTML = html;
+
+            const livraison = subtotal > 0 ? (subtotal >= 2500 ? 0 : 150) : 0;
+            const total = subtotal + livraison;
+
+            subtotalEl.textContent = subtotal.toLocaleString() + ' درهم';
+            livraisonEl.textContent = livraison === 0 ? 'مجاني' : livraison.toLocaleString() + ' درهم';
+            totalEl.textContent = total.toLocaleString() + ' درهم';
+        }
+
+        // ============================================================
+        // 4. MÉTHODES DE PAIEMENT
+        // ============================================================
+        function initPaymentMethods() {
+            const methods = document.querySelectorAll('.payment-method');
+            methods.forEach(method => {
+                method.addEventListener('click', function() {
+                    methods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+                });
+            });
+        }
+
+        // ============================================================
+        // 5. VALIDATION FORMULAIRE
+        // ============================================================
+        function validateField(id, errorId, condition) {
+            const field = document.getElementById(id);
+            const error = document.getElementById(errorId);
+            if (!field) return true;
+            
+            const isValid = condition(field.value.trim());
+            field.classList.toggle('error', !isValid);
+            error.classList.toggle('show', !isValid);
+            return isValid;
+        }
+
+        function validateForm() {
+            const validations = [
+                { id: 'nom', errorId: 'nom-error', condition: (v) => v.length >= 3 },
+                { id: 'telephone', errorId: 'telephone-error', condition: (v) => /^[0-9]{10,}$/.test(v.replace(/\s/g, '')) },
+                { id: 'adresse', errorId: 'adresse-error', condition: (v) => v.length >= 5 },
+                { id: 'ville', errorId: 'ville-error', condition: (v) => v.length >= 3 }
+            ];
+
+            let allValid = true;
+            validations.forEach(({ id, errorId, condition }) => {
+                const valid = validateField(id, errorId, condition);
+                if (!valid) allValid = false;
+            });
+
+            return allValid;
+        }
+
+        // ============================================================
+        // 6. SOUMISSION FORMULAIRE
+        // ============================================================
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 3L2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg> الرجاء تصحيح الأخطاء في النموذج', 'error');
+                // Scroll to first error
+                const firstError = document.querySelector('.form-group input.error, .form-group textarea.error');
+                if (firstError) {
+                    firstError.focus();
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
+            if (panier.length === 0) {
+                showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg> سلتك فارغة. أضف منتجات قبل إتمام الطلب.', 'error');
+                return;
+            }
+
+            // Récupérer les données
+            const nom = document.getElementById('nom').value.trim();
+            const telephone = document.getElementById('telephone').value.trim();
+            const adresse = document.getElementById('adresse').value.trim();
+            const ville = document.getElementById('ville').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+            const paiement = document.querySelector('input[name="paiement"]:checked')?.value || 'especes_a_la_livraison';
+
+            const paiementLabels = {
+                'especes_a_la_livraison': 'الدفع عند الاستلام',
+                'carte': 'بطاقة بنكية',
+                'virement': 'تحويل بنكي'
+            };
+
+            // Générer un numéro de commande
+            const date = new Date();
+            const numCommande = `DA-${date.getFullYear()}${String(date.getMonth()+1).padStart(2,'0')}${String(date.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*1000)).padStart(3,'0')}`;
+
+            // Calculer le total
+            let subtotal = panier.reduce((sum, item) => sum + item.prix * (item.quantite || 1), 0);
+            const livraison = subtotal >= 2500 ? 0 : 150;
+            const total = subtotal + livraison;
+
+            // Données de la commande
+            const commandeData = {
+                numero: numCommande,
+                nom,
+                telephone,
+                adresse,
+                ville,
+                notes,
+                paiement,
+                paiementLabel: paiementLabels[paiement] || paiement,
+                items: panier,
+                subtotal,
+                livraison,
+                total,
+                date: date.toLocaleDateString('ar', { day: '2-digit', month: '2-digit', year: 'numeric' }),
+                heure: date.toLocaleTimeString('ar', { hour: '2-digit', minute: '2-digit' })
+            };
+
+            // Sauvegarder la commande dans localStorage
+            try {
+                const historique = JSON.parse(localStorage.getItem('dar_athath_commandes') || '[]');
+                historique.push({ ...commandeData, statut: 'en_attente' });
+                localStorage.setItem('dar_athath_commandes', JSON.stringify(historique));
+            } catch (e) {}
+
+            // Vider le panier
+            localStorage.removeItem('dar_athath_panier');
+
+            // Rediriger vers la page de confirmation avec les données
+            localStorage.setItem('dar_athath_derniere_commande', JSON.stringify(commandeData));
+
+            showToast('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 20l4-11 11 4-11 7Z"/><path d="M14 4l1.5 1.5M17 8l2 1M11 3l1 2"/></svg> تم تأكيد طلبك بنجاح! جاري التحويل...', 'success');
+            
+            setTimeout(() => {
+                window.location.href = '/pages/confirmation-commande.html';
+            }, 1000);
+        }
+
+        // ============================================================
+        // 7. UI (Menu mobile, Recherche, Header)
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            btnRecherche.addEventListener('click', function() {
+                barreRecherche.classList.toggle('active');
+                if (barreRecherche.classList.contains('active')) {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = document.getElementById('search-input').value.trim();
+                if (query) {
+                    window.location.href = '/pages/produits.html?q=' + encodeURIComponent(query);
+                }
+                barreRecherche.classList.remove('active');
+            });
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Validation en temps réel
+            ['nom', 'telephone', 'adresse', 'ville'].forEach(id => {
+                const field = document.getElementById(id);
+                if (field) {
+                    field.addEventListener('blur', function() {
+                        const errorId = id + '-error';
+                        const conditions = {
+                            'nom': (v) => v.length >= 3,
+                            'telephone': (v) => /^[0-9]{10,}$/.test(v.replace(/\s/g, '')),
+                            'adresse': (v) => v.length >= 5,
+                            'ville': (v) => v.length >= 3
+                        };
+                        validateField(id, errorId, conditions[id]);
+                    });
+                    field.addEventListener('input', function() {
+                        const errorId = id + '-error';
+                        const conditions = {
+                            'nom': (v) => v.length >= 3,
+                            'telephone': (v) => /^[0-9]{10,}$/.test(v.replace(/\s/g, '')),
+                            'adresse': (v) => v.length >= 5,
+                            'ville': (v) => v.length >= 3
+                        };
+                        const isValid = conditions[id](this.value.trim());
+                        this.classList.toggle('error', !isValid && this.value.length > 0);
+                        document.getElementById(errorId).classList.toggle('show', !isValid && this.value.length > 0);
+                    });
+                }
+            });
+
+            // Badge panier
+            function updateBadge() {
+                const badge = document.getElementById('panier-compteur');
+                if (badge) {
+                    const saved = JSON.parse(localStorage.getItem('dar_athath_panier') || '[]');
+                    const total = saved.reduce((sum, item) => sum + (item.quantite || 1), 0);
+                    badge.textContent = total;
+                    badge.style.display = total > 0 ? 'flex' : 'none';
+                }
+            }
+            updateBadge();
+
+            // Écouter les changements de localStorage (pour mise à jour badge)
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'dar_athath_panier') {
+                    updateBadge();
+                }
+            });
+        }
+
+        // ============================================================
+        // 8. INITIALISATION
+        // ============================================================
+        function init() {
+            chargerPanier();
+            renderRecap();
+            initPaymentMethods();
+            initUI();
+
+            // Formulaire
+            document.getElementById('checkout-form').addEventListener('submit', handleSubmit);
+
+            console.log('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="6" y="4" width="12" height="17" rx="1.5"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M9 11h6M9 15h6"/></svg> Page Checkout chargée — ' + panier.length + ' articles');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>

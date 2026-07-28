@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> تسجيل الدخول — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="سجل دخولك لمتابعة طلباتك والاستفادة من عروض دار أثاث الحصرية." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="إنشاء حساب — دار أثاث" />
+    <meta property="og:description" content="أنشئ حسابك في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/connexion.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <!-- Mêmes styles que connexion.html + styles supplémentaires -->
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Contact
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #16130F;
+            --couleur-blanc: #211C16;
+            --couleur-accent-principal: #C6A15B;
+            --couleur-accent-secondaire: #93A67F;
+            --couleur-texte-principal: #F2ECDF;
+            --couleur-texte-secondaire: #A69C8C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #3A322A;
+            --couleur-action: #C6A15B;
+            --couleur-action-hover: #A9853F;
+            --couleur-succes: #7C9473;
+            --couleur-erreur: #C4695A;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-principal:disabled {
+            background-color: #D9C9BE;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BARRE DE RECHERCHE ===== */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+        .barre-recherche button:hover { background-color: #4a3b2e; }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a { color: var(--couleur-accent-principal); transition: color 0.3s ease; }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator { margin: 0 8px; color: var(--couleur-bordure); }
+        .breadcrumb .current { color: var(--couleur-texte-principal); font-weight: 500; }
+        
+        /* ============================================================
+           PAGE CONTACT
+           ============================================================ */
+        .page-contact {
+            padding: var(--espace-md) 0 var(--espace-xl);
+            flex: 1;
+        }
+        .page-title {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+        }
+        .page-subtitle {
+            color: var(--couleur-texte-secondaire);
+            font-size: 16px;
+            margin-bottom: var(--espace-md);
+        }
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-xl);
+            align-items: start;
+        }
+        
+        /* ===== FORMULAIRE ===== */
+        .contact-form {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md);
+        }
+        .contact-form h3 {
+            font-family: var(--police-affichage);
+            font-size: 22px;
+            margin-bottom: var(--espace-sm);
+            padding-bottom: var(--espace-sm);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .contact-form .form-group {
+            margin-bottom: var(--espace-md);
+        }
+        .contact-form .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: var(--couleur-texte-principal);
+        }
+        .contact-form .form-group label .required {
+            color: var(--couleur-erreur);
+        }
+        .contact-form .form-group input,
+        .contact-form .form-group textarea,
+        .contact-form .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 15px;
+            font-family: var(--police-texte);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+            color: var(--couleur-texte-principal);
+            outline: none;
+        }
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus,
+        .contact-form .form-group select:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .contact-form .form-group input.error,
+        .contact-form .form-group textarea.error {
+            border-color: var(--couleur-erreur);
+        }
+        .contact-form .form-group .error-message {
+            color: var(--couleur-erreur);
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+        .contact-form .form-group .error-message.show {
+            display: block;
+        }
+        .contact-form .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-md);
+        }
+        .contact-form .btn { width: 100%; }
+        
+        /* ===== INFOS CONTACT ===== */
+        .contact-infos {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espace-md);
+        }
+        .contact-infos .info-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+            padding: var(--espace-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-infos .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .contact-infos .info-card .info-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: var(--espace-xs);
+        }
+        .contact-infos .info-card h4 {
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .contact-infos .info-card p {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            line-height: 1.7;
+        }
+        .contact-infos .info-card a {
+            color: var(--couleur-accent-principal);
+            font-weight: 500;
+        }
+        .contact-infos .info-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ===== MAP ===== */
+        .map-container {
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            border: 1px solid var(--couleur-bordure);
+            margin-top: var(--espace-md);
+        }
+        .map-container .map-placeholder {
+            background: var(--couleur-fond);
+            padding: var(--espace-xl);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-container .map-placeholder .map-icon {
+            font-size: 4rem;
+            margin-bottom: var(--espace-sm);
+            display: block;
+        }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: auto;
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .contact-layout { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .page-title { font-size: 24px; }
+            .contact-form .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .contact-form { padding: var(--espace-sm); }
+            .contact-infos .info-card { padding: var(--espace-sm); }
+            .map-container .map-placeholder { min-height: 150px; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        /* ============================================================
+           PAGE AUTH — Connexion / Inscription
+           ============================================================ */
+        .page-auth {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--espace-xxl) 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(198,161,91,0.07), transparent 60%);
+        }
+        .auth-card {
+            background: var(--couleur-blanc);
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-lg, 12px);
+            padding: var(--espace-xl) var(--espace-lg);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+        }
+        .auth-header { text-align: center; margin-bottom: var(--espace-lg); }
+        .auth-icon {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 52px; height: 52px; border-radius: 50%;
+            background: rgba(198,161,91,0.12);
+            color: var(--couleur-accent-principal);
+            font-size: 22px; margin-bottom: var(--espace-sm);
+        }
+        .auth-header h1 {
+            font-family: var(--police-affichage);
+            font-size: 26px; font-weight: 500;
+            color: var(--couleur-texte-principal);
+            margin-bottom: 6px;
+        }
+        .auth-header p { font-size: 14px; color: var(--couleur-texte-secondaire); }
+
+        .auth-card .form-group { margin-bottom: var(--espace-md); }
+        .auth-card label {
+            display: block; font-size: 13px; margin-bottom: 6px;
+            color: var(--couleur-texte-principal);
+        }
+        .auth-card input[type="text"],
+        .auth-card input[type="email"],
+        .auth-card input[type="tel"],
+        .auth-card input[type="password"] {
+            width: 100%;
+            background: var(--couleur-fond);
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm, 4px);
+            padding: 12px 14px;
+            font-size: 14px;
+            color: var(--couleur-texte-principal);
+            font-family: var(--police-texte);
+        }
+        .auth-card input:focus {
+            outline: none;
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(198,161,91,0.15);
+        }
+        .auth-card .password-toggle { position: relative; }
+        .auth-card .password-toggle .toggle-btn {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; cursor: pointer;
+            color: var(--couleur-texte-secondaire);
+        }
+        .auth-card .error-message {
+            display: none;
+            font-size: 12px; color: var(--couleur-erreur);
+            margin-top: 4px;
+        }
+        .auth-card .form-group.error input { border-color: var(--couleur-erreur); }
+        .auth-card .form-group.error .error-message { display: block; }
+
+        .auth-card .champ-options {
+            display: flex; align-items: center; justify-content: space-between;
+            font-size: 13px; margin-bottom: var(--espace-md);
+        }
+        .auth-card .champ-options a { color: var(--couleur-accent-principal); }
+        .auth-card .champ-options a:hover { text-decoration: underline; }
+
+        .btn-lg { width: 100%; padding: 14px; font-size: 14px; }
+
+        .social-login { text-align: center; margin-top: var(--espace-lg); }
+        .social-login p {
+            font-size: 12px; color: var(--couleur-texte-secondaire);
+            margin-bottom: var(--espace-sm); position: relative;
+        }
+        .social-login p::before, .social-login p::after {
+            content: ""; display: inline-block; width: 60px; height: 1px;
+            background: var(--couleur-bordure); vertical-align: middle; margin: 0 10px;
+        }
+        .social-buttons { display: flex; justify-content: center; gap: 12px; }
+        .btn-social {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: 1px solid var(--couleur-bordure);
+            background: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: border-color 0.25s ease;
+        }
+        .btn-social:hover { border-color: var(--couleur-accent-principal); }
+
+        .auth-footer {
+            text-align: center; margin-top: var(--espace-lg);
+            font-size: 14px; color: var(--couleur-texte-secondaire);
+        }
+        .auth-footer a { color: var(--couleur-accent-principal); font-weight: 500; }
+        .auth-footer a:hover { text-decoration: underline; }
+        .auth-card .password-strength {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .auth-card .password-strength .strength-bar {
+            display: flex;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .auth-card .password-strength .strength-bar span {
+            height: 4px;
+            flex: 1;
+            border-radius: 2px;
+            background: var(--couleur-bordure);
+            transition: background 0.3s ease;
+        }
+        .auth-card .password-strength .strength-bar span.active.weak { background: var(--couleur-erreur); }
+        .auth-card .password-strength .strength-bar span.active.medium { background: #f5a623; }
+        .auth-card .password-strength .strength-bar span.active.strong { background: var(--couleur-succes); }
+        .auth-card .password-strength .strength-text {
+            margin-top: 2px;
+            font-size: 12px;
+        }
+        .auth-card .password-strength .strength-text.weak { color: var(--couleur-erreur); }
+        .auth-card .password-strength .strength-text.medium { color: #f5a623; }
+        .auth-card .password-strength .strength-text.strong { color: var(--couleur-succes); }
+        
+        .auth-card .terms {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin: var(--espace-sm) 0 var(--espace-md);
+        }
+        .auth-card .terms a {
+            color: var(--couleur-accent-principal);
+            font-weight: 500;
+        }
+        .auth-card .terms a:hover { text-decoration: underline; }
+        .auth-card .terms input[type="checkbox"] {
+            accent-color: var(--couleur-accent-principal);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+        
+        .auth-card .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-md);
+        }
+        
+        @media (max-width: 480px) {
+            .auth-card .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER (identique à connexion.html) ===== -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></svg></button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte active" aria-label="حسابي"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MENU MOBILE (identique) ===== -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html" class="active">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE INSCRIPTION
+============================================================ -->
+<main role="main" class="page-auth">
+    <div class="container" style="max-width:480px;width:100%;padding:0;">
+        <div class="auth-card">
+            <div class="auth-header">
+                <span class="auth-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+                <h1>تسجيل الدخول</h1>
+                <p>مرحبا بعودتك إلى دار أثاث</p>
+            </div>
+
+            <form id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="example@email.com" required />
+                    <div class="error-message" id="email-error">الرجاء إدخال بريد إلكتروني صحيح</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور <span class="required">*</span></label>
+                    <div class="password-toggle">
+                        <input type="password" id="password" placeholder="••••••••" required minlength="6" />
+                        <button type="button" class="toggle-btn" id="toggle-password" aria-label="إظهار/إخفاء كلمة المرور">
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <div class="error-message" id="password-error">كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل</div>
+                </div>
+
+                <div class="champ-options">
+                    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                        <input type="checkbox" id="remember" style="accent-color:var(--couleur-accent-principal);width:15px;height:15px;" />
+                        تذكرني
+                    </label>
+                    <a href="#">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn btn-principal btn-lg">تسجيل الدخول</button>
+            </form>
+
+            <div class="social-login">
+                <p>أو سجل الدخول بواسطة</p>
+                <div class="social-buttons">
+                    <button class="btn-social" aria-label="Google"><span style="font-size:0.7em;font-weight:700;">G</span></button>
+                    <button class="btn-social" aria-label="Facebook"><span style="font-size:0.7em;font-weight:700;">f</span></button>
+                    <button class="btn-social" aria-label="Apple">
+                        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="none"><path d="M16.5 3c.3 1.7-.4 3.4-1.5 4.5-1.2 1.2-2.9 1.8-4.5 1.5.3-1.7 1.1-3.3 2.4-4.5C14.2 3.3 15.9 2.7 16.5 3Z"/><path d="M18 20.5c-1 1-2.2 1.5-3.5 1.5-1.1 0-1.9-.5-3-.5-1.1 0-2 .5-3 .5-1.3 0-2.6-1.1-3.5-2.5C3.5 17 3 14.8 3.5 12.7c.5-2 2-3.7 4-3.7 1.1 0 1.9.6 3 .6 1 0 2-.6 3.2-.6.8 0 2.6.3 3.8 2.1-3.3 2-2.8 6.6.5 8.1-.3.6-.6 1-1 1.3Z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                ليس لديك حساب؟ <a href="/pages/inscription.html">أنشئ حسابا جديدا</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.2"/></svg></a>
+                <a href="#" aria-label="فيسبوك"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-1.5 6a2 2 0 0 1-2 1.5H7"/></svg></a>
+                <a href="#" aria-label="بينتريست"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10s-5-6.5-5-10a5 5 0 0 1 5-5Z"/><circle cx="12" cy="7" r="1.8"/></svg></a>
+                <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Connexion
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 2. AFFICHER / MASQUER LE MOT DE PASSE
+        // ============================================================
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        if (togglePassword && passwordInput) {
+            togglePassword.addEventListener('click', function() {
+                const isHidden = passwordInput.type === 'password';
+                passwordInput.type = isHidden ? 'text' : 'password';
+            });
+        }
+
+        // ============================================================
+        // 3. VALIDATION
+        // ============================================================
+        function validateForm() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            let valid = true;
+
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            document.getElementById('email').closest('.form-group').classList.toggle('error', !emailValid);
+            document.getElementById('email-error').classList.toggle('show', !emailValid);
+            if (!emailValid) valid = false;
+
+            const passwordValid = password.length >= 6;
+            document.getElementById('password').closest('.form-group').classList.toggle('error', !passwordValid);
+            document.getElementById('password-error').classList.toggle('show', !passwordValid);
+            if (!passwordValid) valid = false;
+
+            return valid;
+        }
+
+        // ============================================================
+        // 4. CONNEXION
+        // ============================================================
+        function handleLogin(e) {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                showToast('الرجاء تصحيح الأخطاء في النموذج', 'error');
+                return;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // ------------------------------------------------------------
+            // ⚠️ TODO (backend) : remplacer cette simulation par un vrai
+            // appel à l'API : POST /api/auth/login  { email, mot_de_passe }
+            // et stocker le token JWT retourné par le serveur.
+            // ------------------------------------------------------------
+            if (email && password.length >= 6) {
+                localStorage.setItem('dar_athath_token', 'demo-token');
+                localStorage.setItem('dar_athath_utilisateur', JSON.stringify({ email }));
+                showToast('تم تسجيل الدخول بنجاح، مرحبا بك من جديد', 'success');
+                setTimeout(() => { window.location.href = '/pages/mon-compte.html'; }, 1200);
+            } else {
+                showToast('البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
+            }
+        }
+
+        const form = document.getElementById('login-form');
+        if (form) form.addEventListener('submit', handleLogin);
+
+        // ============================================================
+        // 5. MENU MOBILE (identique au reste du site)
+        // ============================================================
+        const btnMenu = document.getElementById('btn-menu-mobile');
+        const menuOverlay = document.getElementById('menu-mobile-overlay');
+        const btnFermerMenu = document.getElementById('btn-fermer-menu');
+        if (btnMenu && menuOverlay) {
+            btnMenu.addEventListener('click', () => menuOverlay.classList.add('active'));
+            btnFermerMenu?.addEventListener('click', () => menuOverlay.classList.remove('active'));
+        }
+
+        // ============================================================
+        // 6. COMPTEUR PANIER (identique au reste du site)
+        // ============================================================
+        try {
+            const panier = JSON.parse(localStorage.getItem('dar_athath_panier') || '[]');
+            const compteur = document.getElementById('panier-compteur');
+            if (compteur) {
+                compteur.textContent = panier.reduce((n, item) => n + (item.quantite || 1), 0);
+            }
+        } catch (e) { /* panier vide ou invalide */ }
+
+    })();
+</script>
+</body>
+</html>

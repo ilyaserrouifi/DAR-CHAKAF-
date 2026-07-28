@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تفاصيل القسم — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="استكشف تفاصيل القسم في دار أثاث. اكتشف المنتجات والتصاميم الفاخرة." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="تفاصيل القسم — دار أثاث" />
+    <meta property="og:description" content="استكشف تفاصيل القسم في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/categorie-detail.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Détail Catégorie
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #16130F;
+            --couleur-blanc: #211C16;
+            --couleur-accent-principal: #C6A15B;
+            --couleur-accent-secondaire: #93A67F;
+            --couleur-texte-principal: #F2ECDF;
+            --couleur-texte-secondaire: #A69C8C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #3A322A;
+            --couleur-action: #C6A15B;
+            --couleur-action-hover: #A9853F;
+            --couleur-succes: #7C9473;
+            --couleur-erreur: #C4695A;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BARRE DE RECHERCHE ===== */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+        .barre-recherche button:hover { background-color: #4a3b2e; }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a { color: var(--couleur-accent-principal); transition: color 0.3s ease; }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator { margin: 0 8px; color: var(--couleur-bordure); }
+        .breadcrumb .current { color: var(--couleur-texte-principal); font-weight: 500; }
+        
+        /* ============================================================
+           PAGE DÉTAIL CATÉGORIE
+           ============================================================ */
+        .page-categorie-detail {
+            padding: var(--espace-md) 0 var(--espace-xl);
+            flex: 1;
+        }
+        
+        /* ===== HEADER CATÉGORIE ===== */
+        .categorie-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-xl);
+            align-items: center;
+            margin-bottom: var(--espace-xl);
+            padding: var(--espace-lg);
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            border: 1px solid var(--couleur-bordure);
+        }
+        .categorie-header .cat-info .cat-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: var(--espace-xs);
+        }
+        .categorie-header .cat-info h1 {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: var(--espace-xs);
+        }
+        .categorie-header .cat-info .cat-count {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-bottom: var(--espace-sm);
+        }
+        .categorie-header .cat-info p {
+            color: var(--couleur-texte-secondaire);
+            line-height: 1.8;
+        }
+        .categorie-header .cat-image {
+            border-radius: var(--rayon-lg);
+            background: linear-gradient(135deg, var(--couleur-accent-principal), var(--couleur-accent-secondaire));
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--couleur-blanc);
+            opacity: 0.5;
+        }
+        
+        /* ===== SOUS-CATEGORIES ===== */
+        .sub-categories-section {
+            margin-bottom: var(--espace-xl);
+        }
+        .sub-categories-section h3 {
+            font-family: var(--police-affichage);
+            font-size: 22px;
+            margin-bottom: var(--espace-md);
+        }
+        .sub-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--espace-sm);
+        }
+        .sub-cat-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-md);
+            padding: var(--espace-md);
+            text-align: center;
+            border: 1px solid var(--couleur-bordure);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .sub-cat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ombre-moyenne);
+            border-color: var(--couleur-accent-principal);
+        }
+        .sub-cat-card .sub-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: var(--espace-xs);
+        }
+        .sub-cat-card .sub-name {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .sub-cat-card .sub-count {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+        }
+        
+        /* ===== PRODUITS ===== */
+        .produits-section h3 {
+            font-family: var(--police-affichage);
+            font-size: 22px;
+            margin-bottom: var(--espace-md);
+        }
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espace-md);
+        }
+        .product-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            border: 1px solid var(--couleur-bordure);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .product-card .product-image {
+            aspect-ratio: 4/5;
+            background: var(--couleur-fond);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .product-card .product-info {
+            padding: var(--espace-md);
+        }
+        .product-card .product-info h4 {
+            font-family: var(--police-affichage);
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .product-card .product-info .product-price {
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+            font-size: 16px;
+        }
+        .product-card .product-info .product-category {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .product-card .product-info .btn {
+            width: 100%;
+            margin-top: var(--espace-xs);
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: auto;
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .categorie-header { grid-template-columns: 1fr; }
+            .sub-categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .produits-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .categorie-header .cat-info h1 { font-size: 24px; }
+            .sub-categories-grid { grid-template-columns: 1fr 1fr; }
+            .produits-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .categorie-header { padding: var(--espace-sm); }
+            .sub-categories-grid { grid-template-columns: 1fr; }
+            .produits-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR & ACCESSIBILITY
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        :focus-visible { outline: 2px solid var(--couleur-accent-principal); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+        
+        .loading-placeholder {
+            text-align: center;
+            padding: var(--espace-xl);
+            color: var(--couleur-texte-secondaire);
+            font-size: 1.1rem;
+        }
+        .loading-placeholder::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html" class="active">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="11" cy="11" r="7"/><path d="M21 21L16.65 16.65"/></svg></button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html" class="active">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+BREADCRUMB
+============================================================ -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span class="separator">›</span>
+        <a href="/pages/categories.html">الأقسام</a>
+        <span class="separator">›</span>
+        <span class="current" id="breadcrumb-categorie">الصالون</span>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE DÉTAIL CATÉGORIE
+============================================================ -->
+<main role="main" class="page-categorie-detail">
+    <div class="container">
+
+        <!-- ===== HEADER CATÉGORIE ===== -->
+        <div class="categorie-header" id="categorie-header">
+            <div class="cat-info">
+                <span class="cat-icon" id="cat-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <h1 id="cat-name">الصالون</h1>
+                <div class="cat-count" id="cat-count">24 منتج</div>
+                <p id="cat-description">
+                    اكتشف مجموعتنا من الكنابات الفاخرة، الطاولات الأنيقة، وقطع الديكور التي تحول صالونك إلى فضاء من الراحة والأناقة.
+                </p>
+                <a href="/pages/produits.html?categorie=salon" class="btn btn-principal"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg> عرض جميع المنتجات</a>
+            </div>
+            <div class="cat-image">
+                <span id="cat-image-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+            </div>
+        </div>
+
+        <!-- ===== SOUS-CATEGORIES ===== -->
+        <div class="sub-categories-section" id="sub-categories-section">
+            <h3><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7Z"/></svg> الأقسام الفرعية</h3>
+            <div class="sub-categories-grid" id="sub-categories-grid">
+                <!-- Généré dynamiquement -->
+            </div>
+        </div>
+
+        <!-- ===== PRODUITS ===== -->
+        <div class="produits-section">
+            <h3><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg> منتجات هذا القسم</h3>
+            <div class="produits-grid" id="produits-grid">
+                <!-- Généré dynamiquement -->
+                <div class="loading-placeholder" style="grid-column:1/-1;">جاري تحميل المنتجات...</div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg></span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.2"/></svg></a>
+                <a href="#" aria-label="فيسبوك"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2l-1.5 6a2 2 0 0 1-2 1.5H7"/></svg></a>
+                <a href="#" aria-label="بينتريست"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 2a5 5 0 0 1 5 5c0 3.5-5 10-5 10s-5-6.5-5-10a5 5 0 0 1 5-5Z"/><circle cx="12" cy="7" r="1.8"/></svg></a>
+                <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Détail Catégorie
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. DONNÉES
+        // ============================================================
+        const categoriesData = {
+            'salon': {
+                id: 1,
+                nom: 'الصالون',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>',
+                description: 'اكتشف مجموعتنا من الكنابات الفاخرة، الطاولات الأنيقة، وقطع الديكور التي تحول صالونك إلى فضاء من الراحة والأناقة.',
+                count: 24,
+                subCategories: [
+                    { nom: 'كنابات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 8 },
+                    { nom: 'طاولات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v6M13 9v6M17 9v6"/></svg>', count: 6 },
+                    { nom: 'مكتبات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>', count: 5 },
+                    { nom: 'ديكور', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>', count: 5 }
+                ],
+                produits: [
+                    { id: 1, nom: 'كنبة 3 مقاعد من المخمل الأخضر', prix: 4500, icon: '<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#7C9473;"></span>', slug: 'canape-velours-vert' },
+                    { id: 2, nom: 'طاولة وسط من خشب الجوز الصلب', prix: 2850, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v6M13 9v6M17 9v6"/></svg>', slug: 'table-basse-noyer' },
+                    { id: 9, nom: 'كنبة زاوية قابلة للتحويل', prix: 6200, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', slug: 'canape-angle-convertible' },
+                    { id: 4, nom: 'خزانة 6 أدراج بأسلوب إسكندنافي', prix: 3200, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M9 8h.01M9 16h.01"/></svg>', slug: 'commode-6-tiroirs' }
+                ]
+            },
+            'chambre': {
+                id: 2,
+                nom: 'غرفة النوم',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 19v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 19v2M21 19v2"/><path d="M3 13V7a2 2 0 0 1 2-2h5v6"/></svg>',
+                description: 'أسرّة ملكية، خزائن أنيقة، وطاولات سرير بتصاميم تجمع بين الأناقة والوظيفة لنوم هادئ ومريح.',
+                count: 18,
+                subCategories: [
+                    { nom: 'أسرّة', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 19v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 19v2M21 19v2"/><path d="M3 13V7a2 2 0 0 1 2-2h5v6"/></svg>', count: 6 },
+                    { nom: 'خزائن', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M9 8h.01M9 16h.01"/></svg>', count: 5 },
+                    { nom: 'طاولات سرير', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 4 },
+                    { nom: 'مرايا', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>', count: 3 }
+                ],
+                produits: [
+                    { id: 3, nom: 'سرير مزدوج من الخشب الصلب', prix: 6750, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 19v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 19v2M21 19v2"/><path d="M3 13V7a2 2 0 0 1 2-2h5v6"/></svg>', slug: 'lit-bois-massif' },
+                    { id: 4, nom: 'خزانة 6 أدراج بأسلوب إسكندنافي', prix: 3200, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M9 8h.01M9 16h.01"/></svg>', slug: 'commode-6-tiroirs' },
+                    { id: 12, nom: 'طاولة سرير من الروطان', prix: 890, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', slug: 'table-chevet-rotin' }
+                ]
+            },
+            'cuisine': {
+                id: 3,
+                nom: 'المطبخ و الطعام',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><ellipse cx="12" cy="7" rx="9" ry="2.2"/><path d="M3 7v3.5c0 1.2 4 2.2 9 2.2s9-1 9-2.2V7"/><path d="M12 19V13M8 19h8"/></svg>',
+                description: 'طاولات طعام عائلية، كراسي مريحة، وبوفيهات أنيقة تجعل كل وجبة لحظة استثنائية.',
+                count: 15,
+                subCategories: [
+                    { nom: 'طاولات طعام', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><ellipse cx="12" cy="7" rx="9" ry="2.2"/><path d="M3 7v3.5c0 1.2 4 2.2 9 2.2s9-1 9-2.2V7"/><path d="M12 19V13M8 19h8"/></svg>', count: 4 },
+                    { nom: 'كراسي', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 5 },
+                    { nom: 'بوفيهات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M9 8h.01M9 16h.01"/></svg>', count: 3 },
+                    { nom: 'أرفف', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>', count: 3 }
+                ],
+                produits: [
+                    { id: 5, nom: 'طاولة طعام قابلة للتمديد من البلوط', prix: 5400, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><ellipse cx="12" cy="7" rx="9" ry="2.2"/><path d="M3 7v3.5c0 1.2 4 2.2 9 2.2s9-1 9-2.2V7"/><path d="M12 19V13M8 19h8"/></svg>', slug: 'table-manger-extensible' },
+                    { id: 11, nom: 'خزانة جانبية من خشب الجوز', prix: 3850, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M9 8h.01M9 16h.01"/></svg>', slug: 'buffet-rangement-bois' }
+                ]
+            },
+            'bureau': {
+                id: 4,
+                nom: 'المكتب',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>',
+                description: 'مكاتب عملية، كراسي مريحة، ومكتبات أنيقة لمساحة عمل تلهمك وتزيد من إنتاجيتك.',
+                count: 12,
+                subCategories: [
+                    { nom: 'مكاتب', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>', count: 4 },
+                    { nom: 'كراسي مكتب', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 3 },
+                    { nom: 'مكتبات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>', count: 3 },
+                    { nom: 'إضاءة', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.3 1 2.5h6c0-1.2.3-1.8 1-2.5A6 6 0 0 0 12 3Z"/></svg>', count: 2 }
+                ],
+                produits: [
+                    { id: 6, nom: 'مكتب عصري بسيط مع أدراج تخزين', prix: 2950, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14"/><path d="M6 3v18"/><path d="M6 17h12"/></svg>', slug: 'bureau-minimaliste' },
+                    { id: 10, nom: 'كرسي مكتب مريح من القماش الرمادي', prix: 1850, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', slug: 'chaise-bureau-ergonomique' }
+                ]
+            },
+            'decoration': {
+                id: 5,
+                nom: 'الديكور',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>',
+                description: 'مرايا، لوحات، نباتات، وإكسسوارات تضفي لمسة جمالية على كل زاوية في منزلك.',
+                count: 20,
+                subCategories: [
+                    { nom: 'مرايا', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>', count: 5 },
+                    { nom: 'لوحات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>', count: 5 },
+                    { nom: 'نباتات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 21c0-6 3-9 8-11-1 6-3 9-8 11Z"/><path d="M12 21c0-6-3-9-8-11 1 6 3 9 8 11Z"/></svg>', count: 5 },
+                    { nom: 'إكسسوارات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/></svg>', count: 5 }
+                ],
+                produits: [
+                    { id: 7, nom: 'مرواية دائرية من الروطان', prix: 790, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5L4 21"/></svg>', slug: 'miroir-rond-rotin' },
+                    { id: 8, nom: 'سجادة بربرية من الصوف', prix: 2800, icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>', slug: 'tapis-berbere-laine' }
+                ]
+            },
+            'exterieur': {
+                id: 6,
+                nom: 'الخارجي',
+                icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 21c0-6 3-9 8-11-1 6-3 9-8 11Z"/><path d="M12 21c0-6-3-9-8-11 1 6 3 9 8 11Z"/></svg>',
+                description: 'أثاث حدائق وشرفات أنيق يجمع بين المتانة والجمال لمساحاتك الخارجية.',
+                count: 8,
+                subCategories: [
+                    { nom: 'طاولات خارجية', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><ellipse cx="12" cy="7" rx="9" ry="2.2"/><path d="M3 7v3.5c0 1.2 4 2.2 9 2.2s9-1 9-2.2V7"/><path d="M12 19V13M8 19h8"/></svg>', count: 2 },
+                    { nom: 'كراسي', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 3 },
+                    { nom: 'مظلات', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/></svg>', count: 1 },
+                    { nom: 'أرائك', icon: '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M4 17v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M3 17h18v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2Z"/><path d="M6 11V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>', count: 2 }
+                ],
+                produits: []
+            }
+        };
+
+        // ============================================================
+        // 2. RENDU
+        // ============================================================
+        function getCategoryFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('slug') || 'salon';
+        }
+
+        function renderCategory(slug) {
+            const cat = categoriesData[slug];
+            if (!cat) {
+                window.location.href = '/pages/404.html';
+                return;
+            }
+
+            // Mettre à jour le titre
+            document.title = cat.nom + ' — دار أثاث | أثاث مغربي فاخر';
+            document.getElementById('breadcrumb-categorie').textContent = cat.nom;
+
+            // Header
+            document.getElementById('cat-icon').textContent = cat.icon;
+            document.getElementById('cat-name').textContent = cat.nom;
+            document.getElementById('cat-count').textContent = cat.count + ' منتج';
+            document.getElementById('cat-description').textContent = cat.description;
+            document.getElementById('cat-image-icon').textContent = cat.icon;
+
+            // Sous-catégories
+            const subGrid = document.getElementById('sub-categories-grid');
+            if (cat.subCategories && cat.subCategories.length > 0) {
+                subGrid.innerHTML = cat.subCategories.map(sub => `
+                            <div class="sub-cat-card">
+                                <span class="sub-icon">${sub.icon}</span>
+                                <div class="sub-name">${sub.nom}</div>
+                                <div class="sub-count">${sub.count} منتج</div>
+                            </div>
+                        `).join('');
+            } else {
+                subGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--couleur-texte-secondaire);">لا توجد أقسام فرعية</div>';
+            }
+
+            // Produits
+            const prodGrid = document.getElementById('produits-grid');
+            if (cat.produits && cat.produits.length > 0) {
+                prodGrid.innerHTML = cat.produits.map(p => `
+                            <div class="product-card">
+                                <div class="product-image">${p.icon}</div>
+                                <div class="product-info">
+                                    <div class="product-category">${cat.nom}</div>
+                                    <h4>${p.nom}</h4>
+                                    <div class="product-price">${p.prix.toLocaleString()} درهم</div>
+                                    <a href="/pages/produit-detail.html?slug=${p.slug}" class="btn btn-principal btn-sm">عرض المنتج</a>
+                                </div>
+                            </div>
+                        `).join('');
+            } else {
+                prodGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:var(--espace-xl);color:var(--couleur-texte-secondaire);">لا توجد منتجات في هذا القسم حالياً</div>';
+            }
+        }
+
+        // ============================================================
+        // 3. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 4. UI
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            if (btnRecherche && barreRecherche) {
+                btnRecherche.addEventListener('click', function() {
+                    barreRecherche.classList.toggle('active');
+                    if (barreRecherche.classList.contains('active')) {
+                        document.getElementById('search-input')?.focus();
+                    }
+                });
+
+                document.getElementById('search-form')?.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const query = document.getElementById('search-input')?.value.trim();
+                    if (query) {
+                        window.location.href = '/pages/produits.html?q=' + encodeURIComponent(query);
+                    }
+                    barreRecherche.classList.remove('active');
+                });
+            }
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Badge panier
+            function updateBadge() {
+                const badge = document.getElementById('panier-compteur');
+                if (badge) {
+                    const saved = JSON.parse(localStorage.getItem('dar_athath_panier') || '[]');
+                    const total = saved.reduce((sum, item) => sum + (item.quantite || 1), 0);
+                    badge.textContent = total;
+                    badge.style.display = total > 0 ? 'flex' : 'none';
+                }
+            }
+            updateBadge();
+
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'dar_athath_panier') updateBadge();
+            });
+        }
+
+        // ============================================================
+        // 5. INITIALISATION
+        // ============================================================
+        function init() {
+            const slug = getCategoryFromURL();
+            renderCategory(slug);
+            initUI();
+            console.log('<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.125em;"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7Z"/></svg> Page Détail Catégorie chargée — ' + slug);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>
