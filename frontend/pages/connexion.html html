@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إنشاء حساب — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="أنشئ حسابك في دار أثاث للاستفادة من عروضنا الحصرية وتتبع طلباتك." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="إنشاء حساب — دار أثاث" />
+    <meta property="og:description" content="أنشئ حسابك في دار أثاث." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/inscription.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <!-- Mêmes styles que connexion.html + styles supplémentaires -->
+    <style>
+        /* ===== On réutilise tous les styles de connexion.html ===== */
+        /* (les styles sont inclus dans le fichier précédent) */
+        /* Pour ce fichier, on ajoute juste les styles spécifiques */
+        
+        .auth-card .password-strength {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .auth-card .password-strength .strength-bar {
+            display: flex;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .auth-card .password-strength .strength-bar span {
+            height: 4px;
+            flex: 1;
+            border-radius: 2px;
+            background: var(--couleur-bordure);
+            transition: background 0.3s ease;
+        }
+        .auth-card .password-strength .strength-bar span.active.weak { background: var(--couleur-erreur); }
+        .auth-card .password-strength .strength-bar span.active.medium { background: #f5a623; }
+        .auth-card .password-strength .strength-bar span.active.strong { background: var(--couleur-succes); }
+        .auth-card .password-strength .strength-text {
+            margin-top: 2px;
+            font-size: 12px;
+        }
+        .auth-card .password-strength .strength-text.weak { color: var(--couleur-erreur); }
+        .auth-card .password-strength .strength-text.medium { color: #f5a623; }
+        .auth-card .password-strength .strength-text.strong { color: var(--couleur-succes); }
+        
+        .auth-card .terms {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin: var(--espace-sm) 0 var(--espace-md);
+        }
+        .auth-card .terms a {
+            color: var(--couleur-accent-principal);
+            font-weight: 500;
+        }
+        .auth-card .terms a:hover { text-decoration: underline; }
+        .auth-card .terms input[type="checkbox"] {
+            accent-color: var(--couleur-accent-principal);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+        
+        .auth-card .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-md);
+        }
+        
+        @media (max-width: 480px) {
+            .auth-card .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER (identique à connexion.html) ===== -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon">🪑</span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث">🔍</button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte active" aria-label="حسابي">👤</a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                🛒
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MENU MOBILE (identique) ===== -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html" class="active">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE INSCRIPTION
+============================================================ -->
+<main role="main" class="page-auth">
+    <div class="container" style="max-width:480px;width:100%;padding:0;">
+        <div class="auth-card">
+            <div class="auth-header">
+                <span class="auth-icon">✨</span>
+                <h1>إنشاء حساب جديد</h1>
+                <p>انضم إلى عائلة دار أثاث واستفد من عروضنا الحصرية</p>
+            </div>
+
+            <form id="register-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">الاسم <span class="required">*</span></label>
+                        <input type="text" id="nom" placeholder="أحمد" required />
+                        <div class="error-message" id="nom-error">الرجاء إدخال الاسم</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">اللقب <span class="required">*</span></label>
+                        <input type="text" id="prenom" placeholder="بن محمد" required />
+                        <div class="error-message" id="prenom-error">الرجاء إدخال اللقب</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="example@email.com" required />
+                    <div class="error-message" id="email-error">الرجاء إدخال بريد إلكتروني صحيح</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">رقم الهاتف</label>
+                    <input type="tel" id="telephone" placeholder="0612345678" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور <span class="required">*</span></label>
+                    <div class="password-toggle">
+                        <input type="password" id="password" placeholder="••••••••" required minlength="6" />
+                        <button type="button" class="toggle-btn" id="toggle-password" aria-label="إظهار/إخفاء كلمة المرور">👁️</button>
+                    </div>
+                    <div class="error-message" id="password-error">كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل</div>
+                    <div class="password-strength" id="password-strength">
+                        <div class="strength-bar">
+                            <span id="s1"></span>
+                            <span id="s2"></span>
+                            <span id="s3"></span>
+                        </div>
+                        <div class="strength-text" id="strength-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password-confirm">تأكيد كلمة المرور <span class="required">*</span></label>
+                    <div class="password-toggle">
+                        <input type="password" id="password-confirm" placeholder="••••••••" required />
+                        <button type="button" class="toggle-btn" id="toggle-password-confirm" aria-label="إظهار/إخفاء كلمة المرور">👁️</button>
+                    </div>
+                    <div class="error-message" id="password-confirm-error">كلمات المرور غير متطابقة</div>
+                </div>
+
+                <div class="terms">
+                    <label>
+                        <input type="checkbox" id="terms" required />
+                        أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+                    </label>
+                    <div class="error-message" id="terms-error" style="margin-top:4px;">الرجاء الموافقة على الشروط والأحكام</div>
+                </div>
+
+                <button type="submit" class="btn btn-principal btn-lg">🎉 إنشاء حساب</button>
+            </form>
+
+            <div class="social-login">
+                <p>أو سجل بواسطة</p>
+                <div class="social-buttons">
+                    <button class="btn-social" aria-label="Google">🔴</button>
+                    <button class="btn-social" aria-label="Facebook">🔵</button>
+                    <button class="btn-social" aria-label="Apple">⚫</button>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                لديك حساب بالفعل؟ <a href="/pages/connexion.html">تسجيل الدخول</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ===== FOOTER (identique) ===== -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon">🪑</span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام">📷</a>
+                <a href="#" aria-label="فيسبوك">👍</a>
+                <a href="#" aria-label="بينتريست">📌</a>
+                <a href="#" aria-label="يوتيوب">▶️</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    🕐 السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Inscription
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. TOAST
+        // ============================================================
+        function showToast(message, type = 'success') {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            
+            const colors = {
+                success: 'var(--couleur-succes)',
+                error: 'var(--couleur-erreur)',
+                info: 'var(--couleur-accent-principal)'
+            };
+            toast.style.background = colors[type] || colors.info;
+            
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 2. PASSWORD STRENGTH
+        // ============================================================
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            if (password.length >= 6) strength++;
+            if (password.length >= 10) strength++;
+            if (/[A-Z]/.test(password) && /[a-z]/.test(password)) strength++;
+            if (/\d/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            if (strength <= 1) return { level: 'weak', text: 'ضعيف', score: 1 };
+            if (strength <= 3) return { level: 'medium', text: 'متوسط', score: 2 };
+            return { level: 'strong', text: 'قوي', score: 3 };
+        }
+
+        function updatePasswordStrength() {
+            const password = document.getElementById('password').value;
+            const result = checkPasswordStrength(password);
+            
+            const bars = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3')];
+            const text = document.getElementById('strength-text');
+            
+            bars.forEach((bar, i) => {
+                bar.className = i < result.score ? 'active ' + result.level : '';
+            });
+            
+            if (password.length === 0) {
+                text.textContent = '';
+                text.className = 'strength-text';
+            } else {
+                text.textContent = 'قوة كلمة المرور: ' + result.text;
+                text.className = 'strength-text ' + result.level;
+            }
+        }
+
+        // ============================================================
+        // 3. VALIDATION
+        // ============================================================
+        function validateField(id, errorId, condition) {
+            const field = document.getElementById(id);
+            const error = document.getElementById(errorId);
+            if (!field) return true;
+            
+            const value = field.value.trim();
+            const isValid = condition(value);
+            field.classList.toggle('error', !isValid && value.length > 0);
+            error.classList.toggle('show', !isValid && value.length > 0);
+            return isValid || value.length === 0;
+        }
+
+        function validateForm() {
+            const nom = document.getElementById('nom').value.trim();
+            const prenom = document.getElementById('prenom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('password-confirm').value;
+            const terms = document.getElementById('terms').checked;
+            
+            let valid = true;
+            
+            // Nom
+            const nomValid = nom.length >= 2;
+            document.getElementById('nom').classList.toggle('error', !nomValid && nom.length > 0);
+            document.getElementById('nom-error').classList.toggle('show', !nomValid && nom.length > 0);
+            if (!nomValid && nom.length > 0) valid = false;
+            
+            // Prénom
+            const prenomValid = prenom.length >= 2;
+            document.getElementById('prenom').classList.toggle('error', !prenomValid && prenom.length > 0);
+            document.getElementById('prenom-error').classList.toggle('show', !prenomValid && prenom.length > 0);
+            if (!prenomValid && prenom.length > 0) valid = false;
+            
+            // Email
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            document.getElementById('email').classList.toggle('error', !emailValid && email.length > 0);
+            document.getElementById('email-error').classList.toggle('show', !emailValid && email.length > 0);
+            if (!emailValid && email.length > 0) valid = false;
+            
+            // Password
+            const passwordValid = password.length >= 6;
+            document.getElementById('password').classList.toggle('error', !passwordValid && password.length > 0);
+            document.getElementById('password-error').classList.toggle('show', !passwordValid && password.length > 0);
+            if (!passwordValid && password.length > 0) valid = false;
+            
+            // Password confirm
+            const confirmValid = password === passwordConfirm && passwordConfirm.length > 0;
+            document.getElementById('password-confirm').classList.toggle('error', !confirmValid && passwordConfirm.length > 0);
+            document.getElementById('password-confirm-error').classList.toggle('show', !confirmValid && passwordConfirm.length > 0);
+            if (!confirmValid && passwordConfirm.length > 0) valid = false;
+            
+            // Terms
+            document.getElementById('terms-error').classList.toggle('show', !terms);
+            if (!terms) valid = false;
+            
+            return valid;
+        }
+
+        // ============================================================
+        // 4. INSCRIPTION
+        // ============================================================
+        function handleRegister(e) {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                showToast('⚠️ الرجاء تصحيح الأخطاء في النموذج', 'error');
+                return;
+            }
+
+            const nom = document.getElementById('nom').value.trim();
+            const prenom = document.getElementById('prenom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telephone = document.getElementById('telephone').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Simuler une inscription (à remplacer par API)
+            // Pour la démo, on crée un compte fictif
+            if (email && password.length >= 6) {
+                // Simuler un token
+                const token = 'demo_token_' + Date.now();
+                const user = {
+                    id: Math.floor(Math.random() * 1000) + 1,
+                    nom: nom,
+                    prenom: prenom,
+                    email: email,
+                    telephone: telephone || null,
+                    role: 'client'
+                };
+
+                // Sauvegarder dans localStorage
+                localStorage.setItem('dar_athath_token', token);
+                localStorage.setItem('dar_athath_user', JSON.stringify(user));
+
+                showToast('🎉 مرحباً بك ' + user.prenom + '! تم إنشاء حسابك بنجاح', 'success');
+                
+                // Redirection après 1.5 secondes
+                setTimeout(() => {
+                    window.location.href = '/index.html';
+                }, 1500);
+            } else {
+                showToast('❌ حدث خطأ أثناء إنشاء الحساب. الرجاء المحاولة مرة أخرى.', 'error');
+            }
+        }
+
+        // ============================================================
+        // 5. UI
+        // ============================================================
+        function initUI() {
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Password toggle
+            const toggleBtn = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            toggleBtn.addEventListener('click', function() {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                this.textContent = type === 'password' ? '👁️' : '🙈';
+            });
+
+            const toggleBtnConfirm = document.getElementById('toggle-password-confirm');
+            const passwordConfirmInput = document.getElementById('password-confirm');
+            toggleBtnConfirm.addEventListener('click', function() {
+                const type = passwordConfirmInput.type === 'password' ? 'text' : 'password';
+                passwordConfirmInput.type = type;
+                this.textContent = type === 'password' ? '👁️' : '🙈';
+            });
+
+            // Password strength
+            document.getElementById('password').addEventListener('input', updatePasswordStrength);
+
+            // Validation en temps réel
+            const fields = ['nom', 'prenom', 'email', 'password', 'password-confirm'];
+            const conditions = {
+                'nom': (v) => v.length >= 2,
+                'prenom': (v) => v.length >= 2,
+                'email': (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+                'password': (v) => v.length >= 6,
+                'password-confirm': (v) => v === document.getElementById('password').value
+            };
+            
+            fields.forEach(id => {
+                const field = document.getElementById(id);
+                if (field) {
+                    field.addEventListener('blur', function() {
+                        const value = this.value.trim();
+                        const valid = conditions[id](value);
+                        this.classList.toggle('error', !valid && value.length > 0);
+                        const errorEl = document.getElementById(id + '-error');
+                        if (errorEl) errorEl.classList.toggle('show', !valid && value.length > 0);
+                    });
+                    field.addEventListener('input', function() {
+                        if (id === 'password-confirm') {
+                            const valid = this.value === document.getElementById('password').value;
+                            this.classList.toggle('error', !valid && this.value.length > 0);
+                            document.getElementById('password-confirm-error').classList.toggle('show', !valid && this.value.length > 0);
+                        }
+                    });
+                }
+            });
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.pageYOffset > 50);
+            });
+
+            // Badge panier
+            function updateBadge() {
+                const badge = document.getElementById('panier-compteur');
+                if (badge) {
+                    const saved = JSON.parse(localStorage.getItem('dar_athath_panier') || '[]');
+                    const total = saved.reduce((sum, item) => sum + (item.quantite || 1), 0);
+                    badge.textContent = total;
+                    badge.style.display = total > 0 ? 'flex' : 'none';
+                }
+            }
+            updateBadge();
+
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'dar_athath_panier') updateBadge();
+            });
+
+            // Vérifier si déjà connecté
+            const token = localStorage.getItem('dar_athath_token');
+            if (token) {
+                // Rediriger vers la page d'accueil
+                window.location.href = '/index.html';
+            }
+        }
+
+        // ============================================================
+        // 6. INITIALISATION
+        // ============================================================
+        function init() {
+            initUI();
+            document.getElementById('register-form').addEventListener('submit', handleRegister);
+            console.log('✨ Page Inscription chargée');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>
