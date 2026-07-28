@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المجموعات — دار أثاث | أثاث مغربي فاخر</title>
+    <meta name="description" content="اكتشفوا مجموعتنا الكاملة من الأثاث المغربي الفاخر. كنبات، طاولات، غرف نوم، مكاتب وديكور. تشكيلة واسعة بأسعار تنافسية." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="المجموعات — دار أثاث" />
+    <meta property="og:description" content="اكتشفوا مجموعتنا الكاملة من الأثاث المغربي الفاخر." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com/pages/produits.html" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+    
+    <style>
+        /* ============================================================
+           STYLES COMPLETS — Page Produits
+           ============================================================ */
+        
+        /* ===== VARIABLES ===== */
+        :root {
+            --couleur-fond: #FAF8F4;
+            --couleur-blanc: #FFFFFF;
+            --couleur-accent-principal: #5C4A3A;
+            --couleur-accent-secondaire: #8A9A7E;
+            --couleur-texte-principal: #2B2622;
+            --couleur-texte-secondaire: #6B645C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #E4DED3;
+            --couleur-action: #B8532F;
+            --couleur-action-hover: #9C4526;
+            --couleur-succes: #5A7D5A;
+            --couleur-erreur: #B8432F;
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+        
+        /* ===== RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 48px; } }
+        
+        /* ===== BOUTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        .btn-sm { padding: 10px 20px; font-size: 14px; }
+        .btn-lg { padding: 18px 48px; font-size: 17px; }
+        
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+        #main-header.scrolled { box-shadow: var(--ombre-moyenne); }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .logo .logo-icon { font-size: 1.8rem; margin-left: 4px; }
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-principale a:hover { color: var(--couleur-accent-principal); }
+        .nav-principale a:hover::after { transform: scaleX(1); }
+        .nav-principale a.active { color: var(--couleur-accent-principal); }
+        .nav-principale a.active::after { transform: scaleX(1); }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-icon:hover { color: var(--couleur-accent-principal); }
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .btn-menu-mobile.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .btn-menu-mobile.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .btn-menu-mobile.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* ===== MENU MOBILE OVERLAY ===== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .menu-mobile-overlay.active { right: 0; }
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .btn-fermer-menu:hover { background: rgba(0, 0, 0, 0.05); }
+        .menu-mobile-inner ul { margin-top: var(--espace-xl); flex: 1; }
+        .menu-mobile-inner ul li { margin-bottom: var(--espace-sm); }
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+        
+        /* ===== BARRE DE RECHERCHE ===== */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+        .barre-recherche button:hover { background-color: #4a3b2e; }
+        
+        /* ===== FIL D'ARIANE ===== */
+        .breadcrumb {
+            padding: var(--espace-md) 0;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            margin-top: 72px;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .breadcrumb a {
+            color: var(--couleur-accent-principal);
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--couleur-action); }
+        .breadcrumb .separator {
+            margin: 0 8px;
+            color: var(--couleur-bordure);
+        }
+        .breadcrumb .current {
+            color: var(--couleur-texte-principal);
+            font-weight: 500;
+        }
+        
+        /* ===== PAGE PRODUITS ===== */
+        .page-produits {
+            padding: var(--espace-md) 0 var(--espace-xl);
+        }
+        .page-title {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+        }
+        .page-subtitle {
+            color: var(--couleur-texte-secondaire);
+            font-size: 16px;
+            margin-bottom: var(--espace-md);
+        }
+        .page-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--espace-lg);
+        }
+        
+        /* ===== SIDEBAR FILTRES ===== */
+        .filters-sidebar {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            padding: var(--espace-md);
+            border: 1px solid var(--couleur-bordure);
+            position: sticky;
+            top: 90px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            align-self: start;
+        }
+        .filters-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .filters-sidebar::-webkit-scrollbar-thumb {
+            background: var(--couleur-bordure);
+            border-radius: 2px;
+        }
+        .filter-group {
+            margin-bottom: var(--espace-md);
+            padding-bottom: var(--espace-md);
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .filter-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .filter-group-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--couleur-texte-principal);
+            margin-bottom: var(--espace-sm);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .filter-group-title .clear-filter {
+            float: left;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--couleur-action);
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .filter-group-title .clear-filter:hover { text-decoration: underline; }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .filter-option:hover { color: var(--couleur-texte-principal); }
+        .filter-option input[type="checkbox"],
+        .filter-option input[type="radio"] {
+            accent-color: var(--couleur-accent-principal);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .filter-option .count {
+            margin-right: auto;
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+            background: var(--couleur-fond);
+            padding: 0 8px;
+            border-radius: 10px;
+        }
+        .filter-option.active {
+            color: var(--couleur-texte-principal);
+            font-weight: 500;
+        }
+        .filter-option.active .count {
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+        
+        /* ===== PRIX SLIDER ===== */
+        .price-slider-container {
+            padding: 4px 0;
+        }
+        .price-slider {
+            width: 100%;
+            height: 4px;
+            -webkit-appearance: none;
+            background: var(--couleur-bordure);
+            border-radius: 2px;
+            outline: none;
+            margin: 12px 0;
+        }
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--couleur-accent-principal);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .price-slider::-webkit-slider-thumb:hover { background: var(--couleur-action); }
+        .price-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--couleur-accent-principal);
+            cursor: pointer;
+            border: none;
+        }
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .price-values span:first-child { font-weight: 600; color: var(--couleur-texte-principal); }
+        
+        /* ===== FILTERS ACTIVE ===== */
+        .filters-active {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: var(--espace-md);
+        }
+        .filter-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--couleur-fond);
+            padding: 4px 12px 4px 8px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+            border: 1px solid var(--couleur-bordure);
+        }
+        .filter-tag .remove {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0 2px;
+        }
+        .filter-tag .remove:hover { color: var(--couleur-erreur); }
+        .filter-tag .label {
+            font-weight: 500;
+            color: var(--couleur-texte-principal);
+        }
+        .btn-clear-all {
+            background: none;
+            border: none;
+            color: var(--couleur-action);
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 4px 8px;
+        }
+        .btn-clear-all:hover { color: var(--couleur-action-hover); text-decoration: underline; }
+        
+        /* ===== TOOLBAR ===== */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--espace-sm);
+            margin-bottom: var(--espace-md);
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+        }
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+        }
+        .toolbar-left .count { font-weight: 600; color: var(--couleur-texte-principal); }
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+        .toolbar-right label {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            white-space: nowrap;
+        }
+        .toolbar-right select {
+            padding: 8px 12px;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            background: var(--couleur-blanc);
+            font-family: var(--police-texte);
+            font-size: 14px;
+            color: var(--couleur-texte-principal);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .toolbar-right select:focus {
+            border-color: var(--couleur-accent-principal);
+        }
+        .toolbar-views {
+            display: flex;
+            gap: 4px;
+        }
+        .toolbar-views button {
+            background: none;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            padding: 6px 10px;
+            cursor: pointer;
+            color: var(--couleur-texte-secondaire);
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .toolbar-views button:hover {
+            border-color: var(--couleur-accent-principal);
+            color: var(--couleur-accent-principal);
+        }
+        .toolbar-views button.active {
+            border-color: var(--couleur-accent-principal);
+            color: var(--couleur-accent-principal);
+            background: var(--couleur-fond);
+        }
+        
+        /* ===== GRILLE PRODUITS ===== */
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espace-md);
+        }
+        .product-card {
+            background: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--couleur-bordure);
+            box-shadow: var(--ombre-legere);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--ombre-moyenne);
+            border-color: transparent;
+        }
+        .product-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: var(--couleur-fond);
+        }
+        .product-image .prod-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #f0ebe4, #e4ddd2);
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .prod-placeholder { transform: scale(1.05); }
+        .product-badge {
+            position: absolute;
+            top: var(--espace-sm);
+            right: var(--espace-sm);
+            background: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .product-badge-new { background: var(--couleur-accent-secondaire); }
+        .product-badge-sale { background: var(--couleur-action); }
+        .product-badge-stock { background: var(--couleur-texte-secondaire); }
+        .product-wishlist {
+            position: absolute;
+            top: var(--espace-sm);
+            left: var(--espace-sm);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-secondaire);
+            backdrop-filter: blur(4px);
+        }
+        .product-wishlist:hover {
+            background: var(--couleur-blanc);
+            transform: scale(1.1);
+            color: var(--couleur-action);
+            box-shadow: var(--ombre-legere);
+        }
+        .product-wishlist.active { color: var(--couleur-action); }
+        .product-info {
+            padding: var(--espace-md);
+        }
+        .product-categorie {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .product-title {
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 4px 0 8px;
+            line-height: 1.3;
+            color: var(--couleur-texte-principal);
+        }
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .stars { color: #f5a623; letter-spacing: 2px; font-size: 14px; }
+        .rating-count { font-size: 13px; color: var(--couleur-texte-secondaire); }
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            margin: var(--espace-sm) 0;
+        }
+        .prix-actuel {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+        .prix-ancien {
+            font-size: 15px;
+            color: var(--couleur-texte-secondaire);
+            text-decoration: line-through;
+        }
+        .product-card .btn { width: 100%; justify-content: center; margin-top: 4px; }
+        
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: var(--espace-xl);
+            padding: var(--espace-md) 0;
+        }
+        .pagination button {
+            padding: 10px 16px;
+            border: 1px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            background: var(--couleur-blanc);
+            color: var(--couleur-texte-secondaire);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--police-texte);
+            font-size: 14px;
+            min-width: 44px;
+        }
+        .pagination button:hover {
+            border-color: var(--couleur-accent-principal);
+            color: var(--couleur-accent-principal);
+        }
+        .pagination button.active {
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border-color: var(--couleur-accent-principal);
+        }
+        .pagination button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .pagination .page-info {
+            font-size: 14px;
+            color: var(--couleur-texte-secondaire);
+            padding: 0 12px;
+        }
+        
+        /* ===== LOADING ===== */
+        .loading-placeholder {
+            text-align: center;
+            padding: var(--espace-xl);
+            color: var(--couleur-texte-secondaire);
+            font-size: 1.1rem;
+        }
+        .loading-placeholder::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+        }
+        
+        /* ===== TOAST ===== */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+        .toast-notification .toast-close:hover { color: var(--couleur-blanc); }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(30px) scale(0.95); }
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+            margin-top: var(--espace-xl);
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+        .footer-contact address a { opacity: 0.7; transition: opacity 0.3s ease; }
+        .footer-contact address a:hover { opacity: 1; }
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .produits-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-layout { grid-template-columns: 1fr; }
+            .filters-sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+                overflow-y: visible;
+            }
+            .filters-sidebar .filter-group:last-child { border-bottom: none; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--espace-lg); }
+        }
+        @media (max-width: 768px) {
+            .nav-principale { display: none; }
+            .btn-menu-mobile { display: flex; }
+            .produits-grid { grid-template-columns: 1fr 1fr; }
+            .toolbar { flex-direction: column; align-items: stretch; }
+            .toolbar-left { justify-content: center; }
+            .toolbar-right { justify-content: center; flex-wrap: wrap; }
+            .footer-inner { grid-template-columns: 1fr; gap: var(--espace-lg); }
+            .header-actions .btn-compte { display: none; }
+            .page-title { font-size: 24px; }
+            .filters-sidebar { padding: var(--espace-sm); }
+        }
+        @media (max-width: 480px) {
+            .produits-grid { grid-template-columns: 1fr; }
+            .page-title { font-size: 20px; }
+            .pagination button { padding: 8px 12px; font-size: 13px; min-width: 36px; }
+            .btn { padding: 12px 20px; font-size: 14px; }
+            .container { padding: 0 16px; }
+            .breadcrumb { font-size: 12px; }
+        }
+        
+        /* ============================================================
+           SCROLLBAR
+           ============================================================ */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--couleur-fond); }
+        ::-webkit-scrollbar-thumb { background: var(--couleur-accent-principal); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4a3b2e; }
+        
+        :focus-visible {
+            outline: 2px solid var(--couleur-accent-principal);
+            outline-offset: 2px;
+        }
+        
+        /* ============================================================
+           PREFERS REDUCED MOTION
+           ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+HEADER
+============================================================ -->
+<header id="main-header" role="banner">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+            <span class="logo-icon">🪑</span>
+            <span>دار أثاث</span>
+        </a>
+        <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html" class="active">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث">🔍</button>
+            <a href="/pages/connexion.html" class="btn-icon btn-compte" aria-label="حسابي">👤</a>
+            <a href="/pages/panier.html" class="btn-icon btn-panier" aria-label="عربة التسوق" id="panier-link">
+                🛒
+                <span class="badge-panier" id="panier-compteur">0</span>
+            </a>
+            <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div id="barre-recherche" class="barre-recherche" role="search">
+        <div class="container">
+            <form id="search-form">
+                <input type="search" id="search-input" placeholder="ابحث عن أثاث أحلامك..." aria-label="بحث عن منتج" />
+                <button type="submit">بحث</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+MENU MOBILE
+============================================================ -->
+<div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+    <div class="menu-mobile-inner">
+        <button class="btn-fermer-menu" id="btn-fermer-menu">&times;</button>
+        <nav role="navigation" aria-label="القائمة الجوالة">
+            <ul>
+                <li><a href="/index.html">الرئيسية</a></li>
+                <li><a href="/pages/produits.html" class="active">المجموعات</a></li>
+                <li><a href="/pages/categories.html">الأقسام</a></li>
+                <li><a href="/pages/a-propos.html">حرفتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="/pages/connexion.html">تسجيل الدخول</a></li>
+                <li><a href="/pages/inscription.html">إنشاء حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-mobile-footer">
+            <p>دار أثاث — البيت الفاخر للأثاث</p>
+            <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+FIL D'ARIANE
+============================================================ -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span class="separator">›</span>
+        <span class="current">المجموعات</span>
+    </div>
+</div>
+
+<!-- ============================================================
+PAGE PRODUITS
+============================================================ -->
+<main role="main" class="page-produits">
+    <div class="container">
+        <h1 class="page-title">مجموعتنا</h1>
+        <p class="page-subtitle">اكتشفوا تشكيلتنا الكاملة من الأثاث المغربي الفاخر. كل قطعة تحكي قصة حرفية وأصالة.</p>
+
+        <div class="page-layout">
+
+            <!-- ===== SIDEBAR FILTRES ===== -->
+            <aside class="filters-sidebar" id="filters-sidebar" role="complementary" aria-label="فلاتر البحث">
+                
+                <!-- Filtres actifs -->
+                <div class="filters-active" id="filters-active"></div>
+
+                <!-- Catégorie -->
+                <div class="filter-group">
+                    <span class="filter-group-title">
+                        القسم
+                        <span class="clear-filter" data-filter="categorie">مسح</span>
+                    </span>
+                    <div id="filter-categorie">
+                        <label class="filter-option">
+                            <input type="checkbox" value="salon" data-filter="categorie" />
+                            الصالون
+                            <span class="count">24</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="chambre" data-filter="categorie" />
+                            غرفة النوم
+                            <span class="count">18</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="cuisine" data-filter="categorie" />
+                            المطبخ و الطعام
+                            <span class="count">15</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="bureau" data-filter="categorie" />
+                            المكتب
+                            <span class="count">12</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="decoration" data-filter="categorie" />
+                            الديكور
+                            <span class="count">20</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Prix -->
+                <div class="filter-group">
+                    <span class="filter-group-title">
+                        السعر
+                        <span class="clear-filter" data-filter="prix">مسح</span>
+                    </span>
+                    <div class="price-slider-container">
+                        <input type="range" class="price-slider" id="price-slider" min="0" max="10000" step="100" value="5000" />
+                        <div class="price-values">
+                            <span>0 درهم</span>
+                            <span id="price-value">5,000 درهم</span>
+                            <span>10,000 درهم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Couleur -->
+                <div class="filter-group">
+                    <span class="filter-group-title">
+                        اللون
+                        <span class="clear-filter" data-filter="couleur">مسح</span>
+                    </span>
+                    <div id="filter-couleur">
+                        <label class="filter-option">
+                            <input type="checkbox" value="vert" data-filter="couleur" />
+                            <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#2d5a27;border:1px solid #ddd;"></span>
+                            أخضر
+                            <span class="count">8</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="marron" data-filter="couleur" />
+                            <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#5C4A3A;border:1px solid #ddd;"></span>
+                            بني
+                            <span class="count">15</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="blanc" data-filter="couleur" />
+                            <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#f5f0eb;border:1px solid #ddd;"></span>
+                            أبيض
+                            <span class="count">10</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="gris" data-filter="couleur" />
+                            <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#808080;border:1px solid #ddd;"></span>
+                            رمادي
+                            <span class="count">7</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="beige" data-filter="couleur" />
+                            <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#d4c5a9;border:1px solid #ddd;"></span>
+                            بيج
+                            <span class="count">9</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Matière -->
+                <div class="filter-group">
+                    <span class="filter-group-title">
+                        المادة
+                        <span class="clear-filter" data-filter="matiere">مسح</span>
+                    </span>
+                    <div id="filter-matiere">
+                        <label class="filter-option">
+                            <input type="checkbox" value="bois" data-filter="matiere" />
+                            خشب
+                            <span class="count">25</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="velours" data-filter="matiere" />
+                            مخمل
+                            <span class="count">6</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="cuir" data-filter="matiere" />
+                            جلد
+                            <span class="count">4</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="rotin" data-filter="matiere" />
+                            روطان
+                            <span class="count">8</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="tissu" data-filter="matiere" />
+                            قماش
+                            <span class="count">12</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-principal btn-sm" style="width:100%;" id="btn-appliquer-filtres">تطبيق الفلاتر</button>
+            </aside>
+
+            <!-- ===== CONTENU PRINCIPAL ===== -->
+            <div class="produits-content">
+
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-left">
+                        <span>يعرض <span class="count" id="result-count">0</span> منتج</span>
+                    </div>
+                    <div class="toolbar-right">
+                        <label for="tri-select">ترتيب حسب :</label>
+                        <select id="tri-select">
+                            <option value="nouveaute">الأحدث</option>
+                            <option value="prix_asc">السعر: من الأقل إلى الأعلى</option>
+                            <option value="prix_desc">السعر: من الأعلى إلى الأقل</option>
+                            <option value="popularite">الأكثر شعبية</option>
+                            <option value="note">الأعلى تقييماً</option>
+                        </select>
+                        <div class="toolbar-views">
+                            <button class="active" data-view="grid" aria-label="عرض شبكي">▦</button>
+                            <button data-view="list" aria-label="عرض قائمة">☰</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grille produits -->
+                <div class="produits-grid" id="produits-grid">
+                    <!-- Chargé dynamiquement par JavaScript -->
+                    <div class="loading-placeholder">جاري تحميل المنتجات</div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <button id="page-prev" disabled>‹ السابق</button>
+                    <span class="page-info" id="page-info">الصفحة 1 من 1</span>
+                    <button id="page-next" disabled>التالي ›</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <span class="logo" style="color:var(--couleur-texte-fonce);">
+                <span class="logo-icon">🪑</span>
+                <span>دار أثاث</span>
+            </span>
+            <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="إنستغرام">📷</a>
+                <a href="#" aria-label="فيسبوك">👍</a>
+                <a href="#" aria-label="بينتريست">📌</a>
+                <a href="#" aria-label="يوتيوب">▶️</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>المجموعات</h4>
+            <ul>
+                <li><a href="#">الصالون</a></li>
+                <li><a href="#">غرفة النوم</a></li>
+                <li><a href="#">المطبخ و الطعام</a></li>
+                <li><a href="#">المكتب</a></li>
+                <li><a href="#">الديكور</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>عن دار أثاث</h4>
+            <ul>
+                <li><a href="/pages/a-propos.html">قصتنا</a></li>
+                <li><a href="/pages/contact.html">اتصل بنا</a></li>
+                <li><a href="#">التوصيل و الإرجاع</a></li>
+                <li><a href="#">الشروط العامة</a></li>
+                <li><a href="#">سياسة الخصوصية</a></li>
+            </ul>
+        </div>
+        <div class="footer-col footer-contact">
+            <h4>اتصلوا بنا</h4>
+            <address>
+                <p><strong>دار أثاث</strong></p>
+                <p>زنقة المدينة، مراكش، المغرب</p>
+                <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                <span style="display:inline-block;background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:4px;font-size:13px;margin-top:8px;opacity:0.6;">
+                    🕐 السبت - الخميس: 9:00 - 19:00
+                </span>
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    // ============================================================
+    // JAVASCRIPT — Page Produits
+    // ============================================================
+
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. DONNÉES (Produits simulés)
+        // ============================================================
+        const produitsData = [{
+            id: 1,
+            nom: 'كنبة 3 مقاعد من المخمل الأخضر',
+            slug: 'canape-velours-vert',
+            categorie: 'salon',
+            categorieNom: 'الصالون',
+            prix: 4500,
+            prix_promo: 5200,
+            note: 5,
+            avis: 24,
+            badge: 'الأكثر مبيعاً',
+            badgeType: 'popular',
+            couleur: 'vert',
+            matiere: 'velours',
+            icon: '🟢',
+            stock: 12
+        }, {
+            id: 2,
+            nom: 'طاولة وسط من خشب الجوز الصلب',
+            slug: 'table-basse-noyer',
+            categorie: 'salon',
+            categorieNom: 'الصالون',
+            prix: 2850,
+            prix_promo: null,
+            note: 4,
+            avis: 18,
+            badge: 'جديد',
+            badgeType: 'new',
+            couleur: 'marron',
+            matiere: 'bois',
+            icon: '🪵',
+            stock: 20
+        }, {
+            id: 3,
+            nom: 'سرير مزدوج من الخشب الصلب',
+            slug: 'lit-bois-massif',
+            categorie: 'chambre',
+            categorieNom: 'غرفة النوم',
+            prix: 6750,
+            prix_promo: 8200,
+            note: 5,
+            avis: 31,
+            badge: 'تخفيض',
+            badgeType: 'sale',
+            couleur: 'marron',
+            matiere: 'bois',
+            icon: '🛏️',
+            stock: 7
+        }, {
+            id: 4,
+            nom: 'خزانة 6 أدراج بأسلوب إسكندنافي',
+            slug: 'commode-6-tiroirs',
+            categorie: 'chambre',
+            categorieNom: 'غرفة النوم',
+            prix: 3200,
+            prix_promo: null,
+            note: 4,
+            avis: 12,
+            badge: null,
+            badgeType: null,
+            couleur: 'blanc',
+            matiere: 'bois',
+            icon: '🗄️',
+            stock: 12
+        }, {
+            id: 5,
+            nom: 'طاولة طعام قابلة للتمديد من البلوط',
+            slug: 'table-manger-extensible',
+            categorie: 'cuisine',
+            categorieNom: 'المطبخ و الطعام',
+            prix: 5400,
+            prix_promo: null,
+            note: 5,
+            avis: 9,
+            badge: 'جديد',
+            badgeType: 'new',
+            couleur: 'beige',
+            matiere: 'bois',
+            icon: '🍽️',
+            stock: 8
+        }, {
+            id: 6,
+            nom: 'مكتب عصري بسيط مع أدراج تخزين',
+            slug: 'bureau-minimaliste',
+            categorie: 'bureau',
+            categorieNom: 'المكتب',
+            prix: 2950,
+            prix_promo: null,
+            note: 4,
+            avis: 15,
+            badge: null,
+            badgeType: null,
+            couleur: 'blanc',
+            matiere: 'bois',
+            icon: '📚',
+            stock: 14
+        }, {
+            id: 7,
+            nom: 'مرواية دائرية من الروطان',
+            slug: 'miroir-rond-rotin',
+            categorie: 'decoration',
+            categorieNom: 'الديكور',
+            prix: 790,
+            prix_promo: 950,
+            note: 5,
+            avis: 22,
+            badge: 'الأكثر مبيعاً',
+            badgeType: 'popular',
+            couleur: 'beige',
+            matiere: 'rotin',
+            icon: '🪞',
+            stock: 18
+        }, {
+            id: 8,
+            nom: 'سجادة بربرية من الصوف',
+            slug: 'tapis-berbere-laine',
+            categorie: 'decoration',
+            categorieNom: 'الديكور',
+            prix: 2800,
+            prix_promo: 3400,
+            note: 5,
+            avis: 14,
+            badge: 'تخفيض',
+            badgeType: 'sale',
+            couleur: 'beige',
+            matiere: 'tissu',
+            icon: '🧶',
+            stock: 5
+        }, {
+            id: 9,
+            nom: 'كنبة زاوية قابلة للتحويل',
+            slug: 'canape-angle-convertible',
+            categorie: 'salon',
+            categorieNom: 'الصالون',
+            prix: 6200,
+            prix_promo: 6900,
+            note: 4,
+            avis: 27,
+            badge: null,
+            badgeType: null,
+            couleur: 'gris',
+            matiere: 'tissu',
+            icon: '🛋️',
+            stock: 8
+        }, {
+            id: 10,
+            nom: 'كرسي مكتب مريح من القماش الرمادي',
+            slug: 'chaise-bureau-ergonomique',
+            categorie: 'bureau',
+            categorieNom: 'المكتب',
+            prix: 1850,
+            prix_promo: 2200,
+            note: 4,
+            avis: 11,
+            badge: 'جديد',
+            badgeType: 'new',
+            couleur: 'gris',
+            matiere: 'tissu',
+            icon: '🪑',
+            stock: 20
+        }, {
+            id: 11,
+            nom: 'خزانة جانبية من خشب الجوز',
+            slug: 'buffet-rangement-bois',
+            categorie: 'cuisine',
+            categorieNom: 'المطبخ و الطعام',
+            prix: 3850,
+            prix_promo: null,
+            note: 4,
+            avis: 8,
+            badge: null,
+            badgeType: null,
+            couleur: 'marron',
+            matiere: 'bois',
+            icon: '🗄️',
+            stock: 9
+        }, {
+            id: 12,
+            nom: 'طاولة سرير من الروطان',
+            slug: 'table-chevet-rotin',
+            categorie: 'chambre',
+            categorieNom: 'غرفة النوم',
+            prix: 890,
+            prix_promo: null,
+            note: 4,
+            avis: 19,
+            badge: null,
+            badgeType: null,
+            couleur: 'beige',
+            matiere: 'rotin',
+            icon: '🪑',
+            stock: 25
+        }];
+
+        // ============================================================
+        // 2. ÉTAT
+        // ============================================================
+        let state = {
+            filters: {
+                categorie: [],
+                couleur: [],
+                matiere: [],
+                prix_max: 5000
+            },
+            tri: 'nouveaute',
+            page: 1,
+            limit: 6,
+            view: 'grid'
+        };
+
+        let filteredProducts = [...produitsData];
+
+        // ============================================================
+        // 3. PANIER (localStorage)
+        // ============================================================
+        let panier = [];
+
+        function chargerPanier() {
+            try {
+                const saved = localStorage.getItem('dar_athath_panier');
+                panier = saved ? JSON.parse(saved) : [];
+            } catch (e) { panier = []; }
+            mettreAJourBadge();
+        }
+
+        function sauvegarderPanier() {
+            localStorage.setItem('dar_athath_panier', JSON.stringify(panier));
+            mettreAJourBadge();
+        }
+
+        function ajouterAuPanier(produitId) {
+            const produit = produitsData.find(p => p.id === produitId);
+            if (!produit) return;
+            const existing = panier.find(item => item.id === produitId);
+            if (existing) {
+                existing.quantite += 1;
+            } else {
+                panier.push({ id: produitId, nom: produit.nom, prix: produit.prix, quantite: 1, icon: produit.icon });
+            }
+            sauvegarderPanier();
+            showToast('✅ تمت إضافة "' + produit.nom + '" إلى العربة');
+        }
+
+        function mettreAJourBadge() {
+            const badge = document.getElementById('panier-compteur');
+            if (badge) {
+                const total = panier.reduce((sum, item) => sum + item.quantite, 0);
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // ============================================================
+        // 4. TOAST
+        // ============================================================
+        function showToast(message) {
+            const existing = document.querySelectorAll('.toast-notification');
+            existing.forEach(t => t.remove());
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Fermer">✕</button>
+                    `;
+            document.body.appendChild(toast);
+            toast.querySelector('.toast-close').addEventListener('click', function() {
+                toast.classList.add('out');
+                setTimeout(() => toast.remove(), 300);
+            });
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 3500);
+        }
+
+        // ============================================================
+        // 5. FILTRAGE
+        // ============================================================
+        function applyFilters() {
+            const { categorie, couleur, matiere, prix_max } = state.filters;
+
+            filteredProducts = produitsData.filter(p => {
+                // Catégorie
+                if (categorie.length > 0 && !categorie.includes(p.categorie)) return false;
+                // Couleur
+                if (couleur.length > 0 && !couleur.includes(p.couleur)) return false;
+                // Matière
+                if (matiere.length > 0 && !matiere.includes(p.matiere)) return false;
+                // Prix
+                if (p.prix > prix_max) return false;
+                return true;
+            });
+
+            // Tri
+            const triMap = {
+                'nouveaute': (a, b) => b.id - a.id,
+                'prix_asc': (a, b) => a.prix - b.prix,
+                'prix_desc': (a, b) => b.prix - a.prix,
+                'popularite': (a, b) => (b.avis || 0) - (a.avis || 0),
+                'note': (a, b) => (b.note || 0) - (a.note || 0)
+            };
+            const sortFn = triMap[state.tri] || triMap['nouveaute'];
+            filteredProducts.sort(sortFn);
+
+            state.page = 1;
+            render();
+        }
+
+        // ============================================================
+        // 6. RENDU
+        // ============================================================
+        function render() {
+            const grid = document.getElementById('produits-grid');
+            const start = (state.page - 1) * state.limit;
+            const end = start + state.limit;
+            const pageProducts = filteredProducts.slice(start, end);
+            const totalPages = Math.ceil(filteredProducts.length / state.limit);
+
+            // Mise à jour du compteur
+            document.getElementById('result-count').textContent = filteredProducts.length;
+
+            // Pagination
+            document.getElementById('page-info').textContent = `الصفحة ${state.page} من ${totalPages || 1}`;
+            document.getElementById('page-prev').disabled = state.page <= 1;
+            document.getElementById('page-next').disabled = state.page >= totalPages;
+
+            // Grille
+            if (pageProducts.length === 0) {
+                grid.innerHTML = `
+                            <div style="grid-column:1/-1;text-align:center;padding:var(--espace-xl);color:var(--couleur-texte-secondaire);">
+                                <div style="font-size:4rem;margin-bottom:var(--espace-md);">🔍</div>
+                                <h3 style="font-family:var(--police-affichage);font-size:1.5rem;margin-bottom:var(--espace-sm);">لا توجد منتجات</h3>
+                                <p>جرب تعديل الفلاتر أو البحث عن كلمات أخرى</p>
+                                <button class="btn btn-secondaire btn-sm" style="margin-top:var(--espace-sm);" id="btn-reset-filters">إعادة تعيين الفلاتر</button>
+                            </div>
+                        `;
+                const resetBtn = document.getElementById('btn-reset-filters');
+                if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+                return;
+            }
+
+            grid.innerHTML = pageProducts.map(p => {
+                const badgeHtml = p.badge ? `
+                            <span class="product-badge ${p.badgeType === 'new' ? 'product-badge-new' : p.badgeType === 'sale' ? 'product-badge-sale' : ''}">
+                                ${p.badge}
+                            </span>
+                        ` : '';
+                const prixAncienHtml = p.prix_promo ?
+                    `<span class="prix-ancien">${p.prix_promo.toLocaleString()} درهم</span>` :
+                    '';
+                const etoiles = '★'.repeat(p.note) + '☆'.repeat(5 - p.note);
+
+                return `
+                            <div class="product-card" data-id="${p.id}">
+                                <div class="product-image">
+                                    <div class="prod-placeholder">${p.icon}</div>
+                                    ${badgeHtml}
+                                    <button class="product-wishlist" data-id="${p.id}" aria-label="إضافة إلى المفضلة">♥</button>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-categorie">${p.categorieNom}</span>
+                                    <h3 class="product-title">${p.nom}</h3>
+                                    <div class="product-rating">
+                                        <span class="stars">${etoiles}</span>
+                                        <span class="rating-count">(${p.avis} تقييم)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="prix-actuel">${p.prix.toLocaleString()} درهم</span>
+                                        ${prixAncienHtml}
+                                    </div>
+                                    <button class="btn btn-principal btn-sm btn-ajouter-panier" data-id="${p.id}">
+                                        إضافة إلى العربة
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+            }).join('');
+
+            // Événements panier
+            document.querySelectorAll('.btn-ajouter-panier').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    ajouterAuPanier(parseInt(this.dataset.id));
+                });
+            });
+
+            // Événements wishlist
+            document.querySelectorAll('.product-wishlist').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    const id = this.dataset.id;
+                    const product = produitsData.find(p => p.id == id);
+                    if (this.classList.contains('active')) {
+                        showToast('❤️ تمت إضافة "' + product.nom + '" إلى المفضلة');
+                    } else {
+                        showToast('تمت إزالة "' + product.nom + '" من المفضلة');
+                    }
+                });
+            });
+        }
+
+        // ============================================================
+        // 7. FILTRES UI
+        // ============================================================
+        function resetAllFilters() {
+            state.filters = { categorie: [], couleur: [], matiere: [], prix_max: 5000 };
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('price-slider').value = 5000;
+            document.getElementById('price-value').textContent = '5,000 درهم';
+            document.getElementById('filters-active').innerHTML = '';
+            applyFilters();
+        }
+
+        function updateActiveFilters() {
+            const container = document.getElementById('filters-active');
+            const active = [];
+            const { categorie, couleur, matiere, prix_max } = state.filters;
+
+            // Catégories
+            categorie.forEach(c => {
+                const label = document.querySelector(`#filter-categorie input[value="${c}"]`)?.closest('.filter-option')?.textContent?.trim() || c;
+                active.push({ key: 'categorie', value: c, label: label });
+            });
+            // Couleurs
+            couleur.forEach(c => {
+                const label = document.querySelector(`#filter-couleur input[value="${c}"]`)?.closest('.filter-option')?.textContent?.trim() || c;
+                active.push({ key: 'couleur', value: c, label: label });
+            });
+            // Matières
+            matiere.forEach(m => {
+                const label = document.querySelector(`#filter-matiere input[value="${m}"]`)?.closest('.filter-option')?.textContent?.trim() || m;
+                active.push({ key: 'matiere', value: m, label: label });
+            });
+            // Prix
+            if (prix_max < 10000) {
+                active.push({ key: 'prix', value: prix_max, label: `≤ ${prix_max.toLocaleString()} درهم` });
+            }
+
+            if (active.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            container.innerHTML = active.map(f => `
+                        <span class="filter-tag">
+                            <span class="label">${f.label}</span>
+                            <button class="remove" data-key="${f.key}" data-value="${f.value}" aria-label="إزالة الفلتر">✕</button>
+                        </span>
+                    `).join('') +
+                `<button class="btn-clear-all" id="btn-clear-all">مسح الكل</button>`;
+
+            // Événements de suppression
+            container.querySelectorAll('.remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const key = this.dataset.key;
+                    const value = this.dataset.value;
+                    if (key === 'prix') {
+                        state.filters.prix_max = 10000;
+                        document.getElementById('price-slider').value = 10000;
+                        document.getElementById('price-value').textContent = '10,000 درهم';
+                    } else {
+                        const idx = state.filters[key].indexOf(value);
+                        if (idx > -1) state.filters[key].splice(idx, 1);
+                        const checkbox = document.querySelector(`input[data-filter="${key}"][value="${value}"]`);
+                        if (checkbox) checkbox.checked = false;
+                    }
+                    applyFilters();
+                });
+            });
+
+            const clearAll = document.getElementById('btn-clear-all');
+            if (clearAll) clearAll.addEventListener('click', resetAllFilters);
+        }
+
+        // ============================================================
+        // 8. INITIALISATION
+        // ============================================================
+        function init() {
+            chargerPanier();
+
+            // Filtres checkboxes
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const key = this.dataset.filter;
+                    const value = this.value;
+                    if (this.checked) {
+                        if (!state.filters[key].includes(value)) state.filters[key].push(value);
+                    } else {
+                        const idx = state.filters[key].indexOf(value);
+                        if (idx > -1) state.filters[key].splice(idx, 1);
+                    }
+                    applyFilters();
+                });
+            });
+
+            // Slider prix
+            const slider = document.getElementById('price-slider');
+            const priceDisplay = document.getElementById('price-value');
+            slider.addEventListener('input', function() {
+                const val = parseInt(this.value);
+                priceDisplay.textContent = val.toLocaleString() + ' درهم';
+                state.filters.prix_max = val;
+                applyFilters();
+            });
+
+            // Tri
+            document.getElementById('tri-select').addEventListener('change', function() {
+                state.tri = this.value;
+                applyFilters();
+            });
+
+            // Pagination
+            document.getElementById('page-prev').addEventListener('click', function() {
+                if (state.page > 1) { state.page--;
+                    render(); }
+            });
+            document.getElementById('page-next').addEventListener('click', function() {
+                const totalPages = Math.ceil(filteredProducts.length / state.limit);
+                if (state.page < totalPages) { state.page++;
+                    render(); }
+            });
+
+            // Vues
+            document.querySelectorAll('.toolbar-views button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.toolbar-views button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    state.view = this.dataset.view;
+                    // Change grid layout
+                    const grid = document.getElementById('produits-grid');
+                    if (state.view === 'list') {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else {
+                        grid.style.gridTemplateColumns = window.innerWidth <= 480 ? '1fr' :
+                            window.innerWidth <= 768 ? '1fr 1fr' : 'repeat(3, 1fr)';
+                    }
+                });
+            });
+
+            // Bouton appliquer filtres
+            document.getElementById('btn-appliquer-filtres').addEventListener('click', function() {
+                applyFilters();
+                showToast('✅ الفلاتر مطبقة');
+            });
+
+            // Menu mobile
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            btnMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            btnFermer.addEventListener('click', function() {
+                btnMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    btnMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Recherche
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+            btnRecherche.addEventListener('click', function() {
+                barreRecherche.classList.toggle('active');
+                if (barreRecherche.classList.contains('active')) {
+                    document.getElementById('search-input').focus();
+                }
+            });
+
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = document.getElementById('search-input').value.trim();
+                if (query) {
+                    const results = produitsData.filter(p =>
+                        p.nom.toLowerCase().includes(query.toLowerCase()) ||
+                        p.categorieNom.toLowerCase().includes(query.toLowerCase())
+                    );
+                    if (results.length > 0) {
+                        showToast('🔍 تم العثور على ' + results.length + ' نتيجة');
+                        filteredProducts = results;
+                        state.page = 1;
+                        render();
+                    } else {
+                        showToast('😕 لا توجد نتائج مطابقة ل "' + query + '"');
+                    }
+                    barreRecherche.classList.remove('active');
+                    document.getElementById('search-input').value = '';
+                }
+            });
+
+            // Header scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Appliquer les filtres initiaux
+            applyFilters();
+            console.log('🪑 Page Produits chargée — ' + produitsData.length + ' produits disponibles');
+        }
+
+        // Démarrer
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+</script>
+</body>
+</html>
