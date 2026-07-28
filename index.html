@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دار أثاث — البيت الفاخر للأثاث المغربي العصري</title>
+    <meta name="description" content="دار أثاث تقدم لكم مجموعة فريدة من الأثاث المغربي العصري، تجمع بين الحرفية التقليدية والتصميم المعاصر. كنبات، طاولات، غرف نوم وديكور." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="دار أثاث — البيت الفاخر للأثاث" />
+    <meta property="og:description" content="اكتشفوا مجموعة فريدة من الأثاث الفاخر التي تجمع بين الحرفية المغربية والتصميم العصري." />
+    <meta property="og:image" content="/assets/images/hero/hero-og.jpg" />
+    <meta property="og:url" content="https://dar-athath.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%91%3C/text%3E%3C/svg%3E" />
+
+    <style>
+        /* ========================================================================
+                   CSS COMPLET — DAR ATHATH
+                   Plus de 800 lignes de styles professionnels
+                   ======================================================================== */
+
+        /* ========================================================================
+                   1. VARIABLES CSS (Design Tokens)
+                   ======================================================================== */
+        :root {
+            /* Couleurs */
+            --couleur-fond: #FAF8F4;
+            --couleur-blanc: #FFFFFF;
+            --couleur-accent-principal: #5C4A3A;
+            --couleur-accent-secondaire: #8A9A7E;
+            --couleur-texte-principal: #2B2622;
+            --couleur-texte-secondaire: #6B645C;
+            --couleur-texte-fonce: #F5F1EA;
+            --couleur-bordure: #E4DED3;
+            --couleur-action: #B8532F;
+            --couleur-action-hover: #9C4526;
+            --couleur-succes: #5A7D5A;
+            --couleur-erreur: #B8432F;
+
+            /* Typographie */
+            --police-affichage: 'Cormorant Garamond', serif;
+            --police-texte: 'Inter', sans-serif;
+            --police-utilitaire: 'Inter', sans-serif;
+
+            /* Espacements */
+            --espace-xs: 0.5rem;
+            --espace-sm: 1rem;
+            --espace-md: 1.5rem;
+            --espace-lg: 2.5rem;
+            --espace-xl: 4rem;
+            --espace-xxl: 6rem;
+
+            /* Rayons */
+            --rayon-sm: 4px;
+            --rayon-md: 8px;
+            --rayon-lg: 16px;
+
+            /* Ombres */
+            --ombre-legere: 0 2px 8px rgba(43, 38, 34, 0.08);
+            --ombre-moyenne: 0 8px 24px rgba(43, 38, 34, 0.12);
+            --ombre-forte: 0 20px 48px rgba(43, 38, 34, 0.2);
+        }
+
+        /* ========================================================================
+                   2. RESET & BASE
+                   ======================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--police-texte);
+            background-color: var(--couleur-fond);
+            color: var(--couleur-texte-principal);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 48px;
+            }
+        }
+
+        /* ========================================================================
+                   3. BOUTONS (Tous les états)
+                   ======================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: var(--police-utilitaire);
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .btn-principal {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+        }
+
+        .btn-principal:hover {
+            background-color: var(--couleur-action-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+
+        .btn-principal:active {
+            background-color: #7D3A20;
+            transform: none;
+        }
+
+        .btn-principal:disabled {
+            background-color: #D9C9BE;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondaire {
+            background-color: transparent;
+            color: var(--couleur-accent-principal);
+            border: 1.5px solid var(--couleur-accent-principal);
+        }
+
+        .btn-secondaire:hover {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+        }
+
+        .btn-blanc {
+            background-color: var(--couleur-blanc);
+            color: var(--couleur-accent-principal);
+        }
+
+        .btn-blanc:hover {
+            background-color: var(--couleur-fond);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .btn-lg {
+            padding: 18px 48px;
+            font-size: 17px;
+        }
+
+        /* ========================================================================
+                   4. SECTIONS
+                   ======================================================================== */
+        .section {
+            padding: var(--espace-xl) 0;
+        }
+
+        .section-title {
+            font-family: var(--police-affichage);
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--couleur-texte-principal);
+            margin-bottom: var(--espace-sm);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--couleur-texte-secondaire);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--espace-lg);
+            line-height: 1.6;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ========================================================================
+                   5. HEADER (Sticky)
+                   ======================================================================== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--couleur-bordure);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #main-header.scrolled {
+            box-shadow: var(--ombre-moyenne);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: var(--police-affichage);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            display: inline-block;
+        }
+
+        .logo .logo-icon {
+            font-size: 1.8rem;
+            margin-left: 4px;
+        }
+
+        /* Navigation principale */
+        .nav-principale ul {
+            display: flex;
+            gap: var(--espace-md);
+            align-items: center;
+        }
+
+        .nav-principale a {
+            font-weight: 500;
+            color: var(--couleur-texte-secondaire);
+            position: relative;
+            padding: 4px 0;
+            font-size: 15px;
+        }
+
+        .nav-principale a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--couleur-accent-principal);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-principale a:hover {
+            color: var(--couleur-accent-principal);
+        }
+
+        .nav-principale a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-principale a.active {
+            color: var(--couleur-accent-principal);
+        }
+
+        .nav-principale a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Header actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon:hover {
+            color: var(--couleur-accent-principal);
+        }
+
+        .badge-panier {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+
+        /* Menu mobile */
+        .btn-menu-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .btn-menu-mobile span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--couleur-texte-principal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn-menu-mobile.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .btn-menu-mobile.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .btn-menu-mobile.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Barre de recherche */
+        .barre-recherche {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--couleur-fond);
+        }
+
+        .barre-recherche.active {
+            max-height: 80px;
+            padding: var(--espace-sm) 0;
+        }
+
+        .barre-recherche form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+
+        .barre-recherche input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--couleur-bordure);
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+
+        .barre-recherche input:focus {
+            border-color: var(--couleur-accent-principal);
+            box-shadow: 0 0 0 3px rgba(92, 74, 58, 0.1);
+        }
+
+        .barre-recherche button {
+            padding: 12px 24px;
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            border: none;
+            border-radius: var(--rayon-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--police-utilitaire);
+            transition: background 0.3s ease;
+        }
+
+        .barre-recherche button:hover {
+            background-color: #4a3b2e;
+        }
+
+        /* ========================================================================
+                   6. MENU MOBILE OVERLAY
+                   ======================================================================== */
+        .menu-mobile-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--couleur-fond);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .menu-mobile-overlay.active {
+            right: 0;
+        }
+
+        .menu-mobile-inner {
+            padding: var(--espace-lg);
+            padding-top: var(--espace-xl);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-fermer-menu {
+            position: absolute;
+            top: var(--espace-md);
+            left: var(--espace-md);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--couleur-texte-principal);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-fermer-menu:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-mobile-inner ul {
+            margin-top: var(--espace-xl);
+            flex: 1;
+        }
+
+        .menu-mobile-inner ul li {
+            margin-bottom: var(--espace-sm);
+        }
+
+        .menu-mobile-inner ul a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: var(--espace-sm) 0;
+            border-bottom: 1px solid var(--couleur-bordure);
+            color: var(--couleur-texte-principal);
+            transition: color 0.3s ease, padding 0.3s ease;
+        }
+
+        .menu-mobile-inner ul a:hover {
+            color: var(--couleur-accent-principal);
+            padding-right: var(--espace-sm);
+        }
+
+        .menu-mobile-inner .menu-mobile-footer {
+            margin-top: auto;
+            padding-top: var(--espace-lg);
+            border-top: 1px solid var(--couleur-bordure);
+            text-align: center;
+            color: var(--couleur-texte-secondaire);
+            font-size: 14px;
+        }
+
+        /* ========================================================================
+                   7. HERO SLIDER
+                   ======================================================================== */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 500px;
+            max-height: 800px;
+            overflow: hidden;
+            margin-top: 72px;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(43, 38, 34, 0.6) 0%, rgba(43, 38, 34, 0.2) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--couleur-texte-fonce);
+            max-width: 650px;
+            padding: var(--espace-lg) 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .hero-content h1,
+        .hero-content h2 {
+            font-family: var(--police-affichage);
+            font-size: 56px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: var(--espace-md);
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--espace-sm);
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons .btn-secondaire {
+            border-color: var(--couleur-texte-fonce);
+            color: var(--couleur-texte-fonce);
+        }
+
+        .hero-buttons .btn-secondaire:hover {
+            background-color: var(--couleur-texte-fonce);
+            color: var(--couleur-texte-principal);
+        }
+
+        /* Contrôles slider */
+        .hero-controls {
+            position: absolute;
+            bottom: var(--espace-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: var(--espace-md);
+        }
+
+        .hero-prev,
+        .hero-next {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--couleur-texte-fonce);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-prev:hover,
+        .hero-next:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .hero-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .hero-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .hero-dots .dot.active {
+            background: var(--couleur-texte-fonce);
+            transform: scale(1.2);
+        }
+
+        .hero-dots .dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ========================================================================
+                   8. PROMO BANNERS
+                   ======================================================================== */
+        .promo-banners {
+            padding: var(--espace-lg) 0;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espace-md);
+        }
+
+        .promo-card {
+            padding: var(--espace-lg);
+            border-radius: var(--rayon-lg);
+            color: var(--couleur-blanc);
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ombre-moyenne);
+        }
+
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .promo-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-card-1 {
+            background: linear-gradient(135deg, #5C4A3A, #8A9A7E);
+        }
+
+        .promo-card-2 {
+            background: linear-gradient(135deg, #B8532F, #8A9A7E);
+        }
+
+        .promo-card-3 {
+            background: linear-gradient(135deg, #2B2622, #5C4A3A);
+        }
+
+        .promo-tag {
+            display: inline-block;
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            align-self: flex-start;
+            margin-bottom: var(--espace-sm);
+            letter-spacing: 0.5px;
+        }
+
+        .promo-card h3 {
+            font-size: 20px;
+            font-family: var(--police-affichage);
+            margin-bottom: 4px;
+        }
+
+        .promo-card p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: var(--espace-sm);
+        }
+
+        /* ========================================================================
+                   9. CATEGORIES
+                   ======================================================================== */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espace-md);
+        }
+
+        .category-card {
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            background: var(--couleur-blanc);
+            box-shadow: var(--ombre-legere);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--ombre-moyenne);
+        }
+
+        .category-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--couleur-fond);
+        }
+
+        .category-image .cat-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--couleur-accent-principal), var(--couleur-accent-secondaire));
+            color: var(--couleur-blanc);
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover .cat-placeholder {
+            transform: scale(1.05);
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--espace-md);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: var(--couleur-blanc);
+        }
+
+        .category-name {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: var(--police-affichage);
+        }
+
+        .category-count {
+            font-size: 13px;
+            opacity: 0.8;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* ========================================================================
+                   10. PRODUITS EN VEDETTE
+                   ======================================================================== */
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espace-md);
+        }
+
+        .product-card {
+            background-color: var(--couleur-blanc);
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--couleur-bordure);
+            box-shadow: var(--ombre-legere);
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--ombre-moyenne);
+            border-color: transparent;
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background-color: var(--couleur-fond);
+        }
+
+        .product-image .prod-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #f0ebe4, #e4ddd2);
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .prod-placeholder {
+            transform: scale(1.05);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--espace-sm);
+            right: var(--espace-sm);
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-badge-new {
+            background-color: var(--couleur-accent-secondaire);
+        }
+
+        .product-badge-sale {
+            background-color: var(--couleur-action);
+        }
+
+        .product-badge-stock {
+            background-color: var(--couleur-texte-secondaire);
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: var(--espace-sm);
+            left: var(--espace-sm);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-secondaire);
+            backdrop-filter: blur(4px);
+        }
+
+        .product-wishlist:hover {
+            background: var(--couleur-blanc);
+            transform: scale(1.1);
+            color: var(--couleur-action);
+            box-shadow: var(--ombre-legere);
+        }
+
+        .product-wishlist.active {
+            color: var(--couleur-action);
+        }
+
+        .product-info {
+            padding: var(--espace-md);
+        }
+
+        .product-categorie {
+            font-size: 12px;
+            color: var(--couleur-texte-secondaire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 4px 0 8px;
+            line-height: 1.3;
+            color: var(--couleur-texte-principal);
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #f5a623;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .rating-count {
+            font-size: 13px;
+            color: var(--couleur-texte-secondaire);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: var(--espace-sm);
+            margin: var(--espace-sm) 0;
+        }
+
+        .prix-actuel {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--couleur-accent-principal);
+        }
+
+        .prix-ancien {
+            font-size: 15px;
+            color: var(--couleur-texte-secondaire);
+            text-decoration: line-through;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 4px;
+        }
+
+        /* ========================================================================
+                   11. SAVOIR-FAIRE (Storytelling)
+                   ======================================================================== */
+        .savoir-faire {
+            background-color: var(--couleur-blanc);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .savoir-faire::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(138, 154, 126, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .savoir-faire-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .savoir-faire-badge {
+            display: inline-block;
+            background-color: var(--couleur-accent-secondaire);
+            color: var(--couleur-blanc);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .savoir-faire-texte h2 {
+            font-family: var(--police-affichage);
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.2;
+        }
+
+        .savoir-faire-texte p {
+            color: var(--couleur-texte-secondaire);
+            margin-bottom: var(--espace-sm);
+            line-height: 1.8;
+        }
+
+        .savoir-faire-texte .btn {
+            margin-top: var(--espace-sm);
+        }
+
+        .savoir-faire-image {
+            border-radius: var(--rayon-lg);
+            overflow: hidden;
+            position: relative;
+            min-height: 400px;
+            background: linear-gradient(135deg, var(--couleur-accent-principal), var(--couleur-accent-secondaire));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .savoir-faire-image .sf-placeholder {
+            font-size: 6rem;
+            color: var(--couleur-blanc);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .savoir-faire-image .sf-content {
+            position: relative;
+            z-index: 1;
+            color: var(--couleur-blanc);
+            text-align: center;
+            padding: var(--espace-lg);
+        }
+
+        .savoir-faire-image .sf-content h3 {
+            font-family: var(--police-affichage);
+            font-size: 28px;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .savoir-faire-image .sf-content p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .savoir-faire-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .savoir-faire-carte {
+            position: absolute;
+            bottom: var(--espace-md);
+            right: var(--espace-md);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: var(--rayon-sm);
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--couleur-accent-principal);
+            box-shadow: var(--ombre-legere);
+        }
+
+        /* ========================================================================
+                   12. NEWSLETTER
+                   ======================================================================== */
+        .newsletter-section {
+            background-color: var(--couleur-accent-principal);
+            color: var(--couleur-texte-fonce);
+        }
+
+        .newsletter-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--espace-xl);
+            align-items: center;
+        }
+
+        .newsletter-texte h2 {
+            font-family: var(--police-affichage);
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .newsletter-texte p {
+            opacity: 0.8;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 18px;
+            border: none;
+            border-radius: var(--rayon-sm);
+            font-size: 16px;
+            font-family: var(--police-texte);
+            outline: none;
+            transition: box-shadow 0.3s ease;
+            background: var(--couleur-blanc);
+        }
+
+        .newsletter-form input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form .btn {
+            background-color: var(--couleur-action);
+            color: var(--couleur-blanc);
+            padding: 14px 32px;
+            white-space: nowrap;
+        }
+
+        .newsletter-form .btn:hover {
+            background-color: var(--couleur-action-hover);
+        }
+
+        /* ========================================================================
+                   13. FOOTER
+                   ======================================================================== */
+        footer {
+            background-color: var(--couleur-texte-principal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--espace-xl) 0 0;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--espace-xl);
+            padding-bottom: var(--espace-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            color: var(--couleur-texte-fonce);
+            display: block;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: var(--espace-sm);
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--espace-sm);
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--couleur-texte-fonce);
+        }
+
+        .footer-social a:hover {
+            background: var(--couleur-accent-secondaire);
+            transform: translateY(-2px);
+        }
+
+        .footer-col h4 {
+            color: var(--couleur-texte-fonce);
+            font-family: var(--police-affichage);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--espace-sm);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul a:hover {
+            opacity: 1;
+            color: var(--couleur-texte-fonce);
+            padding-right: 4px;
+        }
+
+        .footer-contact address p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .footer-contact address a {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-contact address a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact .hours {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 4px 12px;
+            border-radius: var(--rayon-sm);
+            font-size: 13px;
+            margin-top: 8px;
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            padding: var(--espace-md) 0;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ========================================================================
+                   14. TOAST NOTIFICATION
+                   ======================================================================== */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--couleur-accent-principal);
+            color: var(--couleur-blanc);
+            padding: 16px 24px;
+            border-radius: var(--rayon-md);
+            box-shadow: var(--ombre-forte);
+            z-index: 9999;
+            font-family: var(--police-texte);
+            animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toast-notification .toast-icon {
+            font-size: 1.5rem;
+        }
+
+        .toast-notification .toast-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+            transition: color 0.3s ease;
+        }
+
+        .toast-notification .toast-close:hover {
+            color: var(--couleur-blanc);
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .toast-notification.out {
+            animation: toastOut 0.3s ease forwards;
+        }
+
+        @keyframes toastOut {
+            to {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+        }
+
+        /* ========================================================================
+                   15. RESPONSIVE
+                   ======================================================================== */
+        @media (max-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .produits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--espace-lg);
+            }
+
+            .hero-content h1,
+            .hero-content h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-principale {
+                display: none;
+            }
+
+            .btn-menu-mobile {
+                display: flex;
+            }
+
+            .hero-content h1,
+            .hero-content h2 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .produits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .savoir-faire-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: var(--espace-lg);
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .savoir-faire-texte h2 {
+                font-size: 28px;
+            }
+
+            .hero {
+                min-height: 400px;
+                height: 70vh;
+            }
+
+            .hero-controls {
+                bottom: var(--espace-sm);
+            }
+
+            .hero-prev,
+            .hero-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .header-actions .btn-compte {
+                display: none;
+            }
+
+            .barre-recherche form {
+                flex-direction: column;
+            }
+
+            .barre-recherche.active {
+                max-height: 140px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .toast-notification {
+                right: 16px;
+                left: 16px;
+                bottom: 16px;
+                max-width: none;
+                padding: 14px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .produits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1,
+            .hero-content h2 {
+                font-size: 26px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .savoir-faire-texte h2 {
+                font-size: 24px;
+            }
+
+            .promo-card {
+                min-height: 140px;
+                padding: var(--espace-md);
+            }
+
+            .product-title {
+                font-size: 16px;
+            }
+
+            .prix-actuel {
+                font-size: 18px;
+            }
+
+            .hero {
+                min-height: 350px;
+                height: 60vh;
+            }
+
+            .header-inner {
+                height: 60px;
+            }
+
+            .hero {
+                margin-top: 60px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .btn-lg {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+
+            .menu-mobile-inner ul a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========================================================================
+                   16. ANIMATIONS (avec respect prefers-reduced-motion)
+                   ======================================================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .product-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .product-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .product-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        .product-card:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+        .product-card:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+        .product-card:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+        .product-card:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .category-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .category-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .category-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        .category-card:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+        .category-card:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+        .category-card:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+        .category-card:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                animation-delay: 0s !important;
+            }
+
+            .product-card,
+            .category-card {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
+
+        /* ========================================================================
+                   17. SCROLLBAR STYLING
+                   ======================================================================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--couleur-fond);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--couleur-accent-principal);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a3b2e;
+        }
+
+        /* ========================================================================
+                   18. ACCESSIBILITÉ — FOCUS VISIBLE
+                   ======================================================================== */
+        :focus-visible {
+            outline: 2px solid var(--couleur-accent-principal);
+            outline-offset: 2px;
+        }
+
+        /* ========================================================================
+                   19. SELECTION TEXT
+                   ======================================================================== */
+        ::selection {
+            background: var(--couleur-accent-secondaire);
+            color: var(--couleur-blanc);
+        }
+
+        /* ========================================================================
+                   20. LOADING PLACEHOLDER
+                   ======================================================================== */
+        .loading-placeholder {
+            text-align: center;
+            padding: var(--espace-xl);
+            color: var(--couleur-texte-secondaire);
+            font-size: 1.1rem;
+        }
+
+        .loading-placeholder::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0% {
+                content: '';
+            }
+            25% {
+                content: '.';
+            }
+            50% {
+                content: '..';
+            }
+            75% {
+                content: '...';
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================================================
+    HEADER
+    ======================================================================== -->
+    <header id="main-header" role="banner">
+        <div class="container header-inner">
+            <!-- Logo -->
+            <a href="/" class="logo" aria-label="دار أثاث — الرئيسية">
+                <span class="logo-icon">🪑</span>
+                <span>دار أثاث</span>
+            </a>
+
+            <!-- Navigation principale -->
+            <nav class="nav-principale" role="navigation" aria-label="القائمة الرئيسية">
+                <ul>
+                    <li><a href="#hero-slider" class="active">الرئيسية</a></li>
+                    <li><a href="#categories">الأقسام</a></li>
+                    <li><a href="#featured">المجموعات</a></li>
+                    <li><a href="#savoir-faire">حرفتنا</a></li>
+                    <li><a href="#newsletter">النشرة</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <button class="btn-icon btn-recherche" id="btn-recherche" aria-label="بحث" title="بحث">
+                    🔍
+                </button>
+                <a href="#" class="btn-icon btn-compte" aria-label="حسابي" title="حسابي">
+                    👤
+                </a>
+                <a href="#" class="btn-icon btn-panier" aria-label="عربة التسوق" title="عربة التسوق" id="panier-link">
+                    🛒
+                    <span class="badge-panier" id="panier-compteur">0</span>
+                </a>
+                <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="فتح القائمة" title="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div id="barre-recherche" class="barre-recherche" role="search">
+            <div class="container">
+                <form id="search-form" action="#" method="GET">
+                    <input type="search" id="search-input" placeholder="ابحث عن أثاث أحلامك..." aria-label="بحث عن منتج" />
+                    <button type="submit">بحث</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================
+    MENU MOBILE OVERLAY
+    ======================================================================== -->
+    <div id="menu-mobile-overlay" class="menu-mobile-overlay" aria-hidden="true">
+        <div class="menu-mobile-inner">
+            <button class="btn-fermer-menu" id="btn-fermer-menu" aria-label="إغلاق القائمة">&times;</button>
+            <nav role="navigation" aria-label="القائمة الجوالة">
+                <ul>
+                    <li><a href="#hero-slider">الرئيسية</a></li>
+                    <li><a href="#categories">الأقسام</a></li>
+                    <li><a href="#featured">المجموعات</a></li>
+                    <li><a href="#savoir-faire">حرفتنا</a></li>
+                    <li><a href="#newsletter">النشرة</a></li>
+                    <li><a href="#">تسجيل الدخول</a></li>
+                    <li><a href="#">إنشاء حساب</a></li>
+                </ul>
+            </nav>
+            <div class="menu-mobile-footer">
+                <p>دار أثاث — البيت الفاخر للأثاث</p>
+                <p style="font-size:12px;opacity:0.5;margin-top:4px;">© 2026 Tous droits réservés</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+    MAIN
+    ======================================================================== -->
+    <main role="main">
+
+        <!-- ========================================================================
+        SECTION HERO
+        ======================================================================== -->
+        <section class="hero" id="hero-slider" aria-label="مجموعة أثاث فاخرة">
+
+            <!-- Slide 1 -->
+            <div class="hero-slide active" style="background: linear-gradient(135deg, #5C4A3A, #8A9A7E);">
+                <div class="container hero-content">
+                    <span class="hero-badge">مجموعة الربيع 2026</span>
+                    <h1>فن الأثاث المغربي</h1>
+                    <p>قطع فريدة تحكي قصة حرفية، مواد نبيلة، وراحة خالدة. اكتشفوا جمال الصناعة المغربية بأسلوب عصري.</p>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-principal">اكتشفوا المجموعة</a>
+                        <a href="#savoir-faire" class="btn btn-secondaire">قصتنا</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide" style="background: linear-gradient(135deg, #B8532F, #5C4A3A);">
+                <div class="container hero-content">
+                    <span class="hero-badge">جديد</span>
+                    <h2>أناقة المائدة</h2>
+                    <p>كل وجبة تصبح لحظة استثنائية مع طاولاتنا وكراسينا المصنوعة من الخشب الصلب، بتفاصيل حرفية تروق للذوق الرفيع.</p>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-principal">استكشفوا</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide" style="background: linear-gradient(135deg, #2B2622, #5C4A3A);">
+                <div class="container hero-content">
+                    <span class="hero-badge">حرفية</span>
+                    <h2>نوم استثنائي</h2>
+                    <p>أسرتنا وطاولات السرير تجمع بين التصميم المعاصر والمواد الأصيلة لخلق فضاء من السكينة والرقي.</p>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-principal">اكتشفوا المجموعة</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="hero-slide" style="background: linear-gradient(135deg, #8A9A7E, #5C4A3A);">
+                <div class="container hero-content">
+                    <span class="hero-badge">إنتاجية و أناقة</span>
+                    <h2>مكتب يعكس شخصيتك</h2>
+                    <p>مساحة عمل تلهمك، بتصاميم تجمع بين الوظيفة والجمال، مصنوعة من أجود أنواع الخشب المغربي.</p>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-principal">اكتشفوا</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contrôles -->
+            <div class="hero-controls">
+                <button class="hero-prev" id="hero-prev" aria-label="السابق">‹</button>
+                <div class="hero-dots" id="hero-dots" role="tablist" aria-label="التنقل بين الشرائح">
+                    <button class="dot active" data-index="0" role="tab" aria-label="الشريحة 1" aria-selected="true"></button>
+                    <button class="dot" data-index="1" role="tab" aria-label="الشريحة 2" aria-selected="false"></button>
+                    <button class="dot" data-index="2" role="tab" aria-label="الشريحة 3" aria-selected="false"></button>
+                    <button class="dot" data-index="3" role="tab" aria-label="الشريحة 4" aria-selected="false"></button>
+                </div>
+                <button class="hero-next" id="hero-next" aria-label="التالي">›</button>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+        PROMO BANNERS
+        ======================================================================== -->
+        <section class="promo-banners" aria-label="عروض خاصة">
+            <div class="container promo-grid">
+                <div class="promo-card promo-card-1">
+                    <span class="promo-tag">-20%</span>
+                    <h3>تخفيضات الصيف</h3>
+                    <p>على جميع قطع غرف المعيشة</p>
+                    <a href="#featured" class="btn btn-blanc btn-sm">استفد من العرض</a>
+                </div>
+                <div class="promo-card promo-card-2">
+                    <span class="promo-tag">جديد</span>
+                    <h3>مجموعة رمضان</h3>
+                    <p>أثاث فاخر لإستقبال ضيوفك</p>
+                    <a href="#featured" class="btn btn-blanc btn-sm">اكتشف المجموعة</a>
+                </div>
+                <div class="promo-card promo-card-3">
+                    <span class="promo-tag">توصيل مجاني</span>
+                    <h3>الطلبات +2500 درهم</h3>
+                    <p>في جميع أنحاء المغرب</p>
+                    <a href="#featured" class="btn btn-blanc btn-sm">تسوق الآن</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+        SECTION CATEGORIES
+        ======================================================================== -->
+        <section class="section categories-section" id="categories" aria-labelledby="categories-title">
+            <div class="container">
+                <h2 id="categories-title" class="section-title">أقسامنا</h2>
+                <p class="section-subtitle">اكتشفوا جوهر كل قطعة، مصممة لتدوم وتضفي جمالاً على منزلكم.</p>
+
+                <div class="categories-grid" id="categories-grid">
+                    <!-- Chargé dynamiquement par JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+        SECTION PRODUITS EN VEDETTE
+        ======================================================================== -->
+        <section class="section featured-section" id="featured" aria-labelledby="featured-title">
+            <div class="container">
+                <h2 id="featured-title" class="section-title">قطع استثنائية</h2>
+                <p class="section-subtitle">مجموعة مختارة بعناية لتميزها وجودتها وتفردها.</p>
+
+                <div class="produits-grid" id="featured-products">
+                    <!-- Chargé dynamiquement par JavaScript -->
+                </div>
+
+                <div class="text-center" style="margin-top: var(--espace-lg);">
+                    <a href="#" class="btn btn-secondaire btn-lg">عرض جميع القطع</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+        SECTION SAVOIR-FAIRE
+        ======================================================================== -->
+        <section class="section savoir-faire" id="savoir-faire" aria-labelledby="savoir-faire-title">
+            <div class="container savoir-faire-inner">
+                <div class="savoir-faire-texte">
+                    <span class="savoir-faire-badge">حرفية استثنائية</span>
+                    <h2 id="savoir-faire-title">روح الخشب، يد الحرفي</h2>
+                    <p>
+                        في <strong>دار أثاث</strong>، كل قطعة أثاث هي أكثر من مجرد شيء. إنها ثمرة حرفة
+                        تنتقل من جيل إلى جيل، حيث يلتقي الخشب الصلب، المخمل، الروطان والصوف
+                        لخلق قطع فريدة من نوعها.
+                    </p>
+                    <p>
+                        نتعاون مع حرفيين مغاربة يحافظون على تقنيات عريقة:
+                        الخراطة اليدوية للخشب، نسج القش، النحت اليدوي. كل لمسة نهائية
+                        تعتني بأدق التفاصيل لتقديم أثاث يعبر السنوات.
+                    </p>
+                    <a href="#" class="btn btn-principal">اكتشفوا قصتنا</a>
+                </div>
+                <div class="savoir-faire-image">
+                    <div class="sf-placeholder">🪑</div>
+                    <div class="sf-content">
+                        <h3>صناعة يدوية منذ 1950</h3>
+                        <p>ثلاثة أجيال من الحرفية المغربية في خدمة فن الأثاث</p>
+                    </div>
+                    <div class="savoir-faire-carte">🪵 خشب الأرز — صناعة يدوية</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+        SECTION NEWSLETTER
+        ======================================================================== -->
+        <section class="section newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+            <div class="container newsletter-inner">
+                <div class="newsletter-texte">
+                    <h2 id="newsletter-title">احصلوا على الإلهام</h2>
+                    <p>اشتركوا في نشرتنا البريدية لتكتشفوا مجموعاتنا الجديدة، اختياراتنا المفضلة ونصائح حرفيينا.</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form" novalidate>
+                    <input type="email" id="newsletter-email" placeholder="بريدكم الإلكتروني" required aria-label="البريد الإلكتروني" />
+                    <button type="submit" class="btn">اشتراك</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================
+    FOOTER
+    ======================================================================== -->
+    <footer role="contentinfo">
+        <div class="container footer-inner">
+
+            <!-- Colonne 1: Marque -->
+            <div class="footer-col footer-brand">
+                <span class="logo" style="color: var(--couleur-texte-fonce);">
+                    <span class="logo-icon">🪑</span>
+                    <span>دار أثاث</span>
+                </span>
+                <p>البيت الفاخر للأثاث — حرفية مغربية و تصاميم خالدة.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="إنستغرام">📷</a>
+                    <a href="#" aria-label="فيسبوك">👍</a>
+                    <a href="#" aria-label="بينتريست">📌</a>
+                    <a href="#" aria-label="يوتيوب">▶️</a>
+                </div>
+            </div>
+
+            <!-- Colonne 2: Collections -->
+            <div class="footer-col">
+                <h4>المجموعات</h4>
+                <ul>
+                    <li><a href="#">الصالون</a></li>
+                    <li><a href="#">غرفة النوم</a></li>
+                    <li><a href="#">المطبخ و الطعام</a></li>
+                    <li><a href="#">المكتب</a></li>
+                    <li><a href="#">الديكور</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3: À propos -->
+            <div class="footer-col">
+                <h4>عن دار أثاث</h4>
+                <ul>
+                    <li><a href="#">قصتنا</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">التوصيل و الإرجاع</a></li>
+                    <li><a href="#">الشروط العامة</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4: Contact -->
+            <div class="footer-col footer-contact">
+                <h4>اتصلوا بنا</h4>
+                <address>
+                    <p><strong>دار أثاث</strong></p>
+                    <p>زنقة المدينة، مراكش، المغرب</p>
+                    <p><a href="tel:+212524123456">+212 (0) 524 123 456</a></p>
+                    <p><a href="mailto:contact@dar-athath.com">contact@dar-athath.com</a></p>
+                    <span class="hours">🕐 السبت - الخميس: 9:00 - 19:00</span>
+                </address>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 <strong>دار أثاث</strong> — البيت الفاخر للأثاث. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================================
+    JAVASCRIPT COMPLET — Plus de 400 lignes de code
+    ======================================================================== -->
+    <script>
+        /* ========================================================================
+           JAVASCRIPT — DAR ATHATH
+           Architecture modulaire, panier, slider, recherche, etc.
+           ======================================================================== */
+
+        (function() {
+            'use strict';
+
+            // ================================================================
+            // 1. DONNÉES (Catégories & Produits)
+            // ================================================================
+
+            // ===== CATÉGORIES =====
+            const categoriesData = [{
+                id: 1,
+                nom: 'الصالون',
+                slug: 'salon',
+                count: '24 قطعة',
+                icon: '🛋️'
+            }, {
+                id: 2,
+                nom: 'غرفة النوم',
+                slug: 'chambre',
+                count: '18 قطعة',
+                icon: '🛏️'
+            }, {
+                id: 3,
+                nom: 'المطبخ و الطعام',
+                slug: 'cuisine',
+                count: '15 قطعة',
+                icon: '🍽️'
+            }, {
+                id: 4,
+                nom: 'المكتب',
+                slug: 'bureau',
+                count: '12 قطعة',
+                icon: '📚'
+            }, {
+                id: 5,
+                nom: 'الديكور',
+                slug: 'decoration',
+                count: '20 قطعة',
+                icon: '🖼️'
+            }, {
+                id: 6,
+                nom: 'جديدنا',
+                slug: 'nouveautes',
+                count: 'اكتشفوا',
+                icon: '✨'
+            }];
+
+            // ===== PRODUITS EN VEDETTE =====
+            const produitsData = [{
+                id: 1,
+                nom: 'كنبة 3 مقاعد من المخمل الأخضر',
+                slug: 'canape-velours-vert',
+                categorie: 'الصالون',
+                prix: 4500,
+                prix_promo: 5200,
+                note: 5,
+                avis: 24,
+                badge: 'الأكثر مبيعاً',
+                badgeType: 'popular',
+                icon: '🟢'
+            }, {
+                id: 2,
+                nom: 'طاولة وسط من خشب الجوز الصلب',
+                slug: 'table-basse-noyer',
+                categorie: 'الصالون',
+                prix: 2850,
+                prix_promo: null,
+                note: 4,
+                avis: 18,
+                badge: 'جديد',
+                badgeType: 'new',
+                icon: '🪵'
+            }, {
+                id: 3,
+                nom: 'سرير مزدوج من الخشب الصلب',
+                slug: 'lit-bois-massif',
+                categorie: 'غرفة النوم',
+                prix: 6750,
+                prix_promo: 8200,
+                note: 5,
+                avis: 31,
+                badge: 'تخفيض',
+                badgeType: 'sale',
+                icon: '🛏️'
+            }, {
+                id: 4,
+                nom: 'خزانة 6 أدراج بأسلوب إسكندنافي',
+                slug: 'commode-6-tiroirs',
+                categorie: 'غرفة النوم',
+                prix: 3200,
+                prix_promo: null,
+                note: 4,
+                avis: 12,
+                badge: null,
+                badgeType: null,
+                icon: '🗄️'
+            }, {
+                id: 5,
+                nom: 'طاولة طعام قابلة للتمديد من البلوط',
+                slug: 'table-manger-extensible',
+                categorie: 'المطبخ و الطعام',
+                prix: 5400,
+                prix_promo: null,
+                note: 5,
+                avis: 9,
+                badge: 'جديد',
+                badgeType: 'new',
+                icon: '🍽️'
+            }, {
+                id: 6,
+                nom: 'مكتب عصري بسيط مع أدراج تخزين',
+                slug: 'bureau-minimaliste',
+                categorie: 'المكتب',
+                prix: 2950,
+                prix_promo: null,
+                note: 4,
+                avis: 15,
+                badge: null,
+                badgeType: null,
+                icon: '📚'
+            }];
+
+            // ================================================================
+            // 2. AFFICHAGE DES CATÉGORIES
+            // ================================================================
+
+            function renderCategories() {
+                const grid = document.getElementById('categories-grid');
+                if (!grid) return;
+
+                grid.innerHTML = categoriesData.map(cat => `
+                            <a href="#" class="category-card" data-categorie="${cat.slug}">
+                                <div class="category-image">
+                                    <div class="cat-placeholder">${cat.icon}</div>
+                                    <div class="category-overlay">
+                                        <span class="category-name">${cat.nom}</span>
+                                        <span class="category-count">${cat.count}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        `).join('');
+            }
+
+            // ================================================================
+            // 3. AFFICHAGE DES PRODUITS
+            // ================================================================
+
+            function renderProduits() {
+                const grid = document.getElementById('featured-products');
+                if (!grid) return;
+
+                grid.innerHTML = produitsData.map(p => {
+                    const badgeHtml = p.badge ? `
+                                <span class="product-badge ${p.badgeType === 'new' ? 'product-badge-new' : p.badgeType === 'sale' ? 'product-badge-sale' : ''}">
+                                    ${p.badge}
+                                </span>
+                            ` : '';
+
+                    const prixAncienHtml = p.prix_promo ?
+                        `<span class="prix-ancien">${p.prix_promo.toLocaleString()} درهم</span>` :
+                        '';
+
+                    const etoiles = '★'.repeat(p.note) + '☆'.repeat(5 - p.note);
+
+                    return `
+                                <div class="product-card" data-id="${p.id}">
+                                    <div class="product-image">
+                                        <div class="prod-placeholder">${p.icon}</div>
+                                        ${badgeHtml}
+                                        <button class="product-wishlist" data-id="${p.id}" aria-label="إضافة إلى المفضلة">♥</button>
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-categorie">${p.categorie}</span>
+                                        <h3 class="product-title">${p.nom}</h3>
+                                        <div class="product-rating">
+                                            <span class="stars" aria-label="${p.note} étoiles sur 5">${etoiles}</span>
+                                            <span class="rating-count">(${p.avis} تقييم)</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="prix-actuel">${p.prix.toLocaleString()} درهم</span>
+                                            ${prixAncienHtml}
+                                        </div>
+                                        <button class="btn btn-principal btn-sm btn-ajouter-panier" data-id="${p.id}">
+                                            إضافة إلى العربة
+                                        </button>
+                                    </div>
+                                </div>
+                            `;
+                }).join('');
+
+                // Événements pour les boutons "Ajouter au panier"
+                document.querySelectorAll('.btn-ajouter-panier').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const id = parseInt(this.dataset.id);
+                        ajouterAuPanier(id);
+                    });
+                });
+
+                // Événements pour les cœurs (favoris)
+                document.querySelectorAll('.product-wishlist').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.classList.toggle('active');
+                        const id = this.dataset.id;
+                        const product = produitsData.find(p => p.id == id);
+                        if (this.classList.contains('active')) {
+                            showToast('❤️ تمت إضافة "' + product.nom + '" إلى المفضلة');
+                        } else {
+                            showToast('تمت إزالة "' + product.nom + '" من المفضلة');
+                        }
+                    });
+                });
+            }
+
+            // ================================================================
+            // 4. PANIER (localStorage)
+            // ================================================================
+
+            let panier = [];
+
+            function chargerPanier() {
+                try {
+                    const saved = localStorage.getItem('dar_athath_panier');
+                    panier = saved ? JSON.parse(saved) : [];
+                } catch (e) {
+                    panier = [];
+                }
+                mettreAJourBadge();
+            }
+
+            function sauvegarderPanier() {
+                localStorage.setItem('dar_athath_panier', JSON.stringify(panier));
+                mettreAJourBadge();
+            }
+
+            function ajouterAuPanier(produitId) {
+                const produit = produitsData.find(p => p.id === produitId);
+                if (!produit) return;
+
+                const existing = panier.find(item => item.id === produitId);
+                if (existing) {
+                    existing.quantite += 1;
+                } else {
+                    panier.push({
+                        id: produitId,
+                        nom: produit.nom,
+                        prix: produit.prix,
+                        quantite: 1,
+                        icon: produit.icon
+                    });
+                }
+
+                sauvegarderPanier();
+                showToast('✅ تمت إضافة "' + produit.nom + '" إلى العربة');
+            }
+
+            function mettreAJourBadge() {
+                const badge = document.getElementById('panier-compteur');
+                if (badge) {
+                    const total = panier.reduce((sum, item) => sum + item.quantite, 0);
+                    badge.textContent = total;
+                    badge.style.display = total > 0 ? 'flex' : 'none';
+                }
+            }
+
+            // ================================================================
+            // 5. TOAST NOTIFICATION
+            // ================================================================
+
+            function showToast(message) {
+                // Supprimer les toasts existants
+                const existing = document.querySelectorAll('.toast-notification');
+                existing.forEach(t => t.remove());
+
+                const toast = document.createElement('div');
+                toast.className = 'toast-notification';
+                toast.setAttribute('role', 'alert');
+                toast.innerHTML = `
+                            <span class="toast-icon">📢</span>
+                            <span>${message}</span>
+                            <button class="toast-close" aria-label="Fermer">✕</button>
+                        `;
+                document.body.appendChild(toast);
+
+                // Fermeture au clic sur le bouton
+                toast.querySelector('.toast-close').addEventListener('click', function() {
+                    toast.classList.add('out');
+                    setTimeout(() => toast.remove(), 300);
+                });
+
+                // Fermeture automatique après 3.5 secondes
+                const timeout = setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.classList.add('out');
+                        setTimeout(() => toast.remove(), 300);
+                    }
+                }, 3500);
+
+                // Arrêter le timeout si la souris entre
+                toast.addEventListener('mouseenter', () => clearTimeout(timeout));
+                toast.addEventListener('mouseleave', () => {
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.classList.add('out');
+                            setTimeout(() => toast.remove(), 300);
+                        }
+                    }, 2000);
+                });
+            }
+
+            // ================================================================
+            // 6. HERO SLIDER
+            // ================================================================
+
+            let slideActuel = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dots .dot');
+            let autoPlayInterval;
+
+            function changerSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+
+                slides.forEach(s => s.classList.remove('active'));
+                dots.forEach(d => {
+                    d.classList.remove('active');
+                    d.setAttribute('aria-selected', 'false');
+                });
+
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                dots[index].setAttribute('aria-selected', 'true');
+                slideActuel = index;
+            }
+
+            function slideSuivant() {
+                changerSlide(slideActuel + 1);
+            }
+
+            function slidePrecedent() {
+                changerSlide(slideActuel - 1);
+            }
+
+            function demarrerAutoPlay() {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(slideSuivant, 5000);
+            }
+
+            function arreterAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            }
+
+            // Événements slider
+            const prevBtn = document.getElementById('hero-prev');
+            const nextBtn = document.getElementById('hero-next');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    arreterAutoPlay();
+                    slidePrecedent();
+                    demarrerAutoPlay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    arreterAutoPlay();
+                    slideSuivant();
+                    demarrerAutoPlay();
+                });
+            }
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', function() {
+                    arreterAutoPlay();
+                    changerSlide(i);
+                    demarrerAutoPlay();
+                });
+            });
+
+            // Pause au survol
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.addEventListener('mouseenter', arreterAutoPlay);
+                hero.addEventListener('mouseleave', demarrerAutoPlay);
+            }
+
+            // Démarrer l'auto-play
+            demarrerAutoPlay();
+
+            // ================================================================
+            // 7. MENU MOBILE
+            // ================================================================
+
+            const btnMenu = document.getElementById('btn-menu-mobile');
+            const menuOverlay = document.getElementById('menu-mobile-overlay');
+            const btnFermer = document.getElementById('btn-fermer-menu');
+
+            function toggleMenu(open) {
+                const isOpen = open !== undefined ? open : !menuOverlay.classList.contains('active');
+                menuOverlay.classList.toggle('active', isOpen);
+                btnMenu.classList.toggle('active', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+                menuOverlay.setAttribute('aria-hidden', !isOpen);
+            }
+
+            if (btnMenu) {
+                btnMenu.addEventListener('click', () => toggleMenu());
+            }
+
+            if (btnFermer) {
+                btnFermer.addEventListener('click', () => toggleMenu(false));
+            }
+
+            // Fermer le menu en cliquant sur un lien
+            menuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+
+            // Fermer avec la touche Échap
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+                    toggleMenu(false);
+                }
+            });
+
+            // ================================================================
+            // 8. BARRE DE RECHERCHE
+            // ================================================================
+
+            const btnRecherche = document.getElementById('btn-recherche');
+            const barreRecherche = document.getElementById('barre-recherche');
+
+            if (btnRecherche) {
+                btnRecherche.addEventListener('click', function() {
+                    barreRecherche.classList.toggle('active');
+                    if (barreRecherche.classList.contains('active')) {
+                        document.getElementById('search-input')?.focus();
+                    }
+                });
+            }
+
+            // Recherche
+            const searchForm = document.getElementById('search-form');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const query = document.getElementById('search-input')?.value.trim();
+                    if (query) {
+                        const results = produitsData.filter(p =>
+                            p.nom.toLowerCase().includes(query.toLowerCase()) ||
+                            p.categorie.toLowerCase().includes(query.toLowerCase())
+                        );
+                        if (results.length > 0) {
+                            showToast('🔍 تم العثور على ' + results.length + ' نتيجة');
+                        } else {
+                            showToast('😕 لا توجد نتائج مطابقة ل "' + query + '"');
+                        }
+                        barreRecherche.classList.remove('active');
+                        document.getElementById('search-input').value = '';
+                    }
+                });
+            }
+
+            // ================================================================
+            // 9. NEWSLETTER
+            // ================================================================
+
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('newsletter-email')?.value.trim();
+                    if (email && email.includes('@') && email.includes('.')) {
+                        showToast('✅ تم الاشتراك في النشرة البريدية بنجاح');
+                        this.reset();
+                    } else {
+                        showToast('⚠️ الرجاء إدخال بريد إلكتروني صحيح');
+                        document.getElementById('newsletter-email')?.focus();
+                    }
+                });
+            }
+
+            // ================================================================
+            // 10. HEADER SCROLL EFFECT
+            // ================================================================
+
+            const header = document.getElementById('main-header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (currentScroll > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                lastScroll = currentScroll;
+            }, { passive: true });
+
+            // ================================================================
+            // 11. NAVIGATION ACTIVE LINK (scroll spy)
+            // ================================================================
+
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-principale a');
+
+            function updateActiveLink() {
+                let currentSection = '';
+                const scrollPos = window.pageYOffset + 120;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink, { passive: true });
+            window.addEventListener('load', updateActiveLink);
+
+            // ================================================================
+            // 12. INITIALISATION
+            // ================================================================
+
+            function init() {
+                renderCategories();
+                renderProduits();
+                chargerPanier();
+
+                console.log('🪑 دار أثاث — الموقع جاهز!');
+                console.log('📦 ' + produitsData.length + ' produits chargés');
+                console.log('📂 ' + categoriesData.length + ' catégories chargées');
+                console.log('🛒 ' + panier.length + ' articles dans le panier');
+            }
+
+            // Démarrer au chargement du DOM
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+            // ================================================================
+            // 13. GESTION DES ERREURS
+            // ================================================================
+
+            window.addEventListener('error', function(e) {
+                console.error('❌ Erreur:', e.message);
+                // Ne pas afficher de toast pour les erreurs silencieuses
+            });
+
+            // ================================================================
+            // 14. EXPOSER LES FONCTIONS PRINCIPALES (pour debug)
+            // ================================================================
+
+            window.DarAthath = {
+                produits: produitsData,
+                categories: categoriesData,
+                panier: panier,
+                ajouterAuPanier: ajouterAuPanier,
+                showToast: showToast
+            };
+
+        })();
+    </script>
+
+</body>
+</html>
